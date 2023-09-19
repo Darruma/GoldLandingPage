@@ -6,4 +6,15 @@
 html, body {
   background-color: #323232;
   color: white;
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.press-start-2p {
+  font-family: 'Press Start 2P', cursive;
 }
