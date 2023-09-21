@@ -2,9 +2,9 @@ import { PropsWithChildren } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
-function NavLink( {to, children}: PropsWithChildren<{to: string}> ) {
+function NavLink({ to, children }: PropsWithChildren<{ to: string }>) {
   return (
-    <Link to={to} className="font-bold text-2xl">
+    <Link to={to} className="font-bold text-2xl roboto">
       {children}
     </Link>
   );
@@ -22,7 +22,6 @@ function Nav() {
         <NavLink to="/swap">Buy</NavLink>
         <NavLink to="/stake">Swap</NavLink>
         <NavLink to="/learn">Learn</NavLink>
-        
       </div>
     </div>
   );
