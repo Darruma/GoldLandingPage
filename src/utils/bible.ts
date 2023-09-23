@@ -1,4 +1,4 @@
-export default [
+export const bible = [
   "tons of noobs here need to realize this isn’t a fucking binance or even nu gen eth shitcoin that is just lying to you selling you some reskined github shit",
   "its a defi related coin",
   "it has the richest dev in ALL OF MEMECOINS AT THIS VERY MOMENT IN TIME",
@@ -18,3 +18,12 @@ export default [
   "humpy is legendary in the defi world. you think he’s going to ruin this for a fucking 1.5m cap coin? are you dumb? you realize doing this could hurt his future governance moves? you know he has enough money to moon shitcoins anonymously if that was his goal?",
   "humpy has told you about 20 times so far to be patient and to trust the process. he said he’s gonna give back. let him do his thing and stop being little cringelords. you’re literally a meme. go do this in other telegrams. go launch your own coin. just realize you’re the biggest pain in the ass. imagine if humpy is laughing knowing he’ll make all you bums rich, is having a great day, knows things are moving per his timeline, then he shows up here and he sees you guys whining about shit that is literally at the bottom of his priority list. you’re a noob. act like it and let the masters do what they do.",
 ];
+
+export function getRandomBibleQuote() {
+  const randomNumber = Math.floor(Math.random() * bible.length);
+  const randomBibleEntry = bible[randomNumber];
+  return {
+    number: randomNumber,
+    quote: randomBibleEntry,
+  };
+}
