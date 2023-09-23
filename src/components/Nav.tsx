@@ -18,10 +18,10 @@ function Nav() {
       <div className="bg-black p-1 hidden md:flex"></div>
       <div className="p-2 hidden md:flex flex-row gap-4 ml-16">
         <img src={logo} alt="logo" className="h-50 z-10 mt-[-4rem]" />
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/swap">Buy</NavLink>
-        <NavLink to="/stake">Swap</NavLink>
-        <NavLink to="/learn">Learn</NavLink>
+        <NavLink to="why">Why</NavLink>
+        <NavLink to="swap">Buy</NavLink>
+        <NavLink to="stake">Swap</NavLink>
+        <NavLink to="learn">Learn</NavLink>
       </div>
     </div>
   );
