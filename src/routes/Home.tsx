@@ -77,7 +77,7 @@ function Home() {
         <div>
           <img src={egg} />
         </div>
-        <div className="text-3xl text-center font-bold w-[400px]">
+        <div className="text-3xl text-center font-bold md:w-[800px]">
           "{quote}"
         </div>
         <div className="underline">- Golden Boys Bible Verse #{number}</div>
