@@ -34,3 +34,7 @@ html, body {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
 }
+
+.svgWhite {
+  fill: white;
+}

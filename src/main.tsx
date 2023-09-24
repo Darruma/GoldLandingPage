@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import HomePage from "./routes/Home.tsx";
 import "./index.css";
 import { Why } from "./routes/Why.tsx";
+import { Learn } from "./routes/Learn.tsx";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,10 @@ const router = createHashRouter([
   {
     path: "/why",
     element: <Why />,
+  },
+  {
+    path: "/learn",
+    element: <Learn />,
   },
   {
     path: "*",

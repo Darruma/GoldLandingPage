@@ -4,6 +4,7 @@ import humpybg from "../assets/humpybackground.svg";
 import goldonbase from "../assets/goldonbase.svg";
 import egg from "../assets/egg.png";
 import { getRandomBibleQuote } from "../utils/bible";
+import Socials from "../components/SocialsBar";
 
 function Home() {
   const { number, quote } = getRandomBibleQuote();
@@ -82,7 +83,10 @@ function Home() {
         </div>
         <div className="underline">- Golden Boys Bible Verse #{number}</div>
       </div>
+
+      <Socials />
     </div>
   );
 }
+
 export default Home;
