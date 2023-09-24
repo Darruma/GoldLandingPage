@@ -1,5 +1,5 @@
 import Nav from "../components/Nav";
-import goldonbase from "../assets/goldonbase.svg";
+import logo from "../assets/logo.png";
 import bar from "../assets/bar.png";
 import piechart from "../assets/tokenomics.png";
 import { getRandomBibleQuote } from "../utils/bible";
@@ -12,9 +12,9 @@ export function Why() {
       <div className="flex flex-col h-full overflow-hidden">
         <Nav />
         <img
-          src={goldonbase}
-          alt="goldonbase"
-          className="h-50 z-10 mt-[-4rem] md:hidden "
+          src={logo}
+          alt="logo"
+          className="z-10 mt-[-4rem] md:hidden mx-auto w-[100px] "
         />
         <div className="mx-16 basis-full">
           <div className="flex flex-row items-center md:h-full">

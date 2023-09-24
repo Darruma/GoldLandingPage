@@ -1,5 +1,5 @@
 import Nav from "../components/Nav";
-import goldonbase from "../assets/goldonbase.svg";
+import logo from "../assets/logo.png";
 import debank from "../assets/Debank.png";
 import lore from "../assets/Lore.png";
 import news from "../assets/News.png";
@@ -11,9 +11,9 @@ export function Learn() {
       <div className="flex flex-col h-full overflow-hidden">
         <Nav />
         <img
-          src={goldonbase}
-          alt="goldonbase"
-          className="h-50 z-10 mt-[-4rem] md:hidden "
+          src={logo}
+          alt="logo"
+          className=" z-10 mt-[-4rem] md:hidden mx-auto w-[100px] "
         />
         <div className="mx-16 basis-full">
           <h1 className="press-start-2p text-secondary text-4xl text-center pt-8">
@@ -80,7 +80,7 @@ export function Learn() {
           allowFullScreen
         ></iframe>
 
-        <div className="pt-12 pb-12">
+        <div className="pt-12 pb-">
           <Socials />
         </div>
 

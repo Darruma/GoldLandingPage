@@ -1,7 +1,8 @@
 import Nav from "../components/Nav";
 import humpy from "../assets/humpy.gif";
 import humpybg from "../assets/humpybackground.svg";
-import goldonbase from "../assets/goldonbase.svg";
+import logo from "../assets/logo.png";
+
 import egg from "../assets/egg.png";
 import { getRandomBibleQuote } from "../utils/bible";
 import Socials from "../components/SocialsBar";
@@ -20,9 +21,9 @@ function Home() {
       >
         <Nav />
         <img
-          src={goldonbase}
-          alt="goldonbase"
-          className="h-50 z-10 mt-[-4rem] md:hidden "
+          src={logo}
+          alt="logo"
+          className="z-10 mt-[-4rem] md:hidden mx-auto w-[100px] "
         />
         <div className="mx-16 basis-full">
           <div className="flex flex-row items-center md:h-full">
