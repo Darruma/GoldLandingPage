@@ -29,7 +29,7 @@ function Menu({ close }: { close: () => void }) {
       </div>
       <ul className="text-white">
         <li className="mb-4">
-          <NavLink to="why">Why</NavLink>
+          <NavLink to="/why">Why</NavLink>
         </li>
         <li className="mb-4">
           <NavLink to="https://app.balancer.fi/#/base/swap/0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4">
@@ -42,7 +42,7 @@ function Menu({ close }: { close: () => void }) {
           </NavLink>
         </li>
         <li className="mb-4">
-          <NavLink to="learn">Learn</NavLink>
+          <NavLink to="/learn">Learn</NavLink>
         </li>
       </ul>
     </div>
