@@ -32,12 +32,18 @@ function Menu({ close }: { close: () => void }) {
           <NavLink to="/why">Why</NavLink>
         </li>
         <li className="mb-4">
-          <NavLink to="https://app.balancer.fi/#/base/swap/0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4">
+          <NavLink
+            external={true}
+            to="https://app.balancer.fi/#/base/swap/0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4"
+          >
             Buy
           </NavLink>
         </li>
         <li className="mb-4">
-          <NavLink to="https://app.balancer.fi/#/base/pool/0x433f09ca08623e48bac7128b7105de678e37d988000100000000000000000047">
+          <NavLink
+            external={true}
+            to="https://app.balancer.fi/#/base/pool/0x433f09ca08623e48bac7128b7105de678e37d988000100000000000000000047"
+          >
             Swap
           </NavLink>
         </li>
