@@ -1,21 +1,15 @@
-import Nav from "../components/Nav";
-import logo from "../assets/logo.png";
 import bar from "../assets/bar.png";
 import piechart from "../assets/tokenomics.png";
 import { getRandomBibleQuote } from "../utils/bible";
 import Socials from "../components/SocialsBar";
+import NavWithLogo from "../components/NavWithLogo";
 
 export function Why() {
   const { quote, number } = getRandomBibleQuote();
   return (
     <div className="h-full">
       <div className="flex flex-col h-full overflow-hidden">
-        <Nav />
-        <img
-          src={logo}
-          alt="logo"
-          className="z-10 mt-[-4rem] md:hidden mx-auto w-[100px] "
-        />
+        <NavWithLogo />
         <div className="mx-16 basis-full">
           <div className="flex flex-row items-center md:h-full">
             <div className="basis-full h-full w-full hidden md:flex justify-center ">

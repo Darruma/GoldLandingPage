@@ -1,25 +1,19 @@
-import Nav from "../components/Nav";
-import logo from "../assets/logo.png";
 import debank from "../assets/Debank.png";
 import lore from "../assets/Lore.png";
 import news from "../assets/News.png";
 import mirror from "../assets/mirror.png";
 import Socials from "../components/SocialsBar";
+import NavWithLogo from "../components/NavWithLogo";
 export function Learn() {
   return (
-    <div className="h-full">
+    <div className="">
       <div className="flex flex-col h-full overflow-hidden">
-        <Nav />
-        <img
-          src={logo}
-          alt="logo"
-          className=" z-10 mt-[-4rem] md:hidden mx-auto w-[100px] "
-        />
+        <NavWithLogo />
         <div className="mx-16 basis-full">
           <h1 className="press-start-2p text-secondary text-4xl text-center pt-8">
             MEET HUMPY
           </h1>
-          <div className="flex flex-col md:flex-row justify-center items-center pt-32">
+          <div className="flex flex-col md:flex-row justify-center items-center pt-32 pb-32">
             <div className="flex flex-col gap-8">
               <img src={debank} alt="debank" width={250} />
               <div className="flex flex-row justify-center items-center gap-4">
@@ -63,7 +57,7 @@ export function Learn() {
         </div>
       </div>
       <div className="bg-black md:h-40 flex flex-col gap-8 pt-8 pb-8  justify-around items-center">
-        <div className="text-4xl italic ">
+        <div className="text-4xl italic text-center ">
           {" "}
           “main tumhaara dil jeet loonga”{" "}
         </div>
@@ -78,6 +72,7 @@ export function Learn() {
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
+          className="rounded-xl w-full"
         ></iframe>
 
         <div className="pt-12 pb-">

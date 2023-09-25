@@ -39,7 +39,7 @@ function Menu({ close }: { close: () => void }) {
         <li className="mb-4">
           <NavLink to="https://app.balancer.fi/#/base/pool/0x433f09ca08623e48bac7128b7105de678e37d988000100000000000000000047">
             Swap
-          </NavLink>{" "}
+          </NavLink>
         </li>
         <li className="mb-4">
           <NavLink to="learn">Learn</NavLink>

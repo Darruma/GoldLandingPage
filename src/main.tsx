@@ -11,6 +11,7 @@ const queryClient = new QueryClient();
 
 const router = createHashRouter([
   {
+    index: true,
     path: "/",
     element: <HomePage />,
   },

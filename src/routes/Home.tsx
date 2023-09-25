@@ -1,11 +1,11 @@
 import Nav from "../components/Nav";
 import humpy from "../assets/humpy.gif";
 import humpybg from "../assets/humpybackground.svg";
-import logo from "../assets/logo.png";
 
 import egg from "../assets/egg.png";
 import { getRandomBibleQuote } from "../utils/bible";
 import Socials from "../components/SocialsBar";
+import NavWithLogo from "../components/NavWithLogo";
 
 function Home() {
   const { number, quote } = getRandomBibleQuote();
@@ -19,14 +19,9 @@ function Home() {
         }}
         className="flex flex-col h-full overflow-hidden"
       >
-        <Nav />
-        <img
-          src={logo}
-          alt="logo"
-          className="z-10 mt-[-4rem] md:hidden mx-auto w-[100px] "
-        />
+        <NavWithLogo />
         <div className="mx-16 basis-full">
-          <div className="flex flex-row items-center md:h-full">
+          <div className="md:flex md:flex-row items-center md:h-full">
             <div className="flex flex-col gap-4 justify-center items-center md:pt-0 pt-32 basis-full">
               <h1 className="press-start-2p text-secondary text-4xl text-center">
                 GOLDEN BOYS
