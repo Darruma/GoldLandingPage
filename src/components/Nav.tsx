@@ -1,8 +1,9 @@
 import { PropsWithChildren } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
+import HamburgerMenu from "./Hamburger";
 
-function NavLink({ to, children }: PropsWithChildren<{ to: string }>) {
+export function NavLink({ to, children }: PropsWithChildren<{ to: string }>) {
   return (
     <Link to={to} className="font-bold text-2xl roboto">
       {children}
@@ -26,6 +27,9 @@ function Nav() {
           Swap
         </NavLink>
         <NavLink to="learn">Learn</NavLink>
+      </div>
+      <div className="md:hidden flex justify-end mt-[-4rem]">
+        <HamburgerMenu />
       </div>
     </div>
   );
