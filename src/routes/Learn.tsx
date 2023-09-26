@@ -67,7 +67,7 @@ export function Learn() {
         <iframe
           width="560"
           height="315"
-          src="https://www.youtube.com/watch?v=D_hWuyWjzb0"
+          src="https://www.youtube.com/embed/D_hWuyWjzb0?si=4i2mJ9-brHWCK_U0"
           title="GOLD"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
