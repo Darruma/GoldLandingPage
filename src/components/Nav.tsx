@@ -27,7 +27,10 @@ function Nav() {
       <div className="p-2"></div>
       <div className="bg-black p-1 hidden md:flex"></div>
       <div className="p-2 hidden md:flex flex-row gap-4 ml-16">
-        <img src={logo} alt="logo" className="h-50 z-10 mt-[-4rem]" />
+        <NavLink to="/">
+          <img src={logo} alt="logo" className="h-50 z-10 mt-[-4rem]" />
+        </NavLink>
+
         <NavLink to="/why">Why</NavLink>
         <NavLink
           external={true}
