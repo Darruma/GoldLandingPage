@@ -26,7 +26,9 @@ export function Why() {
               </div>
               <div className="flex flex-row justify-center items-center gap-4">
                 <a
-                  href="/buy"
+                  href="https://app.balancer.fi/#/base/swap/0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-secondary py-2 w-48 text-center rounded-lg text-black font-bold text-2xl roboto-bold"
                 >
                   Buy
@@ -53,7 +55,9 @@ export function Why() {
           </div>
           <div className="flex flex-row justify-center items-center gap-4">
             <a
-              href="/buy"
+              href="https://mirror.xyz/0xEb23BAacd279fD08248101804A6c8222C26768AF/6wF4FpU5XcFMh7GYvo8BwUPK0aYESatAQNRR161W1ZA"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-secondary py-2 w-48 text-center rounded-lg text-black font-bold text-2xl roboto-bold"
             >
               Read

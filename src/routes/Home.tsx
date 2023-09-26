@@ -1,4 +1,3 @@
-import Nav from "../components/Nav";
 import humpy from "../assets/humpy.gif";
 import humpybg from "../assets/humpybackground.svg";
 
@@ -31,13 +30,17 @@ function Home() {
               </div>
               <div className="flex flex-row justify-center items-center gap-4">
                 <a
-                  href="/buy"
+                  href="https://app.balancer.fi/#/base/swap/0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-secondary py-2 w-48 text-center rounded-lg text-black font-bold text-2xl roboto-bold"
                 >
                   Buy
                 </a>
                 <a
-                  href="chart"
+                  href="https://dexscreener.com/base/0x6d03360ce4764e862ed81660c1f76cc2711b14b6"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-secondary py-2 w-48 text-center rounded-lg text-black font-bold text-2xl roboto-bold"
                 >
                   Chart
