@@ -91,7 +91,9 @@ export function Learn() {
           rel="noopener noreferrer"
           href="https://mirror.xyz/0xEb23BAacd279fD08248101804A6c8222C26768AF"
         >
-          <div className="text-4xl underline text-center">Read Gold Blog</div>
+          <div className="text-4xl border-b-2 text-center ">
+            Read Gold Blog{" "}
+          </div>
         </a>
       </div>
     </div>

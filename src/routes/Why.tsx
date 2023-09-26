@@ -7,8 +7,8 @@ import NavWithLogo from "../components/NavWithLogo";
 export function Why() {
   const { quote, number } = getRandomBibleQuote();
   return (
-    <div className="h-full">
-      <div className="flex flex-col h-full overflow-hidden">
+    <div className="">
+      <div className="flex flex-col h-full overflow-hidden pb-8 md:pb-0">
         <NavWithLogo />
         <div className="mx-16 basis-full">
           <div className="flex flex-row items-center md:h-full">
