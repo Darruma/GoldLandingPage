@@ -22,7 +22,7 @@ function Socials() {
   const socialWidth = 50;
   return (
     <div className="flex mx-auto flex-row gap-8 bg-black justify-center items-center w-fit p-2 px-4 svgWhite ">
-      <ExternalLink href="https://basescan.org/address/0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4">
+      <ExternalLink href="https://basescan.org/token/0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4">
         <img width={socialWidth} src={etherscan} />
       </ExternalLink>
       <ExternalLink href="https://www.coingecko.com/en/coins/goldenboys">
