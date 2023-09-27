@@ -5,9 +5,13 @@ import egg from "../assets/egg.png";
 import { getRandomBibleQuote } from "../utils/bible";
 import Socials from "../components/SocialsBar";
 import NavWithLogo from "../components/NavWithLogo";
+import { usePrice } from "../utils/data";
 
 function Home() {
   const { number, quote } = getRandomBibleQuote();
+  const { data: goldPrice } = usePrice();
+  const circulatingMarketCap = 280000 * Number(Number(goldPrice).toFixed(2));
+
   return (
     <div className="h-full">
       <div
@@ -56,21 +60,25 @@ function Home() {
       <div className="bg-black md:h-40 flex flex-col gap-8 pt-8 pb-8 md:flex-row justify-around items-center text-center ">
         <div>
           <div className="underline font-bold text-2xl roboto">PRICE</div>
-          <div className="font-semi-bold text-lg">$100</div>
+          <div className="font-semi-bold text-lg">
+            ${Number(goldPrice).toFixed(2)}
+          </div>
         </div>
         <div>
           <div className="underline font-bold text-2xl">STAKING APR</div>
-          <div className="font-semi-bold text-lg">134%</div>
+          <div className="font-semi-bold text-lg">113%</div>
         </div>
         <div>
           <div className="underline font-bold text-2xl">HOLDER COUNT</div>
-          <div className="font-semi-bold text-lg">$100</div>
+          <div className="font-semi-bold text-lg">565</div>
         </div>
         <div>
           <div className="underline font-bold text-2xl">
             CIRCULATING MARKET CAP{" "}
           </div>
-          <div className="font-semi-bold text-lg">$3,659,248</div>
+          <div className="font-semi-bold text-lg">
+            ${circulatingMarketCap.toLocaleString()}
+          </div>
         </div>
       </div>
       <div className="bg-primary flex flex-col gap-8 justify-center items-center pt-8 pb-32">

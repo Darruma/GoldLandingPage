@@ -11,11 +11,14 @@ export const usePrice = () => {
           "content-type": "application/json",
         },
         referrerPolicy: "no-referrer",
-        body: '{"query":"{\\n  pool(id: \\"0xe40cbccba664c7b1a953827c062f5070b78de86800020000000000000000001b\\") {\\n    id\\n    tokens {\\n      name\\n      token {\\n        latestUSDPrice\\n      }\\n    }\\n  }\\n}","variables":null,"extensions":{"headers":null}}',
+        body: '{"query":"{\\n  pool(id: \\"0x433f09ca08623e48bac7128b7105de678e37d988000100000000000000000047\\") {\\n    id\\n    tokens {\\n      name\\n      token {\\n        latestUSDPrice\\n      }\\n    }\\n  }\\n}","variables":null,"extensions":{"headers":null}}',
         method: "POST",
       }
     );
     const result = await resp.json();
-    return result;
+    const tokens = result.data.pool.tokens;
+    const goldPrice = tokens.find((t: any) => t.name === "GoldenBoys").token
+      .latestUSDPrice;
+    return goldPrice as string;
   });
 };
