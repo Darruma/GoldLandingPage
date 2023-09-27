@@ -5,11 +5,13 @@ import egg from "../assets/egg.png";
 import { getRandomBibleQuote } from "../utils/bible";
 import Socials from "../components/SocialsBar";
 import NavWithLogo from "../components/NavWithLogo";
-import { usePrice } from "../utils/data";
+import { usePrice, useStakingApr } from "../utils/data";
 
 function Home() {
   const { number, quote } = getRandomBibleQuote();
   const { data: goldPrice } = usePrice();
+  const { data: stakingApr } = useStakingApr();
+
   const circulatingMarketCap = 280000 * Number(Number(goldPrice).toFixed(2));
 
   return (
@@ -66,7 +68,9 @@ function Home() {
         </div>
         <div>
           <div className="underline font-bold text-2xl">STAKING APR</div>
-          <div className="font-semi-bold text-lg">113%</div>
+          <div className="font-semi-bold text-lg">
+            {Number(stakingApr).toFixed(2)}%
+          </div>
         </div>
         <div>
           <div className="underline font-bold text-2xl">HOLDER COUNT</div>
