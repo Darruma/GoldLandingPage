@@ -65,14 +65,14 @@ export function Learn() {
       </div>
       <div className="bg-primary flex flex-col gap-8 justify-center items-center pt-8 pb-32">
         <iframe
-          width="560"
+          width="600"
           height="315"
           src="https://www.youtube.com/embed/D_hWuyWjzb0?si=4i2mJ9-brHWCK_U0"
           title="GOLD"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-          className="rounded-xl w-full"
+          className="rounded-xl w-full md:w-1/2"
         ></iframe>
 
         <div className="pt-12 pb-">
