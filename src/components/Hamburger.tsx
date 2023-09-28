@@ -42,9 +42,17 @@ function Menu({ close }: { close: () => void }) {
         <li className="mb-4">
           <NavLink
             external={true}
+            to="https://app.balancer.fi/#/base/pool/0x17e7d59bb209a3215ccc25fffef7161498b7c10d000200000000000000000020"
+          >
+            Stake
+          </NavLink>
+        </li>
+        <li className="mb-4">
+          <NavLink
+            external={true}
             to="https://app.balancer.fi/#/base/pool/0x433f09ca08623e48bac7128b7105de678e37d988000100000000000000000047"
           >
-            Swap
+            LP
           </NavLink>
         </li>
         <li className="mb-4">
