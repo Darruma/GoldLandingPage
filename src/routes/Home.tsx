@@ -44,7 +44,7 @@ function Home() {
                   Buy
                 </a>
                 <a
-                  href="https://dexscreener.com/base/0x6d03360ce4764e862ed81660c1f76cc2711b14b6"
+                  href="https://www.dextools.io/app/en/base/pair-explorer/0x433f09ca08623e48bac7128b7105de678e37d988-0x833589fcd6edb6e08f4c7c32d4f71b54bda02913-0xbefd5c25a59ef2c1316c5a4944931171f30cd3e4s"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-secondary py-2 w-48 text-center rounded-lg text-black font-bold text-2xl roboto-bold"
