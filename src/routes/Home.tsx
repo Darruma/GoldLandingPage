@@ -31,7 +31,7 @@ function Home() {
                 GOLDEN BOYS
               </h1>
               <div className="font-semi-bold text-2xl text-center roboto-100">
-                The Premium Memecoin, crafted by Humpy the Legendary Whale"
+                The Premium Memecoin, crafted by Humpy the Legendary Whale
               </div>
               <div className="flex flex-row justify-center items-center gap-4">
                 <a
