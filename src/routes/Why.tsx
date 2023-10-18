@@ -20,9 +20,9 @@ export function Why() {
                 WHY GOLD
               </h1>
               <div className="font-semi-bold text-2xl text-center roboto-100">
-                GOLD is the rarest gem on Base. Forged by the legendary Balancer
-                whale Humpy, wrought by a team of DeFi artisans, $GOLD is a
-                scarce, strategic resource with rich economic flywheels.
+                The rarest gem on-chain. Forged by the legendary Balancer whale
+                Humpy, wrought by a team of DeFi artisans, $GOLD is a scarce,
+                strategic resource with rich economic flywheels.
               </div>
               <div className="flex flex-row justify-center items-center gap-4">
                 <a

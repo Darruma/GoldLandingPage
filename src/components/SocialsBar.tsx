@@ -34,10 +34,10 @@ function Socials() {
       <ExternalLink href="https://t.me/goldenboysportal">
         <img width={socialWidth} src={telegram} />
       </ExternalLink>
-      <ExternalLink href="https://discord.gg/Dr5T464wYA4">
+      <ExternalLink href="https://discord.gg/BCanN8pVwa">
         <img width={socialWidth} src={discord} />
       </ExternalLink>
-      <ExternalLink href="https://twitter.com/GoldOnBaseChain">
+      <ExternalLink href="https://twitter.com/Gold_On_Chain">
         <img width={socialWidth} src={twitter} />
       </ExternalLink>
     </div>

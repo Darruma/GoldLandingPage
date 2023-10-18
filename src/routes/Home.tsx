@@ -1,6 +1,5 @@
-import humpy from "../assets/humpy.gif";
 import humpybg from "../assets/humpybackground.svg";
-
+import bar from "../assets/goldhero.gif";
 import egg from "../assets/egg.png";
 import { getRandomBibleQuote } from "../utils/bible";
 import Socials from "../components/SocialsBar";
@@ -32,7 +31,7 @@ function Home() {
                 GOLDEN BOYS
               </h1>
               <div className="font-semi-bold text-2xl text-center roboto-100">
-                The $GOLD Standard for DeFi on Base
+                The Premium Memecoin, crafted by Humpy the Legendary Whale"
               </div>
               <div className="flex flex-row justify-center items-center gap-4">
                 <a
@@ -54,7 +53,7 @@ function Home() {
               </div>
             </div>
             <div className="basis-full h-full w-full hidden md:flex justify-center  items-center">
-              <img src={humpy} alt="bar" className="z-10 h-[300px]" />
+              <img src={bar} alt="bar" className="z-10 h-[600px]" />
             </div>
           </div>
         </div>
