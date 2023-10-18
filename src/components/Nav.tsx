@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 import HamburgerMenu from "./Hamburger";
 
@@ -8,10 +8,12 @@ export function NavLink({
   children,
   external = false,
 }: PropsWithChildren<{ to: string; external?: boolean }>) {
+  const location = useLocation();
+  const underline = location.pathname === to ? "underline" : "";
   return (
     <Link
       to={to}
-      className="font-bold text-2xl roboto"
+      className={`font-bold text-2xl roboto ${underline}`}
       target={external ? "_blank" : "_parent"}
       rel={external ? "noopener noreferrer" : ""}
     >
@@ -51,6 +53,7 @@ function Nav() {
           LP
         </NavLink>
         <NavLink to="/learn">Learn</NavLink>
+        <NavLink to="/vault">Vault</NavLink>
       </div>
       <div className="md:hidden flex justify-end mt-[-4rem]">
         <HamburgerMenu />

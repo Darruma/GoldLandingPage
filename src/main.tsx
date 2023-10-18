@@ -6,6 +6,7 @@ import HomePage from "./routes/Home.tsx";
 import "./index.css";
 import { Why } from "./routes/Why.tsx";
 import { Learn } from "./routes/Learn.tsx";
+import Vault from "./routes/Vault.tsx";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,10 @@ const router = createHashRouter([
   {
     path: "/learn",
     element: <Learn />,
+  },
+  {
+    path: "/vault",
+    element: <Vault />,
   },
   {
     path: "*",
