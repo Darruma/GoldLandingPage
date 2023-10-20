@@ -28,7 +28,7 @@ function Socials() {
       <ExternalLink href="https://www.coingecko.com/en/coins/goldenboys">
         <img width={socialWidth} src={coingecko} />
       </ExternalLink>
-      <ExternalLink href="https://www.dextools.io/app/en/base/pair-explorer/0xe40cbccba664c7b1a953827c062f5070b78de868-0x4200000000000000000000000000000000000006-0xbefd5c25a59ef2c1316c5a4944931171f30cd3e4">
+      <ExternalLink href="https://www.dextools.io/app/en/base/pair-explorer/0x433f09ca08623e48bac7128b7105de678e37d988-0x833589fcd6edb6e08f4c7c32d4f71b54bda02913-0xbefd5c25a59ef2c1316c5a4944931171f30cd3e4s">
         <img width={socialWidth} src={dextools} />
       </ExternalLink>
       <ExternalLink href="https://t.me/goldenboysportal">
