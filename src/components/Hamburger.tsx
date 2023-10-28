@@ -59,7 +59,7 @@ function Menu({ close }: { close: () => void }) {
           <NavLink to="/learn">Learn</NavLink>
         </li>
         <li className="mb-4">
-          <NavLink to="/learn">Vault</NavLink>
+          <NavLink to="/vault">Vault</NavLink>
         </li>
       </ul>
     </div>
