@@ -220,6 +220,7 @@ function VaultView({
             </div>
           </div>
         </div>
+        <Socials />
       </div>
     </div>
   );
