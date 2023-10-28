@@ -107,7 +107,9 @@ function VaultView({
                     <div> {tokenRatio.toLocaleString()}</div>
                   </div>
                   <div className="text-sm  flex flex-row justify-between">
-                    <div className="text-gray-400">Token Ratio</div>
+                    <div className="text-gray-400">
+                      AURA Available for Withdrawal{" "}
+                    </div>
                     <div> {auraForWithdrawal.toLocaleString()}</div>
                   </div>
                 </div>
@@ -174,6 +176,45 @@ function VaultView({
               <div className="basis-full flex flex-col bg-[#191919] rounded-xl p-6 gap-4">
                 <div className="press-start-2p border-b border-amber-500 text-amber-500 text-2xl text-center">
                   PERFORMANCE
+                </div>
+                <div className="flex flex-row gap-4">
+                  <div className="flex flex-col basis-full">
+                    <div className="press-start-2p text-center border-b border-gray-500 p-2">
+                      Strategy Summary
+                    </div>
+                    <div className="flex flex-col">
+                      <div className="text-gray-400 pt-4">
+                        This vault locks 100% of deposited Aura tokens for
+                        rolling periods of 16 weeks. Gold will use vlAURA to
+                        vote for bribes during each voting round, sell them, and
+                        emit the proceeds back to holders in the form of
+                        goldAURA. Aura locking rewards are autocompounded back
+                        into the vault.
+                      </div>
+                      <div className="p-4 text-gray-400">
+                        Like other AURA vaults, goldAURA limits the times when
+                        users may withdraw their funds. Limited pre-unlock
+                        liquidity is available through Balancer pools containing
+                        goldAURA. Please carefully read the User Guide for more
+                        information.
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col basis-full">
+                    <div className="text-center border-b border-gray-500 p-2 flex flex-row justify-between mb-6 ">
+                      <div className="press-start-2p">APY</div>
+                      <div className=""> 0.00%</div>
+                    </div>
+                    <div className="text-center border-b border-gray-500 p-2 flex flex-row justify-between ">
+                      <div className="press-start-2p">Liquidity</div>
+                    </div>
+                    <div className="text-sm  pt-4 flex flex-row justify-between">
+                      <div className="text-gray-400">
+                        AURA Available for Withdrawal{" "}
+                      </div>
+                      <div> {auraForWithdrawal.toLocaleString()}</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
