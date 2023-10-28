@@ -75,7 +75,7 @@ function VaultView({
               </div>
             </div>
           </div>
-          <div className="flex flex-row gap-2 pt-4">
+          <div className="flex flex-row gap-2 pt-4 pb-12">
             <div className="flex flex-col w-[40%] bg-[#191919] rounded-xl">
               <div className="text-center press-start-2p text-sm pt-6 border-b border-gray-500 mx-2 py-4">
                 Vault Details
