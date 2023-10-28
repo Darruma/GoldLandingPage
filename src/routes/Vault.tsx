@@ -51,7 +51,7 @@ function VaultView({
             <img src={aura} alt="aura" className="w-12 h-12" />
             <div className="press-start-2p text-2xl">goldAURA Vault</div>
           </div>
-          <div className=" flex flex-row gap-4 pt-8">
+          <div className="flex md:flex-row flex-col gap-4 pt-8">
             <div className="basis-full flex flex-col bg-[#191919] rounded-xl p-6 gap-4">
               <div className="press-start-2p border-b border-gray-500">
                 Total Deposited
@@ -75,8 +75,8 @@ function VaultView({
               </div>
             </div>
           </div>
-          <div className="flex flex-row gap-2 pt-4 pb-12">
-            <div className="flex flex-col w-[40%] bg-[#191919] rounded-xl">
+          <div className="flex md:flex-row flex-col gap-2 pt-4 pb-12">
+            <div className="flex flex-col w-full md:w-[40%] bg-[#191919] rounded-xl">
               <div className="text-center press-start-2p text-sm pt-6 border-b border-gray-500 mx-2 py-4">
                 Vault Details
               </div>
@@ -166,7 +166,7 @@ function VaultView({
                 </div>
               </div>
             </div>
-            <div className="flex flex-col gap-4 w-[60%]">
+            <div className="flex flex-col gap-4 w-full md:w-[60%]">
               <img
                 src={goldAura}
                 alt="goldAura"
@@ -177,7 +177,7 @@ function VaultView({
                 <div className="press-start-2p border-b border-amber-500 text-amber-500 text-2xl text-center">
                   PERFORMANCE
                 </div>
-                <div className="flex flex-row gap-4">
+                <div className="flex flex-col md:flex-row gap-4">
                   <div className="flex flex-col basis-full">
                     <div className="press-start-2p text-center border-b border-gray-500 p-2">
                       Strategy Summary
