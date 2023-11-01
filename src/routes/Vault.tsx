@@ -4,37 +4,61 @@ import NavWithLogo from "../components/NavWithLogo";
 import aura from "../assets/aura.png";
 import goldAura from "../assets/goldAura.png";
 import link from "../assets/link.png";
+import { useState } from "react";
+import Deposit from "../components/Deposit";
+import Withdraw from "../components/Withdraw";
 
+enum VAULT_MODAL {
+  NONE,
+  DEPOSIT,
+  WITHDRAW,
+}
 interface VaultProps {
+  auraPrice: number;
+  walletAura: number;
   totalDeposited: number;
-  totalDepositedUSD: number;
   vaultAura: number;
-  vaultAuraUSD: number;
   tokenRatio: number;
   auraForWithdrawal: number;
+  setModalState: (modalState: VAULT_MODAL) => void;
 }
 
 function Vault() {
+  const [modalState, setModalState] = useState(VAULT_MODAL.NONE);
+  const close = () => setModalState(VAULT_MODAL.NONE);
+  const auraPrice = 0.91;
   return (
-    <VaultView
-      totalDeposited={4202}
-      totalDepositedUSD={4176}
-      vaultAura={414890}
-      vaultAuraUSD={383363}
-      tokenRatio={1.0747}
-      auraForWithdrawal={414890}
-    />
+    <>
+      <VaultView
+        auraPrice={auraPrice}
+        setModalState={setModalState}
+        walletAura={100}
+        totalDeposited={4202}
+        vaultAura={414890}
+        tokenRatio={1.0747}
+        auraForWithdrawal={414890}
+      />
+      {modalState === VAULT_MODAL.DEPOSIT && (
+        <Deposit close={close} auraPrice={auraPrice} />
+      )}
+      {modalState === VAULT_MODAL.WITHDRAW && (
+        <Withdraw close={close} auraPrice={auraPrice} />
+      )}
+    </>
   );
 }
 
 function VaultView({
+  auraPrice,
+  walletAura,
   totalDeposited,
-  totalDepositedUSD,
   vaultAura,
-  vaultAuraUSD,
   tokenRatio,
   auraForWithdrawal,
+  setModalState,
 }: VaultProps) {
+  const totalDepositedUSD = totalDeposited * auraPrice;
+  const vaultAuraUSD = vaultAura * auraPrice;
   return (
     <div className="h-full">
       <div
@@ -67,10 +91,18 @@ function VaultView({
               </div>
             </div>
             <div className="basis-full flex flex-col gap-4 justify-center items-center press-start-2p">
-              <div className="text-gray-400 bg-[#191919] rounded-md py-2 w-full text-center cursor-pointer">
+              <div
+                onClick={() => setModalState(VAULT_MODAL.DEPOSIT)}
+                className={`${
+                  walletAura > 0 ? "text-white" : "text-gray-500"
+                } bg-[#191919] rounded-md py-2 w-full text-center cursor-pointer`}
+              >
                 DEPOSIT
               </div>
-              <div className="text-amber-400 border-amber-400 border rounded-md py-2 w-full text-center cursor-pointer">
+              <div
+                onClick={() => setModalState(VAULT_MODAL.WITHDRAW)}
+                className="text-amber-300 border-amber-300 border rounded-md py-2 w-full text-center cursor-pointer"
+              >
                 WITHDRAW
               </div>
             </div>
@@ -149,19 +181,19 @@ function VaultView({
                 <div className="flex flex-col gap-2">
                   <div className="text-sm flex flex-row gap-4 items-center">
                     <img src={link} className="w-6 h-3"></img>
-                    <div className="text-amber-400">Vault Address </div>
+                    <div className="text-amber-300">Vault Address </div>
                   </div>
                   <div className="text-sm flex flex-row gap-4 items-center">
                     <img src={link} className="w-6 h-3"></img>
-                    <div className="text-amber-400">Strategy Address </div>
+                    <div className="text-amber-300">Strategy Address </div>
                   </div>
                   <div className="text-sm flex flex-row gap-4 items-center">
                     <img src={link} className="w-6 h-3"></img>
-                    <div className="text-amber-400">Underlying Token </div>
+                    <div className="text-amber-300">Underlying Token </div>
                   </div>
                   <div className="text-sm flex flex-row gap-4 items-center">
                     <img src={link} className="w-6 h-3"></img>
-                    <div className="text-amber-400">Github </div>
+                    <div className="text-amber-300">Github </div>
                   </div>
                 </div>
               </div>
@@ -174,7 +206,7 @@ function VaultView({
                 width={400}
               />
               <div className="basis-full flex flex-col bg-[#191919] rounded-xl p-6 gap-4">
-                <div className="press-start-2p border-b border-amber-500 text-amber-500 text-2xl text-center">
+                <div className="press-start-2p border-b border-amber-400 text-amber-400 text-2xl text-center">
                   PERFORMANCE
                 </div>
                 <div className="flex flex-col md:flex-row gap-4">

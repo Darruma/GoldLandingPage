@@ -16,6 +16,16 @@ html, body {
   width: 100%;
 }
 
+textarea:focus, input:focus {
+  outline: none;
+}
+
+
+.trans-background {
+  background-color: rgba(0, 0, 0, 0.5);
+
+}
+
 .press-start-2p {
   font-family: 'Press Start 2P', cursive;
 }
