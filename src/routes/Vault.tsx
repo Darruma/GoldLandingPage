@@ -5,8 +5,7 @@ import aura from "../assets/aura.png";
 import goldAura from "../assets/goldAura.png";
 import link from "../assets/link.png";
 import { useState } from "react";
-import Deposit from "../components/Deposit";
-import Withdraw from "../components/Withdraw";
+import Modal from "../components/Modal";
 
 enum VAULT_MODAL {
   NONE,
@@ -28,12 +27,14 @@ function Vault() {
   const close = () => setModalState(VAULT_MODAL.NONE);
   // TODO: Get aura price from coingecko
   const auraPrice = 0.91;
+  const auraToGoldAuraRatio = 1.0747;
 
   //TODO: get wallet aura
   //TODO: get total deposited
   //TODO: get vault aura
   // TODO: get token ratio
   // TODO: get aura for withdrawal
+  // get action
   return (
     <>
       <VaultView
@@ -46,10 +47,20 @@ function Vault() {
         auraForWithdrawal={414890}
       />
       {modalState === VAULT_MODAL.DEPOSIT && (
-        <Deposit close={close} auraPrice={auraPrice} />
+        <Modal
+          close={close}
+          auraPrice={auraPrice}
+          auraToGoldAuraRatio={auraToGoldAuraRatio}
+          action="deposit"
+        />
       )}
       {modalState === VAULT_MODAL.WITHDRAW && (
-        <Withdraw close={close} auraPrice={auraPrice} />
+        <Modal
+          close={close}
+          auraPrice={auraPrice}
+          auraToGoldAuraRatio={auraToGoldAuraRatio}
+          action="withdraw"
+        />
       )}
     </>
   );
