@@ -26,7 +26,14 @@ interface VaultProps {
 function Vault() {
   const [modalState, setModalState] = useState(VAULT_MODAL.NONE);
   const close = () => setModalState(VAULT_MODAL.NONE);
+  // TODO: Get aura price from coingecko
   const auraPrice = 0.91;
+
+  //TODO: get wallet aura
+  //TODO: get total deposited
+  //TODO: get vault aura
+  // TODO: get token ratio
+  // TODO: get aura for withdrawal
   return (
     <>
       <VaultView
