@@ -8,6 +8,30 @@ import { Why } from "./routes/Why.tsx";
 import { Learn } from "./routes/Learn.tsx";
 import Vault from "./routes/Vault.tsx";
 
+import "@rainbow-me/rainbowkit/styles.css";
+
+import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { configureChains, createConfig, WagmiConfig } from "wagmi";
+import { mainnet, sepolia } from "wagmi/chains";
+import { publicProvider } from "wagmi/providers/public";
+
+const { chains, publicClient } = configureChains(
+  [mainnet, sepolia],
+  [publicProvider()]
+);
+
+const { connectors } = getDefaultWallets({
+  appName: "GoldAura",
+  projectId: "YOUR_PROJECT_ID",
+  chains,
+});
+
+const wagmiConfig = createConfig({
+  autoConnect: true,
+  connectors,
+  publicClient,
+});
+
 const queryClient = new QueryClient();
 
 const router = createHashRouter([
@@ -37,7 +61,11 @@ const router = createHashRouter([
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <WagmiConfig config={wagmiConfig}>
+        <RainbowKitProvider chains={chains}>
+          <RouterProvider router={router} />
+        </RainbowKitProvider>
+      </WagmiConfig>
     </QueryClientProvider>
   </React.StrictMode>
 );

@@ -6,6 +6,8 @@ import goldAura from "../assets/goldAura.png";
 import link from "../assets/link.png";
 import { useState } from "react";
 import Modal from "../components/Modal";
+import { useAccount } from "wagmi";
+import { useConnectModal } from "@rainbow-me/rainbowkit";
 
 enum VAULT_MODAL {
   NONE,
@@ -65,7 +67,6 @@ function Vault() {
     </>
   );
 }
-
 function VaultView({
   auraPrice,
   walletAura,
@@ -77,6 +78,8 @@ function VaultView({
 }: VaultProps) {
   const totalDepositedUSD = totalDeposited * auraPrice;
   const vaultAuraUSD = vaultAura * auraPrice;
+  const { openConnectModal } = useConnectModal();
+  const { isConnected } = useAccount();
   return (
     <div className="h-full">
       <div
@@ -110,7 +113,13 @@ function VaultView({
             </div>
             <div className="basis-full flex flex-col gap-4 justify-center items-center press-start-2p">
               <div
-                onClick={() => setModalState(VAULT_MODAL.DEPOSIT)}
+                onClick={() => {
+                  if (!isConnected) {
+                    openConnectModal?.();
+                    return;
+                  }
+                  setModalState(VAULT_MODAL.DEPOSIT);
+                }}
                 className={`${
                   walletAura > 0 ? "text-white" : "text-gray-500"
                 } bg-[#191919] rounded-md py-2 w-full text-center cursor-pointer`}
@@ -118,7 +127,13 @@ function VaultView({
                 DEPOSIT
               </div>
               <div
-                onClick={() => setModalState(VAULT_MODAL.WITHDRAW)}
+                onClick={() => {
+                  if (!isConnected) {
+                    openConnectModal?.();
+                    return;
+                  }
+                  setModalState(VAULT_MODAL.WITHDRAW);
+                }}
                 className="text-amber-300 border-amber-300 border rounded-md py-2 w-full text-center cursor-pointer"
               >
                 WITHDRAW

@@ -2,6 +2,7 @@ import { PropsWithChildren } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 import HamburgerMenu from "./Hamburger";
+import CustomConnect from "./CustomConnect";
 
 export function NavLink({
   to,
@@ -28,7 +29,7 @@ function Nav() {
       <div className="bg-black h-20"></div>
       <div className="p-2"></div>
       <div className="bg-black p-1 hidden md:flex"></div>
-      <div className="p-2 hidden md:flex flex-row gap-6 ml-16">
+      <div className="p-2 hidden md:flex flex-row gap-6 ml-16 items-center">
         <NavLink to="/">
           <img src={logo} alt="logo" className="h-50 z-10 mt-[-4rem]" />
         </NavLink>
@@ -54,6 +55,9 @@ function Nav() {
         </NavLink>
         <NavLink to="/learn">Learn</NavLink>
         <NavLink to="/vault">Vault</NavLink>
+        <div>
+          <CustomConnect />
+        </div>
       </div>
       <div className="md:hidden flex justify-end mt-[-4rem]">
         <HamburgerMenu />

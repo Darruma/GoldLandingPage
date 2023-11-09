@@ -96,7 +96,10 @@ function Modal({ close, auraPrice, auraToGoldAuraRatio, action }: ModalProps) {
           </div>
         </div>
 
-        <button className="bg-amber-300 text-black press-start-2p text-center py-2 rounded-lg">
+        <button
+          onClick={() => {}}
+          className="bg-amber-300 text-black press-start-2p text-center py-2 rounded-lg"
+        >
           {isDeposit ? "DEPOSIT AURA" : "WITHDRAW AURA"}
         </button>
       </div>
