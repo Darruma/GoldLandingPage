@@ -42,8 +42,6 @@ function Vault() {
   const { data: auraRatio } = useAuraRatio();
   const { data: walletGoldAura } = useWalletGoldAura();
 
-  console.log(walletAura, "walletAura");
-  console.log(walletGoldAura, "walletGoldAura");
   const { data: withdrawable } = useTotalAuraForWithdrawal();
   const tokenRatio = (Number(auraRatio?.toString() || 0) ?? 0) / 1e18;
 

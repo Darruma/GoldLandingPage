@@ -1,4 +1,4 @@
-import { Address } from "viem";
+import { Address, maxUint256 } from "viem";
 import { vaultAbi } from "./vaultAbi";
 import {
   erc20ABI,
@@ -36,12 +36,12 @@ export const useWithdrawConfig = (
   });
 };
 
-export const useApproveConfig = (amount: string) => {
+export const useApproveConfig = () => {
   return usePrepareContractWrite({
     abi: erc20ABI,
     address: WANT_ADDRESS,
     functionName: "approve",
-    args: [VAULT_ADDRESS, BigInt(Number(amount) * 1e18)],
+    args: [VAULT_ADDRESS, maxUint256],
   });
 };
 
@@ -52,6 +52,7 @@ export const useAllowance = () => {
     abi: erc20ABI,
     functionName: "allowance",
     enabled: !!address,
+    watch: true,
     args: [address as Address, VAULT_ADDRESS],
   });
 };
@@ -69,6 +70,7 @@ export const useWalletAura = () => {
   return useBalance({
     token: WANT_ADDRESS,
     address,
+    watch: true,
   });
 };
 
@@ -77,6 +79,7 @@ export const useWalletGoldAura = () => {
   return useBalance({
     token: VAULT_ADDRESS,
     address,
+    watch: true,
   });
 };
 

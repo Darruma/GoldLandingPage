@@ -35,15 +35,15 @@ function Modal({
 
   const { config: depositConfig } = useDepositConfig(fromInput, action);
   const { config: withdrawConfig } = useWithdrawConfig(fromInput, action);
-  const { config: approveConfig } = useApproveConfig(fromInput);
+  const { config: approveConfig } = useApproveConfig();
   const { writeAsync: deposit } = useContractWrite(depositConfig);
   const { writeAsync: withdraw } = useContractWrite(withdrawConfig);
   const { writeAsync: approve } = useContractWrite(approveConfig);
 
   const { data: vaultAllowance } = useAllowance();
 
-  const allowance = Number(vaultAllowance?.toString() || 0);
-
+  const allowance = Number(vaultAllowance?.toString() || 0) / 1e18;
+  console.log(allowance, fromInput);
   if (action === "withdraw") {
     fromInputDollars = (fromInputNumber / auraToGoldAuraRatio) * auraPrice;
     output = fromInputNumber / auraToGoldAuraRatio;
