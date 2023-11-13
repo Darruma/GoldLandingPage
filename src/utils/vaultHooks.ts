@@ -62,6 +62,22 @@ export const useWalletAura = () => {
   });
 };
 
-export const useTotalDeposited = () => {};
+export const useWalletGoldAura = () => {
+  return useBalance({
+    token: VAULT_ADDRESS,
+  });
+};
 
-export const useTotalAuraForWithdrawal = () => {};
+export const useVaultAura = () => {
+  return useContractRead({
+    address: VAULT_ADDRESS,
+    abi: vaultAbi,
+    functionName: "balance",
+  });
+};
+
+export const useTotalAuraForWithdrawal = () => {
+  return {
+    data: 0,
+  };
+};

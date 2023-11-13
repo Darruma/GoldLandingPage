@@ -1,5 +1,16 @@
 import { useQuery } from "react-query";
 
+export const useAuraPrice = () => {
+  return useQuery(["aura"], async () => {
+    const resp = await fetch(
+      "https://api.coingecko.com/api/v3/simple/price?ids=aura-finance&vs_currencies=usd"
+    );
+    const result = await resp.json();
+    const price = result["aura-finance"].usd;
+    return price as string;
+  });
+};
+
 export const usePrice = () => {
   return useQuery(["prices"], async () => {
     const resp = await fetch(

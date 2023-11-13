@@ -3,11 +3,20 @@ import Socials from "../components/SocialsBar";
 import NavWithLogo from "../components/NavWithLogo";
 import aura from "../assets/aura.png";
 import goldAura from "../assets/goldAura.png";
+import goldAuraLogo from "../assets/goldAuraLogo.png";
 import link from "../assets/link.png";
 import { useState } from "react";
 import Modal from "../components/Modal";
 import { useAccount } from "wagmi";
 import { useConnectModal } from "@rainbow-me/rainbowkit";
+import {
+  useAuraRatio,
+  useTotalAuraForWithdrawal,
+  useVaultAura,
+  useWalletAura,
+  useWalletGoldAura,
+} from "../utils/vaultHooks";
+import { useAuraPrice } from "../utils/data";
 
 enum VAULT_MODAL {
   NONE,
@@ -27,40 +36,38 @@ interface VaultProps {
 function Vault() {
   const [modalState, setModalState] = useState(VAULT_MODAL.NONE);
   const close = () => setModalState(VAULT_MODAL.NONE);
-  // TODO: Get aura price from coingecko
-  const auraPrice = 0.91;
-  const auraToGoldAuraRatio = 1.0747;
-
-  //TODO: get wallet aura
-  //TODO: get total deposited
-  //TODO: get vault aura
-  // TODO: get token ratio
-  // TODO: get aura for withdrawal
+  const { data: auraPrice } = useAuraPrice();
+  const { data: walletAura } = useWalletAura();
+  const { data: vaultAura } = useVaultAura();
+  const { data: auraRatio } = useAuraRatio();
+  const { data: walletGoldAura } = useWalletGoldAura();
+  const { data: withdrawable } = useTotalAuraForWithdrawal();
+  const tokenRatio = Number(auraRatio?.toString() || 0) ?? 0;
   // get action
   return (
     <>
       <VaultView
-        auraPrice={auraPrice}
+        auraPrice={Number(auraPrice || 0)}
         setModalState={setModalState}
-        walletAura={100}
-        totalDeposited={4202}
-        vaultAura={414890}
-        tokenRatio={1.0747}
-        auraForWithdrawal={414890}
+        walletAura={Number(walletAura?.formatted || 0) ?? 0}
+        totalDeposited={Number(walletGoldAura?.formatted || 0) ?? 0}
+        vaultAura={Number(vaultAura || 0)}
+        tokenRatio={tokenRatio}
+        auraForWithdrawal={withdrawable}
       />
       {modalState === VAULT_MODAL.DEPOSIT && (
         <Modal
           close={close}
-          auraPrice={auraPrice}
-          auraToGoldAuraRatio={auraToGoldAuraRatio}
+          auraPrice={Number(auraPrice || 0)}
+          auraToGoldAuraRatio={tokenRatio}
           action="deposit"
         />
       )}
       {modalState === VAULT_MODAL.WITHDRAW && (
         <Modal
           close={close}
-          auraPrice={auraPrice}
-          auraToGoldAuraRatio={auraToGoldAuraRatio}
+          auraPrice={Number(auraPrice || 0)}
+          auraToGoldAuraRatio={tokenRatio}
           action="withdraw"
         />
       )}
@@ -93,7 +100,7 @@ function VaultView({
         <NavWithLogo />
         <div className="md:mx-64 basis-full md:pt-0 mt-8">
           <div className="flex flex-row gap-4 items-center">
-            <img src={aura} alt="aura" className="w-12 h-12" />
+            <img src={goldAuraLogo} alt="aura" className="w-12 h-12" />
             <div className="press-start-2p text-2xl">goldAURA Vault</div>
           </div>
           <div className="flex md:flex-row flex-col gap-4 pt-8">
@@ -102,7 +109,7 @@ function VaultView({
                 Total Deposited
               </div>
               <div className="flex flex-row gap-4 items-center">
-                <img src={aura} alt="aura" className="w-12 h-12" />
+                <img src={goldAuraLogo} alt="aura" className="w-12 h-12" />
                 <div className="flex flex-col">
                   <div className="text-3xl">{totalDeposited}</div>
                   <div className="text-md text-gray-300">
