@@ -55,7 +55,7 @@ function Nav() {
         </NavLink>
         <NavLink to="/learn">Learn</NavLink>
         <NavLink to="/vault">Vault</NavLink>
-        <div>
+        <div className="ml-auto">
           <CustomConnect />
         </div>
       </div>

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Aura from "../assets/aura.png";
+import GoldAura from "../assets/goldAuraLogo.png";
+
 interface ModalProps {
   close: () => void;
   auraPrice: number;
@@ -38,7 +40,11 @@ function Modal({ close, auraPrice, auraToGoldAuraRatio, action }: ModalProps) {
           <div className="text-sm text-amber-300">From</div>
           <div className="flex flex-row justify-between">
             <div className="p-4 border  border-amber-300 rounded-md bg-[#2b2b2b] flex flex-row items-center gap-2 basis-full ">
-              <img src={Aura}></img>
+              <img
+                width={30}
+                height={30}
+                src={isDeposit ? Aura : GoldAura}
+              ></img>
               <div className="text-gray-400 pr-8">
                 {isDeposit ? "Aura" : "goldAura"}
               </div>
@@ -80,7 +86,11 @@ function Modal({ close, auraPrice, auraToGoldAuraRatio, action }: ModalProps) {
           <div className="text-sm text-amber-300">To</div>
           <div className="flex flex-row justify-between">
             <div className="p-4 border  border-amber-300 rounded-md bg-[#2b2b2b] flex flex-row items-center gap-2 basis-full ">
-              <img src={Aura}></img>
+              <img
+                width={30}
+                height={30}
+                src={isDeposit ? GoldAura : Aura}
+              ></img>
               <div className="text-gray-400 pr-8">
                 {isDeposit ? "goldAura" : "Aura"}
               </div>
