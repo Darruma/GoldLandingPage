@@ -159,6 +159,10 @@ function Modal({
         <button
           onClick={async () => {
             if (isDeposit) {
+              if (Number(fromInput) < balance) {
+                toast.error("You don't have enough AURA to do this");
+                return;
+              }
               if (allowance < fromInputNumber) {
                 if (approve) {
                   await approve();
@@ -176,6 +180,10 @@ function Modal({
                 toast.error("Failed to deposit");
               }
             } else {
+              if (Number(fromInput) < balance) {
+                toast.error("You don't have enough goldAura to do this");
+                return;
+              }
               if (withdraw) {
                 await withdraw();
                 toast.success("Withdrew goldAura");
