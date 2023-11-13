@@ -41,17 +41,24 @@ function Vault() {
   const { data: vaultAura } = useVaultAura();
   const { data: auraRatio } = useAuraRatio();
   const { data: walletGoldAura } = useWalletGoldAura();
+
+  console.log(walletAura, "walletAura");
+  console.log(walletGoldAura, "walletGoldAura");
   const { data: withdrawable } = useTotalAuraForWithdrawal();
-  const tokenRatio = Number(auraRatio?.toString() || 0) ?? 0;
+  const tokenRatio = (Number(auraRatio?.toString() || 0) ?? 0) / 1e18;
+
+  const auraBalance = Number(walletAura?.formatted || 0) ?? 0;
+  const goldAuraBalance = Number(walletGoldAura?.formatted || 0) ?? 0;
+
   // get action
   return (
     <>
       <VaultView
         auraPrice={Number(auraPrice || 0)}
         setModalState={setModalState}
-        walletAura={Number(walletAura?.formatted || 0) ?? 0}
-        totalDeposited={Number(walletGoldAura?.formatted || 0) ?? 0}
-        vaultAura={Number(vaultAura || 0)}
+        walletAura={auraBalance}
+        totalDeposited={goldAuraBalance}
+        vaultAura={Number(vaultAura || 0) / 1e18}
         tokenRatio={tokenRatio}
         auraForWithdrawal={withdrawable}
       />
@@ -61,6 +68,8 @@ function Vault() {
           auraPrice={Number(auraPrice || 0)}
           auraToGoldAuraRatio={tokenRatio}
           action="deposit"
+          auraWallet={auraBalance}
+          goldAuraWallet={goldAuraBalance}
         />
       )}
       {modalState === VAULT_MODAL.WITHDRAW && (
@@ -69,6 +78,8 @@ function Vault() {
           auraPrice={Number(auraPrice || 0)}
           auraToGoldAuraRatio={tokenRatio}
           action="withdraw"
+          auraWallet={auraBalance}
+          goldAuraWallet={goldAuraBalance}
         />
       )}
     </>

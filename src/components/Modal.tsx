@@ -1,20 +1,49 @@
 import { useState } from "react";
 import Aura from "../assets/aura.png";
 import GoldAura from "../assets/goldAuraLogo.png";
+import {
+  useAllowance,
+  useApproveConfig,
+  useDepositConfig,
+  useWithdrawConfig,
+} from "../utils/vaultHooks";
+import { useContractWrite } from "wagmi";
+import toast from "react-hot-toast";
 
 interface ModalProps {
   close: () => void;
   auraPrice: number;
   auraToGoldAuraRatio: number;
   action: "deposit" | "withdraw";
+  auraWallet: number;
+  goldAuraWallet: number;
 }
 
-function Modal({ close, auraPrice, auraToGoldAuraRatio, action }: ModalProps) {
+function Modal({
+  close,
+  auraPrice,
+  auraToGoldAuraRatio,
+  action,
+  auraWallet,
+  goldAuraWallet,
+}: ModalProps) {
   const [fromInput, setFromInput] = useState("0");
   const fromInputNumber = Number(fromInput);
   let fromInputDollars = 0;
   let output = 0;
   let outputDollars = 0;
+
+  const { config: depositConfig } = useDepositConfig(fromInput, action);
+  const { config: withdrawConfig } = useWithdrawConfig(fromInput, action);
+  const { config: approveConfig } = useApproveConfig(fromInput);
+  const { writeAsync: deposit } = useContractWrite(depositConfig);
+  const { writeAsync: withdraw } = useContractWrite(withdrawConfig);
+  const { writeAsync: approve } = useContractWrite(approveConfig);
+
+  const { data: vaultAllowance } = useAllowance();
+
+  const allowance = Number(vaultAllowance?.toString() || 0);
+
   if (action === "withdraw") {
     fromInputDollars = (fromInputNumber / auraToGoldAuraRatio) * auraPrice;
     output = fromInputNumber / auraToGoldAuraRatio;
@@ -26,7 +55,8 @@ function Modal({ close, auraPrice, auraToGoldAuraRatio, action }: ModalProps) {
     outputDollars = output * auraPrice;
   }
   const isDeposit = action === "deposit";
-
+  let balance = isDeposit ? auraWallet : goldAuraWallet;
+  console.log(balance);
   return (
     <div className="trans-background fixed top-1/4 md:left-[15vh] left-0 h-[70vh] md:w-[80vw] w-[100vw] z-10 flex justify-center items-center  ">
       <div className="bg-[#2b2b2b] rounded-lg flex flex-col p-6 opacity-100 gap-4 h-[100]">
@@ -67,16 +97,36 @@ function Modal({ close, auraPrice, auraToGoldAuraRatio, action }: ModalProps) {
               1 goldAURA = {auraToGoldAuraRatio} AURA
             </div>
             <div className="flex flex-row gap-4">
-              <button className="text-gray-400 p-1 border-2 border-gray-400  rounded-md">
+              <button
+                onClick={() => {
+                  setFromInput((balance * 0.25).toString());
+                }}
+                className="text-gray-400 p-1 border-2 border-gray-400  rounded-md"
+              >
                 25%
               </button>
-              <button className="text-gray-400 p-1 border-2 border-gray-400  rounded-md">
+              <button
+                onClick={() => {
+                  setFromInput((balance * 0.5).toString());
+                }}
+                className="text-gray-400 p-1 border-2 border-gray-400  rounded-md"
+              >
                 50%
               </button>
-              <button className="text-gray-400 p-1 border-2 border-gray-400  rounded-md">
+              <button
+                onClick={() => {
+                  setFromInput((balance * 0.75).toString());
+                }}
+                className="text-gray-400 p-1 border-2 border-gray-400  rounded-md"
+              >
                 75%
               </button>
-              <button className="text-gray-400 p-1 border-2 border-gray-400  rounded-md">
+              <button
+                onClick={() => {
+                  setFromInput((balance * 1).toString());
+                }}
+                className="text-gray-400 p-1 border-2 border-gray-400  rounded-md"
+              >
                 100%
               </button>
             </div>
@@ -97,17 +147,43 @@ function Modal({ close, auraPrice, auraToGoldAuraRatio, action }: ModalProps) {
             </div>
             <div className="basis-full flex flex-col gap-2 text-right text-gray-400">
               <div className="basis-full text-gray-400 bg-black text-right text-2xl">
-                {output.toFixed(2)}
+                {Number(output.toFixed(2)).toLocaleString()}
               </div>
               <div className="text-right text-gray-400">
-                ~${outputDollars.toFixed(2)}
+                ~${Number(outputDollars.toFixed(2)).toLocaleString()}
               </div>
             </div>
           </div>
         </div>
 
         <button
-          onClick={() => {}}
+          onClick={async () => {
+            if (isDeposit) {
+              if (allowance < fromInputNumber) {
+                if (approve) {
+                  await approve();
+                  toast.success("Approved AURA");
+                  return;
+                } else {
+                  toast.error("Failed to approve");
+                  return;
+                }
+              }
+              if (deposit) {
+                await deposit();
+                toast.success("Deposited AURA");
+              } else {
+                toast.error("Failed to deposit");
+              }
+            } else {
+              if (withdraw) {
+                await withdraw();
+                toast.success("Withdrew goldAura");
+              } else {
+                toast.error("Failed to withdraw");
+              }
+            }
+          }}
           className="bg-amber-300 text-black press-start-2p text-center py-2 rounded-lg"
         >
           {isDeposit ? "DEPOSIT AURA" : "WITHDRAW AURA"}

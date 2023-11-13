@@ -10,20 +10,28 @@ import {
 const VAULT_ADDRESS = "0x941F9ccF2443f77912A55d642E9e64BBaEAEaA0f" as Address;
 const WANT_ADDRESS = "0x2C9E188d512f9d1139BA4AB8A6A6651482Bb3709" as Address;
 
-export const useDepositConfig = (amount: string) => {
+export const useDepositConfig = (
+  amount: string,
+  action: "withdraw" | "deposit"
+) => {
   return usePrepareContractWrite({
     abi: vaultAbi,
     address: VAULT_ADDRESS,
     functionName: "deposit",
+    enabled: action === "deposit",
     args: [BigInt(Number(amount) * 1e18)],
   });
 };
 
-export const useWithdrawConfig = (amount: string) => {
+export const useWithdrawConfig = (
+  amount: string,
+  action: "withdraw" | "deposit"
+) => {
   return usePrepareContractWrite({
     abi: vaultAbi,
     address: VAULT_ADDRESS,
     functionName: "withdraw",
+    enabled: action === "withdraw",
     args: [BigInt(Number(amount) * 1e18)],
   });
 };
@@ -57,14 +65,18 @@ export const useAuraRatio = () => {
 };
 
 export const useWalletAura = () => {
+  const { address } = useAccount();
   return useBalance({
     token: WANT_ADDRESS,
+    address,
   });
 };
 
 export const useWalletGoldAura = () => {
+  const { address } = useAccount();
   return useBalance({
     token: VAULT_ADDRESS,
+    address,
   });
 };
 

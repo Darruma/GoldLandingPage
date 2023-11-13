@@ -14,6 +14,7 @@ import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { mainnet, sepolia } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
+import { Toaster } from "react-hot-toast";
 
 const { chains, publicClient } = configureChains(
   [mainnet, sepolia],
@@ -61,6 +62,7 @@ const router = createHashRouter([
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
+      <Toaster />
       <WagmiConfig config={wagmiConfig}>
         <RainbowKitProvider chains={chains}>
           <RouterProvider router={router} />
