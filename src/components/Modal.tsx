@@ -9,6 +9,7 @@ import {
 } from "../utils/vaultHooks";
 import { useContractWrite } from "wagmi";
 import toast from "react-hot-toast";
+import { waitForTransaction } from "wagmi/actions";
 
 interface ModalProps {
   close: () => void;
@@ -19,6 +20,7 @@ interface ModalProps {
   goldAuraWallet: number;
 }
 
+//TODO: Handle pending states
 function Modal({
   close,
   auraPrice,
@@ -43,7 +45,6 @@ function Modal({
   const { data: vaultAllowance } = useAllowance();
 
   const allowance = Number(vaultAllowance?.toString() || 0) / 1e18;
-  console.log(allowance, fromInput);
   if (action === "withdraw") {
     fromInputDollars = (fromInputNumber / auraToGoldAuraRatio) * auraPrice;
     output = fromInputNumber / auraToGoldAuraRatio;
@@ -159,14 +160,27 @@ function Modal({
         <button
           onClick={async () => {
             if (isDeposit) {
-              if (Number(fromInput) < balance) {
+              if (Number(fromInput) > balance) {
                 toast.error("You don't have enough AURA to do this");
                 return;
               }
               if (allowance < fromInputNumber) {
                 if (approve) {
-                  await approve();
-                  toast.success("Approved AURA");
+                  const approvingID = toast.loading("Approving AURA...");
+                  try {
+                    const tx = await approve();
+                    const pendingApproveID = toast.loading("Approval Pending", {
+                      id: approvingID,
+                    });
+                    const receipt = await waitForTransaction({
+                      hash: tx.hash,
+                    });
+                    if (receipt.status == "success") {
+                      toast.success("Approved AURA", { id: pendingApproveID });
+                    }
+                  } catch (e) {
+                    toast.error("Failed to approve", { id: approvingID });
+                  }
                   return;
                 } else {
                   toast.error("Failed to approve");
@@ -174,19 +188,49 @@ function Modal({
                 }
               }
               if (deposit) {
-                await deposit();
-                toast.success("Deposited AURA");
+                const depositingID = toast.loading("Depositing AURA...");
+                try {
+                  const tx = await deposit();
+                  const pendingDepositID = toast.loading("Deposit pending...", {
+                    id: depositingID,
+                  });
+                  const receipt = await waitForTransaction({
+                    hash: tx.hash,
+                  });
+                  if (receipt.status == "success") {
+                    toast.success("Deposited AURA", { id: pendingDepositID });
+                  }
+                } catch (e) {
+                  toast.error("Failed to deposit", { id: depositingID });
+                }
               } else {
                 toast.error("Failed to deposit");
               }
             } else {
-              if (Number(fromInput) < balance) {
+              if (Number(fromInput) > balance) {
+                toast(`fromInput : ${fromInput} balance : ${balance}`);
                 toast.error("You don't have enough goldAura to do this");
                 return;
               }
               if (withdraw) {
-                await withdraw();
-                toast.success("Withdrew goldAura");
+                const withdrawingId = toast.loading("Withdrawing goldAura");
+                try {
+                  const tx = await withdraw();
+                  const pendingWithdrawId = toast.loading(
+                    "Withdrawal pending...",
+                    { id: withdrawingId }
+                  );
+                  const receipt = await waitForTransaction({
+                    hash: tx.hash,
+                  });
+                  if (receipt.status == "success") {
+                    toast.success("Withdrawn goldAura", {
+                      id: pendingWithdrawId,
+                    });
+                  }
+                } catch (e) {
+                  toast.error("Failed to withdraw", { id: withdrawingId });
+                }
               } else {
                 toast.error("Failed to withdraw");
               }

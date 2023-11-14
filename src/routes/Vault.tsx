@@ -265,19 +265,18 @@ function VaultView({
                     </div>
                     <div className="flex flex-col">
                       <div className="text-gray-400 pt-4">
-                        This vault locks 100% of deposited Aura tokens for
-                        rolling periods of 16 weeks. Gold will use vlAURA to
-                        vote for bribes during each voting round, sell them, and
-                        emit the proceeds back to holders in the form of
-                        goldAURA. Aura locking rewards are autocompounded back
-                        into the vault.
+                        goldAURA locks 100% of deposited Aura tokens for rolling
+                        periods of 16 weeks. vlAURA voting is delegated to
+                        Paladin who vote to optimize incentives and swaps
+                        resulting yields to pay out USDC. USDC is collected from
+                        Paladin and used to buy more AURA, which is added to the
+                        assets in the strategy increasing the AURA to goldAURA
+                        ratio.
                       </div>
                       <div className="p-4 text-gray-400">
-                        Like other AURA vaults, goldAURA limits the times when
-                        users may withdraw their funds. Limited pre-unlock
-                        liquidity is available through Balancer pools containing
-                        goldAURA. Please carefully read the User Guide for more
-                        information.
+                        goldAURA limits the times when users may withdraw their
+                        funds. Limited pre-unlock liquidity will be available
+                        through Balancer pools containing goldAURA.
                       </div>
                     </div>
                   </div>
