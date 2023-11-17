@@ -7,8 +7,10 @@ import {
   useContractRead,
   usePrepareContractWrite,
 } from "wagmi";
-const VAULT_ADDRESS = "0x941F9ccF2443f77912A55d642E9e64BBaEAEaA0f" as Address;
-const WANT_ADDRESS = "0x2C9E188d512f9d1139BA4AB8A6A6651482Bb3709" as Address;
+const VAULT_ADDRESS = "0x6E03C53b03c9Ec12D8EEC6c4BF43E647426DD3C5" as Address;
+const WANT_ADDRESS = "0xC0c293ce456fF0ED870ADd98a0828Dd4d2903DBF" as Address;
+const STRATEGY_ADDRESS =
+  "0x0f57aE830120fBA149A4D922a9A0064de9755a5d" as Address;
 
 export const useDepositConfig = (
   amount: string,
@@ -92,7 +94,18 @@ export const useVaultAura = () => {
 };
 
 export const useTotalAuraForWithdrawal = () => {
-  return {
-    data: 0,
-  };
+  const { data: vaultAuraBalance } = useBalance({
+    token: WANT_ADDRESS,
+    address: VAULT_ADDRESS,
+    watch: true,
+  });
+  const { data: strategyAuraBalance } = useBalance({
+    token: WANT_ADDRESS,
+    address: STRATEGY_ADDRESS,
+    watch: true,
+  });
+  if (!vaultAuraBalance || !strategyAuraBalance) return 0;
+  return (
+    Number(vaultAuraBalance.formatted) + Number(strategyAuraBalance.formatted)
+  );
 };

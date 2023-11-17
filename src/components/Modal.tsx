@@ -5,6 +5,7 @@ import {
   useAllowance,
   useApproveConfig,
   useDepositConfig,
+  useTotalAuraForWithdrawal,
   useWithdrawConfig,
 } from "../utils/vaultHooks";
 import { useContractWrite } from "wagmi";
@@ -34,6 +35,7 @@ function Modal({
   let fromInputDollars = 0;
   let output = 0;
   let outputDollars = 0;
+  const goldAuraWithdrawable = useTotalAuraForWithdrawal();
 
   const { config: depositConfig } = useDepositConfig(fromInput, action);
   const { config: withdrawConfig } = useWithdrawConfig(fromInput, action);
@@ -207,6 +209,12 @@ function Modal({
                 toast.error("Failed to deposit");
               }
             } else {
+              if (Number(fromInput) > goldAuraWithdrawable) {
+                toast.error(
+                  "There is not enough goldAura withdrawable to do this"
+                );
+                return;
+              }
               if (Number(fromInput) > balance) {
                 toast(`fromInput : ${fromInput} balance : ${balance}`);
                 toast.error("You don't have enough goldAura to do this");

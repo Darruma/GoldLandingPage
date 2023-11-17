@@ -12,14 +12,11 @@ import "@rainbow-me/rainbowkit/styles.css";
 
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { mainnet, sepolia } from "wagmi/chains";
+import { mainnet } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import { Toaster } from "react-hot-toast";
 
-const { chains, publicClient } = configureChains(
-  [mainnet, sepolia],
-  [publicProvider()]
-);
+const { chains, publicClient } = configureChains([mainnet], [publicProvider()]);
 
 const { connectors } = getDefaultWallets({
   appName: "GoldAura",

@@ -42,7 +42,7 @@ function Vault() {
   const { data: auraRatio } = useAuraRatio();
   const { data: walletGoldAura } = useWalletGoldAura();
 
-  const { data: withdrawable } = useTotalAuraForWithdrawal();
+  const withdrawable = useTotalAuraForWithdrawal();
   const tokenRatio = (Number(auraRatio?.toString() || 0) ?? 0) / 1e18;
 
   const auraBalance = Number(walletAura?.formatted || 0) ?? 0;
