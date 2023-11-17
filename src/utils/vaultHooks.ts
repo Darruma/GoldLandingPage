@@ -7,9 +7,11 @@ import {
   useContractRead,
   usePrepareContractWrite,
 } from "wagmi";
-const VAULT_ADDRESS = "0x6E03C53b03c9Ec12D8EEC6c4BF43E647426DD3C5" as Address;
-const WANT_ADDRESS = "0xC0c293ce456fF0ED870ADd98a0828Dd4d2903DBF" as Address;
-const STRATEGY_ADDRESS =
+export const VAULT_ADDRESS =
+  "0x6E03C53b03c9Ec12D8EEC6c4BF43E647426DD3C5" as Address;
+export const WANT_ADDRESS =
+  "0xC0c293ce456fF0ED870ADd98a0828Dd4d2903DBF" as Address;
+export const STRATEGY_ADDRESS =
   "0x0f57aE830120fBA149A4D922a9A0064de9755a5d" as Address;
 
 export const useDepositConfig = (

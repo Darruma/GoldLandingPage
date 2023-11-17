@@ -10,6 +10,9 @@ import Modal from "../components/Modal";
 import { useAccount } from "wagmi";
 import { useConnectModal } from "@rainbow-me/rainbowkit";
 import {
+  STRATEGY_ADDRESS,
+  VAULT_ADDRESS,
+  WANT_ADDRESS,
   useAuraRatio,
   useTotalAuraForWithdrawal,
   useVaultAura,
@@ -228,22 +231,33 @@ function VaultView({
                   Links
                 </div>
                 <div className="flex flex-col gap-2">
-                  <div className="text-sm flex flex-row gap-4 items-center">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={`https://etherscan.io/address/${VAULT_ADDRESS}`}
+                    className="text-sm flex flex-row gap-4 items-center"
+                  >
                     <img src={link} className="w-6 h-3"></img>
                     <div className="text-amber-300">Vault Address </div>
-                  </div>
-                  <div className="text-sm flex flex-row gap-4 items-center">
+                  </a>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={`https://etherscan.io/address/${STRATEGY_ADDRESS}`}
+                    className="text-sm flex flex-row gap-4 items-center"
+                  >
                     <img src={link} className="w-6 h-3"></img>
                     <div className="text-amber-300">Strategy Address </div>
-                  </div>
-                  <div className="text-sm flex flex-row gap-4 items-center">
+                  </a>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={`https://etherscan.io/address/${WANT_ADDRESS}`}
+                    className="text-sm flex flex-row gap-4 items-center"
+                  >
                     <img src={link} className="w-6 h-3"></img>
                     <div className="text-amber-300">Underlying Token </div>
-                  </div>
-                  <div className="text-sm flex flex-row gap-4 items-center">
-                    <img src={link} className="w-6 h-3"></img>
-                    <div className="text-amber-300">Github </div>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
