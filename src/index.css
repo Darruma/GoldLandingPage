@@ -57,3 +57,13 @@ textarea:focus, input:focus {
 .svgWhite {
   fill: white;
 }
+
+.gradient-border {
+  padding: 1rem 2rem;
+  background-image: linear-gradient(90deg, #4462AF, #E3D914);
+  /* Fill the inside with white */
+  background-origin: border-box;
+  box-shadow: inset 0 100vw #292E41;
+  /* A transparent border, so the very edge of the button shows through */
+  border: 2px solid transparent;
+}

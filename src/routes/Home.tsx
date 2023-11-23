@@ -1,15 +1,15 @@
 import humpyhero from "../assets/humpyhero.png";
-import { getRandomBibleQuote } from "../utils/bible";
-import Socials from "../components/SocialsBar";
 import NavWithLogo from "../components/NavWithLogo";
-import { usePrice, useStakingApr } from "../utils/data";
+import chest from "../assets/chest.png";
+import crown from "../assets/crown.png";
+import { usePrice } from "../utils/data";
 
 function Home() {
-  const { number, quote } = getRandomBibleQuote();
+  //const { number, quote } = getRandomBibleQuote();
   const { data: goldPrice } = usePrice();
-  const { data: stakingApr } = useStakingApr();
+  //const { data: stakingApr } = useStakingApr();
 
-  const circulatingMarketCap = 280000 * Number(Number(goldPrice).toFixed(2));
+  //const circulatingMarketCap = 280000 * Number(Number(goldPrice).toFixed(2));
 
   return (
     <div className="h-full bg-primary">
@@ -36,8 +36,22 @@ function Home() {
           <img src={humpyhero} alt="humpyhero" width={700} height={500} />
         </div>
       </div>
-      poop
-      <Socials />
+      <div className="flex flex-row items-center bg-[#292E41] w-4/5 mx-auto gradient-border justify-evenly ">
+        <div className=" flex flex-row gap-2 items-center">
+          <img src={chest} alt="chest" width={50} height={50} />
+          <div className="text-xl">TVL: 5,855,555</div>
+        </div>
+        <div className=" flex flex-row gap-2 items-center">
+          <img src={chest} alt="chest" width={50} height={50} />
+          <div className="text-xl">
+            PRICE: {Number(goldPrice).toFixed(2) || 0}
+          </div>
+        </div>
+        <div className="flex flex-row gap-2 items-center">
+          <img src={crown} alt="chest" width={50} height={50} />
+          <div className="text-xl">HUMPY: 95,525,526</div>
+        </div>
+      </div>
     </div>
   );
 }
