@@ -37,14 +37,9 @@ function Nav() {
           </div>
         </a>
         <div className="ml-auto">
-          <NavLink to="/why">Home</NavLink>
+          <NavLink to="/">Home</NavLink>
         </div>
-        <NavLink
-          external={true}
-          to="https://app.balancer.fi/#/base/swap/0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4"
-        >
-          Vault
-        </NavLink>
+        <NavLink to="/vault">Vault</NavLink>
         <NavLink
           external={true}
           to="https://app.balancer.fi/#/base/pool/0x17e7d59bb209a3215ccc25fffef7161498b7c10d000200000000000000000020"
@@ -53,7 +48,7 @@ function Nav() {
         </NavLink>
         <NavLink
           external={true}
-          to="https://app.balancer.fi/#/base/pool/0x433f09ca08623e48bac7128b7105de678e37d988000100000000000000000047"
+          to="https://basescan.org/token/0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4"
         >
           Etherscan
         </NavLink>
@@ -62,7 +57,7 @@ function Nav() {
           <CustomConnect />
         </div>
       </div>
-      <div className="md:hidden flex justify-end mt-[-4rem]">
+      <div className="md:hidden flex justify-end mt-[2rem]">
         <HamburgerMenu />
       </div>
     </div>
