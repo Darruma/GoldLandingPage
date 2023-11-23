@@ -1,5 +1,30 @@
 import { useQuery } from "react-query";
 
+import bal from "../assets/bal.png";
+import aura_logo from "../assets/aura_logo.png";
+import arb from "../assets/arb.png";
+import ramses from "../assets/ramses.webp";
+
+export const getTokenImage = (token: string) => {
+  const tokenImages: Record<string, string> = {
+    BAL: bal,
+    ARB: arb,
+    RAM: ramses,
+    AURA: aura_logo,
+  };
+  const platformImages: Record<string, string> = {
+    Balancer: bal,
+    Aura: aura_logo,
+    Arbitrum: arb,
+    Ramses: ramses,
+  };
+  if (token in tokenImages) {
+    return tokenImages[token];
+  } else {
+    return platformImages[token];
+  }
+};
+
 export const useAuraPrice = () => {
   return useQuery(["aura"], async () => {
     const resp = await fetch(

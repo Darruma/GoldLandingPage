@@ -2,12 +2,16 @@ import humpyhero from "../assets/humpyhero.png";
 import NavWithLogo from "../components/NavWithLogo";
 import chest from "../assets/chest.png";
 import crown from "../assets/crown.png";
+import dollars from "../assets/dollars.png";
+import diamond from "../assets/diamond.png";
+import goldcoins from "../assets/goldcoins.png";
+import potofgold from "../assets/potofgold.png";
+import goldchest from "../assets/goldchest.png";
 import gold_small from "../assets/gold_small.png";
 import telegram_small from "../assets/telegram_small.png";
-import { usePrice } from "../utils/data";
+import { getTokenImage, usePrice } from "../utils/data";
 import tokens from "../assets/tokens.png";
 
-//TODO: add logos for yield dashboard
 //TODO: add links to yield with display:contents
 //TODO: add apr and tvl data from api for yield dashboard
 
@@ -69,7 +73,7 @@ function Home() {
               target="_blank"
               rel="noopener noreferrer"
               href="https://app.balancer.fi/#/base/swap/0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4"
-              className="bg-tertiary p-2 w-32 relative mr-8"
+              className="bg-tertiary p-2 md:w-32 relative mr-8"
             >
               BUY GOLD
               <img
@@ -101,18 +105,18 @@ function Home() {
           <img src={humpyhero} alt="humpyhero" width={700} height={500} />
         </div>
       </div>
-      <div className="flex flex-col md:flex-row md:items-center  bg-[#292E41] w-4/5 mx-auto gradient-border justify-evenly  ">
-        <div className=" flex flex-row gap-2 items-center">
+      <div className="flex flex-col md:flex-row md:items-center  bg-[#292E41] w-4/5 mx-auto gradient-border justify-evenly   ">
+        <div className=" flex flex-row gap-2 items-center mx-auto">
           <img src={chest} alt="chest" width={50} height={50} />
           <div className="text-xl">TVL: $5,855,555</div>
         </div>
-        <div className=" flex flex-row gap-2 items-center">
+        <div className=" flex flex-row gap-2 items-center mx-auto">
           <img src={chest} alt="chest" width={50} height={50} />
           <div className="text-xl">
             PRICE: ${Number(goldPrice).toFixed(2) || 0}
           </div>
         </div>
-        <div className="flex flex-row gap-2 items-center">
+        <div className="flex flex-row gap-2 items-center mx-auto">
           <img src={crown} alt="chest" width={50} height={50} />
           <div className="text-xl">HUMPY: $95,525,526</div>
         </div>
@@ -146,9 +150,16 @@ function Home() {
                   substantial APR through premium tokens.{" "}
                 </span>
               </div>
-              <div className="bg-tertiary p-2 text-center w-48 px-2">
+              <a className="bg-tertiary p-2 text-center w-48 ml-4 px-2 relative cursor-pointer">
                 Learn More
-              </div>
+                <img
+                  src={dollars}
+                  alt="dollars"
+                  className="absolute bottom-[-0.25rem] left-[-1.5rem] z-10"
+                  height={50}
+                  width={50}
+                />
+              </a>
             </div>
 
             <div className="flex flex-col gap-4">
@@ -161,7 +172,16 @@ function Home() {
                   low token emissions for maximized value retention.
                 </span>
               </div>
-              <div className="bg-tertiary p-2 text-center w-48">Learn More</div>
+              <a className="bg-tertiary p-2 text-center w-48 ml-4 relative cursor-pointer">
+                <img
+                  src={diamond}
+                  alt="diamond"
+                  className="absolute bottom-[0.5rem] left-[-1.5rem] z-10"
+                  height={50}
+                  width={50}
+                />
+                Learn More
+              </a>
             </div>
             <div className="flex flex-col gap-4">
               <div>
@@ -172,7 +192,16 @@ function Home() {
                   Humpy, the legendary DeFi whale.
                 </span>
               </div>
-              <div className="bg-tertiary p-2 text-center w-48">Learn More</div>
+              <a className="bg-tertiary p-2 ml-4 text-center w-48 relative cursor-pointer">
+                Learn More
+                <img
+                  src={crown}
+                  alt="crown"
+                  className="absolute bottom-[0.5rem] left-[-1.5rem] z-10"
+                  height={50}
+                  width={50}
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -201,7 +230,11 @@ function Home() {
                     >
                       {s.pool}
                     </div>
-                    <div>{s.platform}</div>
+                    <img
+                      className="flex mx-auto"
+                      width={50}
+                      src={getTokenImage(s.chain) || getTokenImage(s.platform)}
+                    ></img>
                     <div>{s.apr}</div>
                   </>
                 );
@@ -230,12 +263,103 @@ function Home() {
                     <div>{s.apr}</div>
                     <div className="flex flex-row gap-4 justify-center">
                       {s.rewards.map((r) => {
-                        return <div>{r}</div>;
+                        return (
+                          <img
+                            height={10}
+                            width={50}
+                            src={getTokenImage(r)}
+                          ></img>
+                        );
                       })}
                     </div>
                   </>
                 );
               })}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="p-20 flex flex-col">
+        <div className="md:px-40">
+          <div className="font-bold md:text-6xl text-4xl ">
+            <span className="text-secondary">$GOLD</span> is built different
+          </div>
+          <br />
+          <div className="text-xl fira pt-6">
+            Earn premium tokens by staking $GOLD in LPs on top DeFi platforms
+          </div>
+          <br />
+          <br />
+        </div>
+        <div className="grid md:grid-cols-3 auto-rows-fr gap-8 w-4/5 mx-auto ">
+          <div className="flex flex-col gap-4 ">
+            <div className="gradient-border flex flex-col gap-4">
+              <div className="fira-bold pt-4">High Inflation</div>
+              <div className="fira-light">
+                Counteract inflation with $GOLD’s fundamentals: fixed supply,
+                low team vesting, and monthly burns.
+                <br />
+                <br />
+                The vast majority of yields available to $GOLD holders are
+                emitted in the form of coins of major protocols.
+              </div>
+              <a className="bg-tertiary px-2 relative text-center cursor-pointer">
+                Explore Tokenomics
+                <img
+                  className="absolute bottom-3 left-0 z-10"
+                  src={goldcoins}
+                  alt="goldcoins"
+                  width={50}
+                  height={50}
+                />
+              </a>
+            </div>
+          </div>
+          <div className="flex flex-col gap-4">
+            <div className="gradient-border flex flex-col gap-4">
+              <div className="fira-bold pt-4">Impermanent Loss (IL)</div>
+              <div className="fira-light">
+                GOLD mitigates impermanent loss with its robust liquidity pools.
+                While IL still exists for $GOLD farmers, there is substantially
+                less risk than most high-yield DeFi coins in the market.
+                <br />
+                <br />
+                Join our community to learn more about IL mitigation strategies.
+              </div>
+              <div className="bg-tertiary px-2 mt-2 relative text-center cursor-pointer">
+                Explore LP's
+                <img
+                  className="absolute bottom-[0rem] left-[-1rem] z-10"
+                  src={potofgold}
+                  alt="potofgold"
+                  width={50}
+                  height={50}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col gap-4">
+            <div className="gradient-border flex flex-col gap-4">
+              <div className="fira-bold pt-4">Unsustainable Hype</div>
+              <div className="fira-light">
+                GOLD has what many projects promise, yet fail to deliver. $GOLD
+                emits value to holders every day. Our value is based on the APR
+                of LP yields.
+                <br />
+                <br />
+                Hold $GOLD for sustainable returns and a take your cut of the
+                token rewards Humpy sends to the Golden Boys.
+              </div>
+              <a className="bg-tertiary px-2 relative text-center cursor-pointer">
+                Buy $GOLD
+                <img
+                  className="absolute bottom-4 left-[-1.5rem] z-10"
+                  src={goldchest}
+                  alt="goldchest"
+                  width={50}
+                  height={50}
+                />
+              </a>
             </div>
           </div>
         </div>
