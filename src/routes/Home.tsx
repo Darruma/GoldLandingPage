@@ -5,6 +5,7 @@ import crown from "../assets/crown.png";
 import gold_small from "../assets/gold_small.png";
 import telegram_small from "../assets/telegram_small.png";
 import { usePrice } from "../utils/data";
+import tokens from "../assets/tokens.png";
 
 function Home() {
   //const { number, quote } = getRandomBibleQuote();
@@ -24,7 +25,7 @@ function Home() {
             Unlock the <span className="text-secondary">$GOLD </span> <br />
             Standard of Defi
           </div>
-          <div className="text-xl">
+          <div className="text-xl fira">
             $GOLD is the quintessential asset for liquidity farming. Our <br />
             platform provides a basket of yields carved from the chain <br />
             by Defi Titans.
@@ -80,6 +81,66 @@ function Home() {
         <div className="flex flex-row gap-2 items-center">
           <img src={crown} alt="chest" width={50} height={50} />
           <div className="text-xl">HUMPY: $95,525,526</div>
+        </div>
+      </div>
+      <div className="gradient-background h-[1920px] p-20 flex flex-col">
+        <div className="md:px-36">
+          <div className="font-bold md:text-6xl text-4xl ">
+            The Power of <span className="text-secondary">$GOLD</span>: <br />
+          </div>
+          <br />
+          <div className="font-bold md:text-6xl text-4xl ">
+            A Yield Bearing Asset for DeFi Farmers
+          </div>
+          <div className="text-xl fira pt-6">
+            Harvest the Benefits: Meditate on the harmonious alignment between
+            the whale, the community and lucrative yields
+          </div>
+        </div>
+        <div className="flex flex-row justify-center items-center gap-8">
+          <div className="basis-full hidden md:flex justify-center items-center">
+            <img src={tokens} alt="tokens"></img>
+          </div>
+          <div className="basis-full flex flex-col gap-4 md:px-12 py-12 text-xl">
+            <div className="flex flex-col gap-4">
+              <div className="">
+                <span className="text-bold fira">
+                  A New Era of Defi Farming:{" "}
+                </span>
+                <span className="fira-light">
+                  Discover our pioneering rewards system that delivers
+                  substantial APR through premium tokens.{" "}
+                </span>
+              </div>
+              <div className="bg-tertiary p-2 text-center w-48 px-2">
+                Learn More
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <div>
+                <span className="text-bold fira">
+                  Exclusivity Through Scarcity:{" "}
+                </span>
+                <span className="fira-light">
+                  $GOLD’s value is underpinned by a finite supply, burns, and
+                  low token emissions for maximized value retention.
+                </span>
+              </div>
+              <div className="bg-tertiary p-2 text-center w-48">Learn More</div>
+            </div>
+            <div className="flex flex-col gap-4">
+              <div>
+                <span className="text-bold fira">Swim with the Whale: </span>
+                <span className="fira-light">
+                  A thesis of $GOLD is that Humpy, our 9-figure net worth
+                  creator, knows what he is doing. Align your strategy with
+                  Humpy, the legendary DeFi whale.
+                </span>
+              </div>
+              <div className="bg-tertiary p-2 text-center w-48">Learn More</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
