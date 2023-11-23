@@ -7,12 +7,46 @@ import telegram_small from "../assets/telegram_small.png";
 import { usePrice } from "../utils/data";
 import tokens from "../assets/tokens.png";
 
-function Home() {
-  //const { number, quote } = getRandomBibleQuote();
-  const { data: goldPrice } = usePrice();
-  //const { data: stakingApr } = useStakingApr();
+//TODO: add logos for yield dashboard
+//TODO: add links to yield with display:contents
+//TODO: add apr and tvl data from api for yield dashboard
 
-  //const circulatingMarketCap = 280000 * Number(Number(goldPrice).toFixed(2));
+function Home() {
+  const { data: goldPrice } = usePrice();
+  const yieldSources = [
+    {
+      pool: "GOLD/USDC/WSETH",
+      platform: "Balancer",
+      chain: "Base",
+      tvl: "$2,000,000",
+      apr: "69%",
+      rewards: ["BAL"],
+    },
+    {
+      pool: "GOLD/USDC/WSETH",
+      platform: "Aura",
+      chain: "Arbitrum",
+      tvl: "$2,000,000",
+      apr: "69%",
+      rewards: ["BAL", "AURA"],
+    },
+    {
+      pool: "GOLD/USDC/WSETH",
+      platform: "Balancer",
+      chain: "Base",
+      tvl: "$2,000,000",
+      apr: "69%",
+      rewards: ["ARB", "BAL"],
+    },
+    {
+      pool: "GOLD/WETH",
+      platform: "Ramses",
+      chain: "Arbitrum",
+      tvl: "$300,000",
+      apr: "127%",
+      rewards: ["RAM"],
+    },
+  ];
 
   return (
     <div className="h-full bg-primary">
@@ -83,8 +117,8 @@ function Home() {
           <div className="text-xl">HUMPY: $95,525,526</div>
         </div>
       </div>
-      <div className="gradient-background h-[1920px] p-20 flex flex-col">
-        <div className="md:px-36">
+      <div className="gradient-background p-20 flex flex-col">
+        <div className="md:px-40">
           <div className="font-bold md:text-6xl text-4xl ">
             The Power of <span className="text-secondary">$GOLD</span>: <br />
           </div>
@@ -97,7 +131,7 @@ function Home() {
             the whale, the community and lucrative yields
           </div>
         </div>
-        <div className="flex flex-row justify-center items-center gap-8">
+        <div className="flex flex-row justify-center items-center gap-8 pt-8">
           <div className="basis-full hidden md:flex justify-center items-center">
             <img src={tokens} alt="tokens"></img>
           </div>
@@ -139,6 +173,69 @@ function Home() {
                 </span>
               </div>
               <div className="bg-tertiary p-2 text-center w-48">Learn More</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="p-20 flex flex-col">
+        <div className="md:px-40">
+          <div className="font-bold md:text-6xl text-4xl ">
+            Browse <span className="text-secondary">$GOLD</span> Yield
+            Opportunities
+          </div>
+          <br />
+          <div className="text-xl fira pt-6">
+            Earn premium tokens by staking $GOLD in LPs on top DeFi platforms
+          </div>
+          <br />
+          <br />
+          <div className="md:hidden flex">
+            <div className="gradient-border w-full grid custom-grid gap-8 text-center fira-bold">
+              {yieldSources.map((s, index) => {
+                const addBottomPadding = index == yieldSources.length - 1;
+
+                return (
+                  <>
+                    <div
+                      className={`${addBottomPadding ? "mb-4" : ""} text-left`}
+                    >
+                      {s.pool}
+                    </div>
+                    <div>{s.platform}</div>
+                    <div>{s.apr}</div>
+                  </>
+                );
+              })}
+            </div>
+          </div>
+          <div className="md:flex hidden">
+            <div className="gradient-border grid grid-cols-6 gap-12 fira w-full text-center">
+              <div className="">Pool</div>
+              <div>Platform</div>
+              <div>Chain</div>
+              <div>TVL</div>
+              <div>APR</div>
+              <div>Rewards</div>
+              {yieldSources.map((s, index) => {
+                const addBottomPadding = index == yieldSources.length - 1;
+
+                return (
+                  <>
+                    <div className={`${addBottomPadding ? "mb-4" : ""}`}>
+                      {s.pool}
+                    </div>
+                    <div>{s.platform}</div>
+                    <div>{s.chain}</div>
+                    <div>{s.tvl}</div>
+                    <div>{s.apr}</div>
+                    <div className="flex flex-row gap-4 justify-center">
+                      {s.rewards.map((r) => {
+                        return <div>{r}</div>;
+                      })}
+                    </div>
+                  </>
+                );
+              })}
             </div>
           </div>
         </div>
