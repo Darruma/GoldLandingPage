@@ -5,10 +5,19 @@
 @tailwind utilities;
 
 html, body {
-  background-color: #323232;
+  background-color: #1B2030;
   color: white;
   height: 100%;
   width: 100%;
+}
+
+@font-face {
+  font-family: 'Small Pixel7';
+  src: url('../public/small_bold_pixel-7.ttf');
+}
+
+.small-pixel-7 {
+  font-family: 'Small Pixel7', auto;
 }
 
 #root {

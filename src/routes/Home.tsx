@@ -1,6 +1,4 @@
-import humpybg from "../assets/humpybackground.svg";
-import bar from "../assets/goldhero.gif";
-import egg from "../assets/egg.png";
+import humpyhero from "../assets/humpyhero.png";
 import { getRandomBibleQuote } from "../utils/bible";
 import Socials from "../components/SocialsBar";
 import NavWithLogo from "../components/NavWithLogo";
@@ -14,86 +12,31 @@ function Home() {
   const circulatingMarketCap = 280000 * Number(Number(goldPrice).toFixed(2));
 
   return (
-    <div className="h-full">
-      <div
-        style={{
-          backgroundImage: `url(${humpybg})`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "0% 100%",
-        }}
-        className="flex flex-col h-full overflow-hidden"
-      >
+    <div className="h-full bg-primary">
+      <div className="flex flex-col h-full overflow-hidden">
         <NavWithLogo />
-        <div className="mx-16 basis-full">
-          <div className="md:flex md:flex-row items-center md:h-full">
-            <div className="flex flex-col gap-4 justify-center items-center md:pt-0 pt-32 basis-full">
-              <h1 className="press-start-2p text-secondary text-4xl text-center">
-                GOLDEN BOYS
-              </h1>
-              <div className="font-semi-bold text-2xl text-center roboto-100">
-                The Premium Memecoin, crafted by Humpy the Legendary Whale
-              </div>
-              <div className="flex flex-row justify-center items-center gap-4">
-                <a
-                  href="https://app.balancer.fi/#/base/swap/0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-secondary py-2 w-48 text-center rounded-lg text-black font-bold text-2xl roboto-bold"
-                >
-                  Buy
-                </a>
-                <a
-                  href="https://www.dextools.io/app/en/base/pair-explorer/0x433f09ca08623e48bac7128b7105de678e37d988-0x833589fcd6edb6e08f4c7c32d4f71b54bda02913-0xbefd5c25a59ef2c1316c5a4944931171f30cd3e4s"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-secondary py-2 w-48 text-center rounded-lg text-black font-bold text-2xl roboto-bold"
-                >
-                  Chart
-                </a>
-              </div>
-            </div>
-            <div className="basis-full h-full w-full hidden md:flex justify-center  items-center">
-              <img src={bar} alt="bar" className="z-10 h-[600px]" />
-            </div>
+      </div>
+      <div className="flex flex-row justify-center items-center p-20 gap-8 ">
+        <div className="flex flex-col gap-8">
+          <div className="font-bold text-7xl md:text-left text-center">
+            Unlock the <span className="text-secondary">$GOLD </span> <br />
+            Standard of Defi
           </div>
+          <div className="text-xl">
+            $GOLD is the quintessential asset for liquidity farming. Our <br />
+            platform provides a basket of yields carved from the chain <br />
+            by Defi Titans.
+          </div>
+          <div className="flex flex-row gap-4">
+            <div className="bg-tertiary p-2">BUY GOLD</div>
+            <div className="bg-tertiary p-2">JOIN THE GOLDEN BOYS</div>
+          </div>
+        </div>
+        <div className="hidden md:flex">
+          <img src={humpyhero} alt="humpyhero" width={700} height={500} />
         </div>
       </div>
-      <div className="bg-black md:h-40 flex flex-col gap-8 pt-8 pb-8 md:flex-row justify-around items-center text-center ">
-        <div>
-          <div className="underline font-bold text-2xl roboto">PRICE</div>
-          <div className="font-semi-bold text-lg">
-            ${Number(goldPrice).toFixed(2)}
-          </div>
-        </div>
-        <div>
-          <div className="underline font-bold text-2xl">STAKING APR</div>
-          <div className="font-semi-bold text-lg">
-            {Number(stakingApr).toFixed(2)}%
-          </div>
-        </div>
-        <div>
-          <div className="underline font-bold text-2xl">HOLDER COUNT</div>
-          <div className="font-semi-bold text-lg">565</div>
-        </div>
-        <div>
-          <div className="underline font-bold text-2xl">
-            CIRCULATING MARKET CAP{" "}
-          </div>
-          <div className="font-semi-bold text-lg">
-            ${circulatingMarketCap.toLocaleString()}
-          </div>
-        </div>
-      </div>
-      <div className="bg-primary flex flex-col gap-8 justify-center items-center pt-8 pb-32">
-        <div>
-          <img src={egg} />
-        </div>
-        <div className="text-3xl text-center font-bold md:w-[800px]">
-          "{quote}"
-        </div>
-        <div className="underline">- Golden Boys Bible Verse #{number}</div>
-      </div>
-
+      poop
       <Socials />
     </div>
   );

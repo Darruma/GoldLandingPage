@@ -1,14 +1,11 @@
-
 const config = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
-        primary:"#323232",
-        secondary: "#af9144"
+        primary: "#1B2030",
+        secondary: "#E3D914",
+        tertiary: "#4462AF",
       },
     },
   },

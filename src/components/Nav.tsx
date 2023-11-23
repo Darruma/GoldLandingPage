@@ -10,11 +10,11 @@ export function NavLink({
   external = false,
 }: PropsWithChildren<{ to: string; external?: boolean }>) {
   const location = useLocation();
-  const underline = location.pathname === to ? "underline" : "";
+  const underline = location.pathname === to ? "underline text-secondary" : "";
   return (
     <Link
       to={to}
-      className={`font-bold text-2xl roboto ${underline}`}
+      className={`text-xl roboto ${underline}`}
       target={external ? "_blank" : "_parent"}
       rel={external ? "noopener noreferrer" : ""}
     >
@@ -25,37 +25,40 @@ export function NavLink({
 
 function Nav() {
   return (
-    <div>
-      <div className="bg-black h-20"></div>
-      <div className="p-2"></div>
-      <div className="bg-black p-1 hidden md:flex"></div>
-      <div className="p-2 hidden md:flex flex-row gap-6 ml-16 items-center">
-        <NavLink to="/">
-          <img src={logo} alt="logo" className="h-50 z-10 mt-[-4rem]" />
-        </NavLink>
-
-        <NavLink to="/why">Why</NavLink>
+    <div className="bg-primary">
+      <div className=" bg-primary p-2 hidden md:flex flex-row gap-12 ml-16 pr-4 items-center">
+        <a href="/">
+          <div className="flex flex-row items-center gap-2">
+            <img src={logo} alt="logo" width={75} height={75} />
+            <div className="small-pixel-7 text-6xl no-underline flex flex-row">
+              <span className="text-secondary">GOLDEN </span>{" "}
+              <span className="text-tertiary"> BOYS</span>
+            </div>
+          </div>
+        </a>
+        <div className="ml-auto">
+          <NavLink to="/why">Home</NavLink>
+        </div>
         <NavLink
           external={true}
           to="https://app.balancer.fi/#/base/swap/0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4"
         >
-          Buy
+          Vault
         </NavLink>
         <NavLink
           external={true}
           to="https://app.balancer.fi/#/base/pool/0x17e7d59bb209a3215ccc25fffef7161498b7c10d000200000000000000000020"
         >
-          Stake
+          Earn
         </NavLink>
         <NavLink
           external={true}
           to="https://app.balancer.fi/#/base/pool/0x433f09ca08623e48bac7128b7105de678e37d988000100000000000000000047"
         >
-          LP
+          Etherscan
         </NavLink>
-        <NavLink to="/learn">Learn</NavLink>
-        <NavLink to="/vault">Vault</NavLink>
-        <div className="ml-auto">
+        <NavLink to="/learn">Humpychat</NavLink>
+        <div className="">
           <CustomConnect />
         </div>
       </div>

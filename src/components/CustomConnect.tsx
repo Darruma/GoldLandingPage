@@ -14,7 +14,7 @@ function CustomConnect() {
         return (
           <>
             {!mounted && (
-              <div className="rounded-xl  text-center   font">
+              <div className="rounded-xl text-center roboto">
                 Initalizing...
               </div>
             )}
@@ -28,7 +28,7 @@ function CustomConnect() {
                 if (!connected) {
                   return (
                     <button
-                      className="rounded-xl   text-2xl font bg-secondary p-1"
+                      className="rounded-xl text-xl roboto p-1"
                       onClick={openConnectModal}
                       type="button"
                     >
@@ -39,7 +39,7 @@ function CustomConnect() {
                 if (chain.unsupported) {
                   return (
                     <button
-                      className="rounded-xl   bg-gradient-to-b from-zinc-800/30 to-zinc-500/50 p-1 hover:bg-zinc-800/50 font"
+                      className="rounded-xl p-1 font"
                       onClick={openChainModal}
                       type="button"
                     >
@@ -54,7 +54,7 @@ function CustomConnect() {
                       className="flex justify-center"
                       type="button"
                     >
-                      <div className="flex space-x-2 rounded-xl   bg-secondary p-1 hover:bg-primary text-2xl">
+                      <div className="flex space-x-2 rounded-xl p-1">
                         {chain.iconUrl && (
                           <img
                             alt={chain.name ?? "Chain icon"}
@@ -68,7 +68,7 @@ function CustomConnect() {
                       </div>
                     </button>
                     <button
-                      className="rounded-xl   bg-secondary hover:bg-primary px-1 py-1 text-2xl font"
+                      className="rounded-xl px-1 py-1"
                       onClick={openAccountModal}
                       type="button"
                     >
