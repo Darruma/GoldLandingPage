@@ -1,9 +1,8 @@
-import humpybg from "../assets/humpybackground.svg";
 import Socials from "../components/SocialsBar";
 import NavWithLogo from "../components/NavWithLogo";
 import aura from "../assets/aura.png";
-import goldAura from "../assets/goldAura.png";
 import goldAuraLogo from "../assets/goldAuraLogo.png";
+import goldAuraVault from "../assets/goldAuraVault.png";
 import link from "../assets/link.png";
 import { useState } from "react";
 import Modal from "../components/Modal";
@@ -101,70 +100,35 @@ function VaultView({
   const { isConnected } = useAccount();
   return (
     <div className="h-full">
-      <div
-        style={{
-          backgroundImage: `url(${humpybg})`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "0% 100%",
-        }}
-        className="flex flex-col h-full"
-      >
+      <div className="flex flex-col h-full">
         <NavWithLogo />
         <div className="md:mx-64 basis-full md:pt-0 mt-8">
           <div className="flex flex-row gap-4 items-center">
             <img src={goldAuraLogo} alt="aura" className="w-12 h-12" />
             <div className="press-start-2p text-2xl">goldAURA Vault</div>
           </div>
-          <div className="flex md:flex-row flex-col gap-4 pt-8">
-            <div className="basis-full flex flex-col bg-[#191919] rounded-xl p-6 gap-4">
-              <div className="press-start-2p border-b border-gray-500">
-                Total Deposited
-              </div>
-              <div className="flex flex-row gap-4 items-center">
-                <img src={goldAuraLogo} alt="aura" className="w-12 h-12" />
-                <div className="flex flex-col">
-                  <div className="text-3xl">{totalDeposited}</div>
-                  <div className="text-md text-gray-300">
-                    ${totalDepositedUSD.toLocaleString()}
+          <div className="flex md:flex-row flex-col gap-4 pt-8"></div>
+          <div className="flex md:flex-row flex-col gap-2 pt-4 pb-12">
+            <div className="flex flex-col w-full md:w-[40%] rounded-xl gap-4">
+              <div className="basis-full flex flex-col bg-[#222739] rounded-xl p-6 gap-4 shadow">
+                <div className="press-start-2p border-b border-gray-500">
+                  Total Deposited
+                </div>
+                <div className="flex flex-row gap-4 items-center">
+                  <img src={goldAuraLogo} alt="aura" className="w-12 h-12" />
+                  <div className="flex flex-col">
+                    <div className="text-3xl">{totalDeposited}</div>
+                    <div className="text-md text-gray-300">
+                      ${totalDepositedUSD.toLocaleString()}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="basis-full flex flex-col gap-4 justify-center items-center press-start-2p">
-              <div
-                onClick={() => {
-                  if (!isConnected) {
-                    openConnectModal?.();
-                    return;
-                  }
-                  setModalState(VAULT_MODAL.DEPOSIT);
-                }}
-                className={`${
-                  walletAura > 0 ? "text-white" : "text-gray-500"
-                } bg-[#191919] rounded-md py-2 w-full text-center cursor-pointer`}
-              >
-                DEPOSIT
-              </div>
-              <div
-                onClick={() => {
-                  if (!isConnected) {
-                    openConnectModal?.();
-                    return;
-                  }
-                  setModalState(VAULT_MODAL.WITHDRAW);
-                }}
-                className="text-amber-300 border-amber-300 border rounded-md py-2 w-full text-center cursor-pointer"
-              >
-                WITHDRAW
-              </div>
-            </div>
-          </div>
-          <div className="flex md:flex-row flex-col gap-2 pt-4 pb-12">
-            <div className="flex flex-col w-full md:w-[40%] bg-[#191919] rounded-xl">
-              <div className="text-center press-start-2p text-sm pt-6 border-b border-gray-500 mx-2 py-4">
-                Vault Details
-              </div>
-              <div className="p-4 flex flex-col gap-2 ">
+
+              <div className="p-4 flex flex-col gap-2 bg-[#222739] shadow rounded-xl">
+                <div className="text-center press-start-2p bg-[#222739] text-sm pt-6 border-b border-gray-500 mx-2 py-4">
+                  Vault Details
+                </div>
                 <div className="text-3xl">
                   {vaultAura.toLocaleString()} AURA
                 </div>
@@ -262,14 +226,8 @@ function VaultView({
               </div>
             </div>
             <div className="flex flex-col gap-4 w-full md:w-[60%]">
-              <img
-                src={goldAura}
-                alt="goldAura"
-                className="basis-full mx-auto"
-                width={400}
-              />
-              <div className="basis-full flex flex-col bg-[#191919] rounded-xl p-6 gap-4">
-                <div className="press-start-2p border-b border-amber-400 text-amber-400 text-2xl text-center">
+              <div className="basis-full flex flex-col bg-[#222739] rounded-xl p-6 gap-4 shadow">
+                <div className="press-start-2p border-b border-amber-400  text-2xl text-center">
                   PERFORMANCE
                 </div>
                 <div className="flex flex-col md:flex-row gap-4">
@@ -279,18 +237,18 @@ function VaultView({
                     </div>
                     <div className="flex flex-col">
                       <div className="text-gray-400 pt-4">
-                        goldAURA locks 100% of deposited Aura tokens for rolling
-                        periods of 16 weeks. vlAURA voting is delegated to
-                        Paladin who vote to optimize incentives and swaps
-                        resulting yields to pay out USDC. USDC is collected from
-                        Paladin and used to buy more AURA, which is added to the
-                        assets in the strategy increasing the AURA to goldAURA
-                        ratio.
+                        This vault locks 100% of deposited Aura tokens for
+                        rolling periods of 16 weeks. The vault delegates to
+                        Paladin , which converts vlAURA voting power into USDC,
+                        which is then swapped back to AURA and sent into the
+                        vault, increasing PPFS. AURA earned is autocompounded.
                       </div>
-                      <div className="p-4 text-gray-400">
+                      <br />
+                      <div className=" text-gray-400">
                         goldAURA limits the times when users may withdraw their
-                        funds. Limited pre-unlock liquidity will be available
-                        through Balancer pools containing goldAURA.
+                        funds. Limited pre-unlock liquidity is available through
+                        Balancer pools containing goldAURA. Please carefully
+                        read the User Guide for more information.
                       </div>
                     </div>
                   </div>
@@ -308,9 +266,43 @@ function VaultView({
                       </div>
                       <div> {auraForWithdrawal.toLocaleString()}</div>
                     </div>
+                    <div className="basis-full flex flex-col gap-4 justify-center items-center press-start-2p">
+                      <div
+                        onClick={() => {
+                          if (!isConnected) {
+                            openConnectModal?.();
+                            return;
+                          }
+                          setModalState(VAULT_MODAL.DEPOSIT);
+                        }}
+                        className={`${
+                          walletAura > 0 ? "text-white" : "text-gray-500"
+                        } gradient-border rounded-md py-2 w-full text-center cursor-pointer`}
+                      >
+                        DEPOSIT
+                      </div>
+                      <div
+                        onClick={() => {
+                          if (!isConnected) {
+                            openConnectModal?.();
+                            return;
+                          }
+                          setModalState(VAULT_MODAL.WITHDRAW);
+                        }}
+                        className=" gradient-border rounded-md py-2 w-full text-center cursor-pointer"
+                      >
+                        WITHDRAW
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+              <img
+                src={goldAuraVault}
+                alt="goldAura"
+                className="basis-full w-full"
+                width={400}
+              />
             </div>
           </div>
         </div>
