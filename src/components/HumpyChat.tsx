@@ -11,7 +11,7 @@ export const HumpyChat = () => {
         <div>X</div>
       </div>
       <div className="flex-grow"></div>
-      <input className="p-2" placeholder="Hi, How are you?" />
+      <input className="p-2 text-black fira" placeholder="Hi, How are you?" />
     </div>
   );
 };
