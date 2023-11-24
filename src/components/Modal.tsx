@@ -21,7 +21,6 @@ interface ModalProps {
   goldAuraWallet: number;
 }
 
-//TODO: Handle pending states
 function Modal({
   close,
   auraPrice,
