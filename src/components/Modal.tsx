@@ -62,7 +62,7 @@ function Modal({
   console.log(balance);
   return (
     <div className="trans-background fixed top-1/4 md:left-[15vh] left-0 h-[70vh] md:w-[80vw] w-[100vw] z-10 flex justify-center items-center  ">
-      <div className="bg-[#2b2b2b] rounded-lg flex flex-col p-6 opacity-100 gap-4 h-[100]">
+      <div className="bg-[#222739] rounded-lg flex flex-col p-6 opacity-100 gap-4 h-[100]">
         <div className="press-start-2p flex flex-row justify-between">
           <div className="text-xl">{isDeposit ? "Deposit" : "Withdraw"}</div>
           <div className="w-4 h-4 cursor-pointer" onClick={() => close()}>
@@ -72,7 +72,7 @@ function Modal({
         <div className="bg-black rounded-lg flex flex-col p-4 gap-2">
           <div className="text-sm text-amber-300">From</div>
           <div className="flex flex-row justify-between">
-            <div className="p-4 border  border-amber-300 rounded-md bg-[#2b2b2b] flex flex-row items-center gap-2 basis-full ">
+            <div className="p-4 border  border-amber-300 rounded-md gradient-border flex flex-row items-center gap-2 basis-full ">
               <img
                 width={30}
                 height={30}
@@ -138,7 +138,7 @@ function Modal({
         <div className="bg-black rounded-lg flex flex-col p-4 gap-2">
           <div className="text-sm text-amber-300">To</div>
           <div className="flex flex-row justify-between">
-            <div className="p-4 border  border-amber-300 rounded-md bg-[#2b2b2b] flex flex-row items-center gap-2 basis-full ">
+            <div className="p-4 border  border-amber-300 gradient-border flex flex-row items-center gap-2 basis-full ">
               <img
                 width={30}
                 height={30}
@@ -244,7 +244,7 @@ function Modal({
               }
             }
           }}
-          className="bg-amber-300 text-black press-start-2p text-center py-2 rounded-lg"
+          className="gradient-border press-start-2p text-center py-2 rounded-lg"
         >
           {isDeposit ? "DEPOSIT AURA" : "WITHDRAW AURA"}
         </button>
