@@ -29,37 +29,29 @@ function Menu({ close }: { close: () => void }) {
       </div>
       <ul className="text-white">
         <li className="mb-4">
-          <NavLink to="/why">Why</NavLink>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li className="mb-4">
-          <NavLink
-            external={true}
-            to="https://app.balancer.fi/#/base/swap/0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4"
-          >
-            Buy
-          </NavLink>
+          <NavLink to="/vault">Vault</NavLink>
         </li>
         <li className="mb-4">
           <NavLink
             external={true}
             to="https://app.balancer.fi/#/base/pool/0x17e7d59bb209a3215ccc25fffef7161498b7c10d000200000000000000000020"
           >
-            Stake
+            Earn
           </NavLink>
         </li>
         <li className="mb-4">
           <NavLink
             external={true}
-            to="https://app.balancer.fi/#/base/pool/0x433f09ca08623e48bac7128b7105de678e37d988000100000000000000000047"
+            to="https://basescan.org/token/0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4"
           >
-            LP
+            Etherscan
           </NavLink>
         </li>
         <li className="mb-4">
-          <NavLink to="/learn">Learn</NavLink>
-        </li>
-        <li className="mb-4">
-          <NavLink to="/vault">Vault</NavLink>
+          <NavLink to="/asd">Humpy</NavLink>
         </li>
       </ul>
     </div>
