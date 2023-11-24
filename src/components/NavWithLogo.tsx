@@ -5,13 +5,7 @@ function NavWithLogo() {
   return (
     <>
       <Nav />
-      <NavLink to="/">
-        <img
-          src={logo}
-          alt="logo"
-          className="z-10 mt-[-4rem] md:hidden mx-auto w-[100px]"
-        />
-      </NavLink>
+      <NavLink to="/"></NavLink>
     </>
   );
 }

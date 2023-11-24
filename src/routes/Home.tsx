@@ -57,6 +57,7 @@ function Home() {
       <div className="flex flex-col h-full overflow-hidden">
         <NavWithLogo />
       </div>
+      <div></div>
       <div className="flex flex-row justify-center items-center p-20 gap-8 ">
         <div className="flex flex-col gap-8">
           <div className="font-bold text-7xl md:text-left text-center">
@@ -68,12 +69,12 @@ function Home() {
             platform provides a basket of yields carved from the chain <br />
             by Defi Titans.
           </div>
-          <div className="flex flex-row">
+          <div className="flex md:flex-row flex-col gap-8">
             <a
               target="_blank"
               rel="noopener noreferrer"
               href="https://app.balancer.fi/#/base/swap/0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4"
-              className="bg-tertiary p-2 md:w-32 relative mr-8"
+              className="bg-tertiary p-2 w-32 relative mr-8"
             >
               BUY GOLD
               <img
@@ -88,7 +89,7 @@ function Home() {
               target="_blank"
               rel="noopener noreferrer"
               href="https://t.me/goldenboysportal"
-              className="bg-tertiary p-2 w-64 h-fit relative"
+              className="bg-tertiary p-2 w-48 h-fit relative"
             >
               JOIN THE GOLDEN BOYS
               <img
@@ -122,7 +123,7 @@ function Home() {
         </div>
       </div>
       <div className="gradient-background p-20 flex flex-col">
-        <div className="md:px-40">
+        <div className="md:px-20 lg:p-40 ">
           <div className="font-bold md:text-6xl text-4xl ">
             The Power of <span className="text-secondary">$GOLD</span>: <br />
           </div>
@@ -139,7 +140,7 @@ function Home() {
           <div className="basis-full hidden md:flex justify-center items-center">
             <img src={tokens} alt="tokens"></img>
           </div>
-          <div className="basis-full flex flex-col gap-4 md:px-12 py-12 text-xl">
+          <div className="basis-full flex flex-col gap-12 md:px-12 py-12 text-xl">
             <div className="flex flex-col gap-4">
               <div className="">
                 <span className="text-bold fira">
@@ -231,7 +232,7 @@ function Home() {
                       {s.pool}
                     </div>
                     <img
-                      className="flex mx-auto"
+                      className="flex mx-auto invisible sm:visible"
                       width={50}
                       src={getTokenImage(s.chain) || getTokenImage(s.platform)}
                     ></img>
@@ -291,8 +292,8 @@ function Home() {
           <br />
           <br />
         </div>
-        <div className="grid md:grid-cols-3 auto-rows-fr gap-8 w-4/5 mx-auto ">
-          <div className="flex flex-col gap-4 ">
+        <div className="grid md:grid-cols-3 gap-8  w-4/5 mx-auto ">
+          <div className="flex flex-col gap-4">
             <div className="gradient-border flex flex-col gap-4">
               <div className="fira-bold pt-4">High Inflation</div>
               <div className="fira-light">
@@ -371,12 +372,14 @@ function Home() {
             do with it
           </div>
           <br />
-          add image here with steps (also needed for mobile)
+          <div className="text-center">
+            TODO: add image here with steps (also needed for mobile)
+          </div>
           <br />
         </div>
       </div>
-      <div className="flex flex-col md:flex-row md:items-center bg-[#292E41] w-4/5 h-[350px] mx-auto gradient-border justify-evenly gap-2 pt-12 ">
-        <div className="basis-full flex flex-col justify-center items-center gap-4 ">
+      <div className="flex md:flex-row md:items-center bg-[#292E41] w-3/5 md:h-[350px] flex-col-reverse mx-auto gradient-border justify-evenly gap-2 pt-12 ">
+        <div className="basis-full flex flex-col justify-center items-center gap-4 mx-auto">
           <div className="font-bold md:text-5xl text-4xl text-center">
             Earn passive income with GoldenBoys' goldAura Vault
           </div>
@@ -412,6 +415,48 @@ function Home() {
             width={150}
             height={500}
           />
+        </div>
+      </div>
+      <div className="p-20 flex flex-col">
+        <div className="mx-auto">
+          <div className="font-bold md:text-6xl text-4xl ">
+            Humpy, the leader of the Golden Boys
+          </div>
+          <br />
+          <div className="text-xl fira pt-6">
+            Swim with the whale and make DeFi History{" "}
+          </div>
+          <br />
+          <br />
+          <div className="flex md:flex-row flex-col gap-4 justify-items-center">
+            <div className="flex flex-1 flex-col gap-8 basis-full w-full">
+              <div className="flex flex-row justify-between items-center">
+                <div>
+                  <span className="fira-bold">
+                    Legend of the Holden Egg Humpy
+                  </span>
+                  <br />
+                  fanfic, based on a true story
+                </div>
+                <div className="bg-tertiary h-fit p-2">Read about Him</div>
+              </div>
+              <div className="flex  flex-row justify-between items-center">
+                <div>
+                  <span className="fira-bold">Debank Wallet</span> <br />
+                  Explore Humpy's main wallet
+                </div>
+                <div className="bg-tertiary p-2">Witness Him</div>
+              </div>
+              <div className="flex flex-row justify-between items-center">
+                <div>
+                  <span className="fira-bold">Messari Story</span> <br />
+                  Read about Humpy in the news
+                </div>
+                <div className="bg-tertiary p-2">Behold Him</div>
+              </div>
+            </div>
+            <div className="basis-full">TODO: humpychat </div>
+          </div>
         </div>
       </div>
     </div>

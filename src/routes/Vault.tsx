@@ -178,7 +178,7 @@ function VaultView({
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <div className="text-sm  flex flex-row justify-between items-center">
+                  <div className="text-sm flex flex-row justify-between items-center">
                     <div className="flex flex-row gap-2 items-center pt-2">
                       <img src={aura} alt="aura" className="w-6 h-6" />
                       <div className="text-gray-400 text-sm">Aura</div>
