@@ -11,9 +11,12 @@ import gold_small from "../assets/gold_small.png";
 import telegram_small from "../assets/telegram_small.png";
 import { getTokenImage, usePrice } from "../utils/data";
 import tokens from "../assets/tokens.png";
+import { HumpyChat } from "../components/HumpyChat";
 
 //TODO: add links to yield with display:contents
 //TODO: add apr and tvl data from api for yield dashboard
+
+//TODO: Fix mobile
 
 function Home() {
   const { data: goldPrice } = usePrice();
@@ -220,7 +223,7 @@ function Home() {
           <br />
           <br />
           <div className="md:hidden flex">
-            <div className="gradient-border w-full grid custom-grid gap-8 text-center fira-bold">
+            <div className="gradient-border w-full grid custom-grid md:gap-8 gap-2 text-center fira-bold">
               {yieldSources.map((s, index) => {
                 const addBottomPadding = index == yieldSources.length - 1;
 
@@ -280,8 +283,8 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="p-20 flex flex-col">
-        <div className="md:px-40">
+      <div className="md:p-20 p-10 flex flex-col">
+        <div className="md:px-40 text-center md:text-left">
           <div className="font-bold md:text-6xl text-4xl ">
             <span className="text-secondary">$GOLD</span> is built different
           </div>
@@ -292,8 +295,8 @@ function Home() {
           <br />
           <br />
         </div>
-        <div className="grid md:grid-cols-3 gap-8  w-4/5 mx-auto ">
-          <div className="flex flex-col gap-4">
+        <div className="flex flex-col md:flex-row gap-8 w-4/5 mx-auto">
+          <div className="flex flex-col gap-4 flex-grow">
             <div className="gradient-border flex flex-col gap-4">
               <div className="fira-bold pt-4">High Inflation</div>
               <div className="fira-light">
@@ -316,7 +319,7 @@ function Home() {
               </a>
             </div>
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 flex-grow">
             <div className="gradient-border flex flex-col gap-4">
               <div className="fira-bold pt-4">Impermanent Loss (IL)</div>
               <div className="fira-light">
@@ -327,7 +330,7 @@ function Home() {
                 <br />
                 Join our community to learn more about IL mitigation strategies.
               </div>
-              <div className="bg-tertiary px-2 mt-2 relative text-center cursor-pointer">
+              <div className="bg-tertiary px-2 mt-2  relative text-center cursor-pointer">
                 Explore LP's
                 <img
                   className="absolute bottom-[0rem] left-[-1rem] z-10"
@@ -339,7 +342,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 flex-grow">
             <div className="gradient-border flex flex-col gap-4">
               <div className="fira-bold pt-4">Unsustainable Hype</div>
               <div className="fira-light">
@@ -378,7 +381,7 @@ function Home() {
           <br />
         </div>
       </div>
-      <div className="flex md:flex-row md:items-center bg-[#292E41] w-3/5 md:h-[350px] flex-col-reverse mx-auto gradient-border justify-evenly gap-2 pt-12 ">
+      <div className="flex md:flex-row md:items-center bg-[#292E41] md:w-3/5 w-4/5 md:h-[350px] flex-col-reverse mx-auto gradient-border justify-evenly gap-2 pt-12 ">
         <div className="basis-full flex flex-col justify-center items-center gap-4 mx-auto">
           <div className="font-bold md:text-5xl text-4xl text-center">
             Earn passive income with GoldenBoys' goldAura Vault
@@ -429,7 +432,7 @@ function Home() {
           <br />
           <br />
           <div className="flex md:flex-row flex-col gap-4 justify-items-center">
-            <div className="flex flex-1 flex-col gap-8 basis-full w-full">
+            <div className="flex flex-1 flex-col justify-center gap-8 basis-full w-full mb-8">
               <div className="flex flex-row justify-between items-center">
                 <div>
                   <span className="fira-bold">
@@ -438,24 +441,32 @@ function Home() {
                   <br />
                   fanfic, based on a true story
                 </div>
-                <div className="bg-tertiary h-fit p-2">Read about Him</div>
+                <div className="bg-tertiary h-fit p-2 w-48 text-center">
+                  Read about Him
+                </div>
               </div>
               <div className="flex  flex-row justify-between items-center">
                 <div>
                   <span className="fira-bold">Debank Wallet</span> <br />
                   Explore Humpy's main wallet
                 </div>
-                <div className="bg-tertiary p-2">Witness Him</div>
+                <div className="bg-tertiary p-2 w-48 text-center">
+                  Witness Him
+                </div>
               </div>
               <div className="flex flex-row justify-between items-center">
                 <div>
                   <span className="fira-bold">Messari Story</span> <br />
                   Read about Humpy in the news
                 </div>
-                <div className="bg-tertiary p-2">Behold Him</div>
+                <div className="bg-tertiary p-2 w-48 text-center">
+                  Behold Him
+                </div>
               </div>
             </div>
-            <div className="basis-full">TODO: humpychat </div>
+            <div className="basis-full">
+              <HumpyChat />{" "}
+            </div>
           </div>
         </div>
       </div>
