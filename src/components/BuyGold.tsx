@@ -1,5 +1,5 @@
-import steps_horizontal from "../assets/steps-horizontal.png";
 import steps_vertical from "../assets/steps-vertical.png";
+import howtobuy from "../assets/howtobuy.png";
 export const BuyGold = () => {
   return (
     <>
@@ -10,12 +10,7 @@ export const BuyGold = () => {
         </div>
         <br />
         <div className="hidden md:flex justify-center items-center flex-col">
-          <img
-            src={steps_horizontal}
-            alt="steps_horizontal"
-            width={700}
-            height={500}
-          />
+          <img src={howtobuy} alt="howtobuy" width={900} height={500} />
         </div>
         <div className="flex flex-row md:hidden justify-evenly">
           <div className="flex flex-col gap-4">

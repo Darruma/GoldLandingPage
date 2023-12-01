@@ -9,9 +9,7 @@ import { Hero } from "../components/Hero";
 import { LearnMore } from "../components/LearnMore";
 import { HumpyInfo } from "../components/HumpyInfo";
 import { GAuraInfo } from "../components/GAuraInfo";
-
-//TODO: add links to yield with display:contents
-//TODO: add apr and tvl data from api for yield dashboard
+import { Footer } from "../components/Footer";
 
 function Home() {
   return (
@@ -59,6 +57,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
