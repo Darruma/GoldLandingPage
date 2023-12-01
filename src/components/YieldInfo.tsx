@@ -36,7 +36,7 @@ export const YieldInfo = () => {
                     width={50}
                     src={getTokenImage(s.project) || getTokenImage(s.platform)}
                   ></img>
-                  <div>{s.apy}</div>
+                  <div>{s.apy.toFixed(2)}%</div>
                 </>
               );
             })}
