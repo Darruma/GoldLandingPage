@@ -5,23 +5,37 @@ import aura_logo from "../assets/aura_logo.png";
 import arb from "../assets/arb.png";
 import ramses from "../assets/ramses.webp";
 
+const poolIds = [
+  "9ca7c571-ac74-4c73-b55d-b94d442787d5",
+  "985696e2-38d9-4006-9c2f-2b78f7ef552d",
+  "1266ea36-20bc-4d3a-aa16-40a77e7c2d1e",
+  "14bbef2a-cccc-4203-8fe2-8e4eb0863316",
+  "82f733a7-9bb2-4c5c-a2d6-2e568ac811a6",
+];
+
 export const getTokenImage = (token: string) => {
+  token = token.toLowerCase();
   const tokenImages: Record<string, string> = {
-    BAL: bal,
-    ARB: arb,
-    RAM: ramses,
-    AURA: aura_logo,
+    "0xba100000625a3754423978a60c9317c58a424e3d": bal,
+    "0x912ce59144191c1204e64559fe8253a0e49e6548": arb,
+    "0xaaa6c1e32c55a7bfa8066a6fae9b42650f262418": ramses,
+    "0xfe8b128ba8c78aabc59d4c64cee7ff28e9379921": bal,
+    "0x1509706a6c66ca549ff0cb464de88231ddbe213b": aura_logo,
   };
   const platformImages: Record<string, string> = {
-    Balancer: bal,
-    Aura: aura_logo,
-    Arbitrum: arb,
-    Ramses: ramses,
+    "balancer-v2": bal,
+    aura: aura_logo,
+    arbitrum: arb,
+    ramses: ramses,
   };
   if (token in tokenImages) {
     return tokenImages[token];
   } else {
-    return platformImages[token];
+    if (token in platformImages) {
+      return platformImages[token];
+    } else {
+      return token;
+    }
   }
 };
 
@@ -33,6 +47,18 @@ export const useAuraPrice = () => {
     const result = await resp.json();
     const price = result["aura-finance"].usd;
     return price as string;
+  });
+};
+
+export const useYields = () => {
+  return useQuery(["yields"], async () => {
+    const resp = await fetch("https://yields.llama.fi/pools");
+    const result = await resp.json();
+    let filteredPools = result.data.filter((p: any) => {
+      return poolIds.includes(p.pool);
+    });
+
+    return filteredPools;
   });
 };
 

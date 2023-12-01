@@ -1,40 +1,11 @@
-import { getTokenImage } from "../utils/data";
+import { getTokenImage, useYields } from "../utils/data";
 
-const yieldSources = [
-  {
-    pool: "GOLD/USDC/WSETH",
-    platform: "Balancer",
-    chain: "Base",
-    tvl: "$2,000,000",
-    apr: "69%",
-    rewards: ["BAL"],
-  },
-  {
-    pool: "GOLD/USDC/WSETH",
-    platform: "Aura",
-    chain: "Arbitrum",
-    tvl: "$2,000,000",
-    apr: "69%",
-    rewards: ["BAL", "AURA"],
-  },
-  {
-    pool: "GOLD/USDC/WSETH",
-    platform: "Balancer",
-    chain: "Base",
-    tvl: "$2,000,000",
-    apr: "69%",
-    rewards: ["ARB", "BAL"],
-  },
-  {
-    pool: "GOLD/WETH",
-    platform: "Ramses",
-    chain: "Arbitrum",
-    tvl: "$300,000",
-    apr: "127%",
-    rewards: ["RAM"],
-  },
-];
+function capitalizeFirstLetter(string: string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 export const YieldInfo = () => {
+  const { data: yieldData } = useYields();
   return (
     <a id="yield-dashboard">
       <div className="md:px-40">
@@ -50,22 +21,22 @@ export const YieldInfo = () => {
         <br />
         <div className="md:hidden flex">
           <div className="gradient-border w-full grid custom-grid md:gap-8 gap-2 text-center fira-bold">
-            {yieldSources.map((s, index) => {
-              const addBottomPadding = index == yieldSources.length - 1;
+            {yieldData?.map((s: any, index: number) => {
+              const addBottomPadding = index == yieldData.length - 1;
 
               return (
                 <>
                   <div
                     className={`${addBottomPadding ? "mb-4" : ""} text-left`}
                   >
-                    {s.pool}
+                    {s.symbol}
                   </div>
                   <img
                     className="flex mx-auto invisible sm:visible"
                     width={50}
-                    src={getTokenImage(s.chain) || getTokenImage(s.platform)}
+                    src={getTokenImage(s.project) || getTokenImage(s.platform)}
                   ></img>
-                  <div>{s.apr}</div>
+                  <div>{s.apy}</div>
                 </>
               );
             })}
@@ -79,24 +50,29 @@ export const YieldInfo = () => {
             <div>TVL</div>
             <div>APR</div>
             <div>Rewards</div>
-            {yieldSources.map((s, index) => {
-              const addBottomPadding = index == yieldSources.length - 1;
-
+            {yieldData?.map((s: any, index: number) => {
+              const addBottomPadding = index == yieldData.length - 1;
+              let rewards = [...new Set(s?.rewardTokens || [])];
               return (
                 <>
-                  <div className={`${addBottomPadding ? "mb-4" : ""}`}>
-                    {s.pool}
+                  <div
+                    className={`${
+                      addBottomPadding ? "mb-4" : ""
+                    } whitespace-nowrap`}
+                  >
+                    {s.symbol}
                   </div>
-                  <div>{s.platform}</div>
+                  <div>{capitalizeFirstLetter(s.project)}</div>
                   <div>{s.chain}</div>
-                  <div>{s.tvl}</div>
-                  <div>{s.apr}</div>
-                  <div className="flex flex-row gap-4 justify-center">
-                    {s.rewards.map((r) => {
+                  <div>${s.tvlUsd.toLocaleString()}</div>
+                  <div>{s.apy.toFixed(2)}%</div>
+                  <div className="flex flex-row gap-2 justify-left ">
+                    {rewards?.map((r: any) => {
                       return (
                         <img
+                          alt={r}
                           height={10}
-                          width={50}
+                          width={30}
                           src={getTokenImage(r)}
                         ></img>
                       );
