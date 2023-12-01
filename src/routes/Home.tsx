@@ -40,7 +40,7 @@ function Home() {
       </div>
       <div className="p-20 flex flex-col">
         <div className="md:px-40">
-          <div className="font-bold md:text-6xl text-4xl ">
+          <div id="humpy-leader" className="font-bold md:text-6xl text-4xl ">
             Humpy, the leader of the Golden Boys
           </div>
           <br />

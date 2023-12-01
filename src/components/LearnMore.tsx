@@ -33,7 +33,12 @@ export const LearnMore = () => {
                 APR through premium tokens.{" "}
               </span>
             </div>
-            <a className="bg-tertiary p-2 text-center w-48 ml-4 px-2 relative cursor-pointer">
+            <a
+              onClick={() => {
+                document.getElementById("yield-dashboard")?.scrollIntoView();
+              }}
+              className="bg-tertiary p-2 text-center w-48 ml-4 px-2 relative cursor-pointer"
+            >
               Learn More
               <img
                 src={dollars}
@@ -55,7 +60,12 @@ export const LearnMore = () => {
                 token emissions for maximized value retention.
               </span>
             </div>
-            <a className="bg-tertiary p-2 text-center w-48 ml-4 relative cursor-pointer">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://mirror.xyz/0xEb23BAacd279fD08248101804A6c8222C26768AF/sYcQS-26htr4VtutGfMsz70nkgXzPPHqT1drzmFGDAw"
+              className="bg-tertiary p-2 text-center w-48 ml-4 relative cursor-pointer"
+            >
               <img
                 src={diamond}
                 alt="diamond"
@@ -75,7 +85,12 @@ export const LearnMore = () => {
                 legendary DeFi whale.
               </span>
             </div>
-            <a className="bg-tertiary p-2 ml-4 text-center w-48 relative cursor-pointer">
+            <a
+              onClick={() => {
+                document.getElementById("humpy-leader")?.scrollIntoView();
+              }}
+              className="bg-tertiary p-2 ml-4 text-center w-48 relative cursor-pointer"
+            >
               Learn More
               <img
                 src={crown}
