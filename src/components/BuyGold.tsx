@@ -10,7 +10,7 @@ export const BuyGold = () => {
         </div>
         <br />
         <div className="hidden md:flex justify-center items-center flex-col">
-          <img src={howtobuy} alt="howtobuy" width={900} height={500} />
+          <img src={howtobuy} alt="howtobuy" width="100%" height={500} />
         </div>
         <div className="flex flex-row md:hidden justify-evenly">
           <div className="flex flex-col gap-4">
