@@ -13,7 +13,7 @@ import { Footer } from "../components/Footer";
 
 function Home() {
   return (
-    <div className="h-full bg-primary px-20">
+    <div className="h-full bg-primary px-20 max-w-[1800px] mx-auto">
       <div className="flex flex-col h-full overflow-hidden">
         <NavWithLogo />
       </div>

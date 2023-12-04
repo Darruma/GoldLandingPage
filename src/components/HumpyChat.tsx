@@ -30,7 +30,7 @@ export const HumpyChat = () => {
           onClick={() => {
             refetch();
           }}
-          className="bg-tertiary hover:bg-tertiaryLight p-2 text-white fira hover:bg- "
+          className="bg-tertiary hover:bg-tertiaryLight p-2 text-white fira  "
         >
           Send
         </button>
