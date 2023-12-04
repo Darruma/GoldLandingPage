@@ -6,6 +6,7 @@ const config = {
         primary: "#1B2030",
         secondary: "#E3D914",
         tertiary: "#4462AF",
+        tertiaryLight: "#5F7DCB",
       },
     },
   },

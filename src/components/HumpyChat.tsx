@@ -1,5 +1,9 @@
+import { useState } from "react";
 import logo from "../assets/logo.png";
+import { useHumpyQuery } from "../utils/data";
 export const HumpyChat = () => {
+  const [value, setValue] = useState("");
+  const { data, isLoading, refetch } = useHumpyQuery(value);
   return (
     <div className="gradient-border flex flex-col h-full">
       <div className="flex flex-row justify-between items-center">
@@ -10,8 +14,27 @@ export const HumpyChat = () => {
         </div>
         <div>X</div>
       </div>
-      <div className="flex-grow"></div>
-      <input className="p-2 text-black fira" placeholder="Hi, How are you?" />
+      <div className="flex-grow">
+        {isLoading ? " Waiting for humpy..." : data}
+      </div>
+      <div className="flex flex-row gap-4">
+        <input
+          value={value}
+          onChange={(e) => {
+            setValue(e.target.value);
+          }}
+          className="p-2 text-black fira basis-full"
+          placeholder="Talk to humpy!"
+        />
+        <button
+          onClick={() => {
+            refetch();
+          }}
+          className="bg-tertiary hover:bg-tertiaryLight p-2 text-white fira hover:bg- "
+        >
+          Send
+        </button>
+      </div>
     </div>
   );
 };

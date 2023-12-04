@@ -27,7 +27,7 @@ export const TokenInfo = () => {
               The vast majority of yields available to $GOLD holders are emitted
               in the form of coins of major protocols.
             </div>
-            <a className="bg-tertiary px-2 relative text-center cursor-pointer">
+            <a className="bg-tertiary px-2 relative text-center cursor-pointer hover:bg-tertiaryLight">
               Explore Tokenomics
               <img
                 className="absolute bottom-3 left-0 z-10"
@@ -51,7 +51,7 @@ export const TokenInfo = () => {
               <br />
               Join our community to learn more about IL mitigation strategies.
             </div>
-            <div className="bg-tertiary px-2 mt-2 relative text-center cursor-pointer">
+            <div className="bg-tertiary px-2 mt-2 relative text-center cursor-pointer hover:bg-tertiaryLight">
               Explore LP's
               <img
                 className="absolute bottom-[0rem] left-[-1rem] z-10"
@@ -76,7 +76,7 @@ export const TokenInfo = () => {
               Hold $GOLD for sustainable returns and take your cut of the token
               rewards Humpy sends to the Golden Boys.
             </div>
-            <a className="bg-tertiary px-2 relative text-center cursor-pointer">
+            <a className="bg-tertiary px-2 relative text-center cursor-pointer hover:bg-tertiaryLight">
               Buy $GOLD
               <img
                 className="absolute bottom-4 left-[-1.5rem] z-10"

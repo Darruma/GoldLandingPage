@@ -12,7 +12,7 @@ export const HumpyInfo = () => {
             target="_blank"
             rel="noopener noreferrer"
             href="https://mirror.xyz/0xEb23BAacd279fD08248101804A6c8222C26768AF/figX7_2ek5YEfsfgNjCb_vIOoasmCgnc2rtH9cE0jzc"
-            className="bg-tertiary h-fit p-2 w-48 text-center"
+            className="bg-tertiary h-fit p-2 w-48 text-center hover:bg-tertiaryLight"
           >
             Read about Him
           </a>
@@ -26,7 +26,7 @@ export const HumpyInfo = () => {
             href="https://debank.com/profile/0x36cc7B13029B5DEe4034745FB4F24034f3F2ffc6"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-tertiary p-2 w-48 text-center"
+            className="bg-tertiary p-2 w-48 text-center hover:bg-tertiaryLight"
           >
             Witness Him
           </a>
@@ -40,7 +40,7 @@ export const HumpyInfo = () => {
             target="_blank"
             rel="noopener noreferrer"
             href="https://messari.io/report/governor-note-the-vebal-wars"
-            className="bg-tertiary p-2 w-48 text-center"
+            className="bg-tertiary p-2 w-48 text-center hover:bg-tertiaryLight"
           >
             Behold Him
           </a>

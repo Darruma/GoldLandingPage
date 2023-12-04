@@ -18,7 +18,7 @@ export const Hero = () => {
             target="_blank"
             rel="noopener noreferrer"
             href="https://app.balancer.fi/#/base/swap/0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4"
-            className="bg-tertiary p-2 relative mr-8 flex justify-center items-center fira-bold"
+            className="bg-tertiary p-2 relative mr-8 flex justify-center items-center fira-bold hover:bg-tertiaryLight"
           >
             BUY GOLD
           </a>
@@ -26,7 +26,7 @@ export const Hero = () => {
             target="_blank"
             rel="noopener noreferrer"
             href="https://t.me/goldenboysportal"
-            className="bg-tertiary p-2  h-fit relative justify-center items-center text-center fira-bold "
+            className="bg-tertiary p-2  h-fit relative justify-center items-center text-center fira-bold hover:bg-tertiaryLight"
           >
             <div className="z-10">JOIN THE GOLDEN BOYS</div>
           </a>

@@ -3,7 +3,7 @@ import howtobuy from "../assets/howtobuy.png";
 export const BuyGold = () => {
   return (
     <>
-      <div className="text-center">
+      <div className="">
         <div className="font-bold md:text-6xl text-4xl  ">
           How to buy <span className="text-secondary">$GOLD</span> & What to do
           with it

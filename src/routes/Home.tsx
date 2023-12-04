@@ -13,7 +13,7 @@ import { Footer } from "../components/Footer";
 
 function Home() {
   return (
-    <div className="h-full bg-primary p-20 pt-0">
+    <div className="h-full bg-primary px-20">
       <div className="flex flex-col h-full overflow-hidden">
         <NavWithLogo />
       </div>
@@ -38,8 +38,8 @@ function Home() {
       <div className="flex flex-col md:flex-row md:items-center bg-[#292E41]  mx-auto gradient-border justify-evenly mt-40">
         <GAuraInfo />
       </div>
-      <div className="pt-40 flex flex-col">
-        <div className="md:px-40">
+      <div className="pt-40 pb-20 flex flex-col">
+        <div>
           <div id="humpy-leader" className="font-bold md:text-6xl text-4xl ">
             Humpy, the leader of the Golden Boys
           </div>

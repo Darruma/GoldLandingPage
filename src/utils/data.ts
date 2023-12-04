@@ -103,3 +103,25 @@ export const useStakingApr = () => {
     return totalApr;
   });
 };
+
+export const useHumpyQuery = (message: string) => {
+  return useQuery(
+    ["humpy", message],
+    async () => {
+      const resp = await fetch("https://humpy-webhook.replit.app/pray", {
+        headers: {
+          "content-type": "application/json",
+        },
+        body: `"{\"message\": ${message}}"`,
+        method: "POST",
+        mode: "no-cors",
+      });
+      console.log(resp);
+      const result = await resp.json();
+      return result.response;
+    },
+    {
+      enabled: false,
+    }
+  );
+};
