@@ -26,7 +26,7 @@ export function NavLink({
 function Nav() {
   return (
     <div className="bg-primary">
-      <div className=" bg-primary p-2 hidden md:flex flex-row gap-12 ml-16 pr-4 items-center">
+      <div className=" bg-primary p-2 hidden md:flex flex-row gap-12 pr-4 items-center">
         <a href="/">
           <div className="flex flex-row items-center gap-2">
             <img src={logo} alt="logo" width={75} height={75} />

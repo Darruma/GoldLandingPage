@@ -5,7 +5,7 @@ import tokens from "../assets/tokens.png";
 export const LearnMore = () => {
   return (
     <>
-      <div className="md:px-20 lg:p-40 ">
+      <div>
         <div className="font-bold md:text-6xl text-4xl ">
           The Power of <span className="text-secondary">$GOLD</span>: <br />
         </div>

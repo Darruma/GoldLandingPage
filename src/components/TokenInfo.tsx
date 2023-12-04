@@ -4,7 +4,7 @@ import goldchest from "../assets/goldchest.png";
 export const TokenInfo = () => {
   return (
     <>
-      <div className="md:px-40 text-center md:text-left">
+      <div>
         <div className="font-bold md:text-6xl text-4xl ">
           <span className="text-secondary">$GOLD</span> is built different
         </div>
@@ -15,9 +15,9 @@ export const TokenInfo = () => {
         <br />
         <br />
       </div>
-      <div className="flex flex-col md:flex-row gap-8 w-4/5  mx-auto items-center  ">
-        <div className="flex flex-col gap-4  ">
-          <div className="gradient-border flex flex-col gap-4">
+      <div className="flex flex-col md:flex-row h-full gap-8 ">
+        <div className="flex flex-col flex-1 gap-4">
+          <div className="gradient-border flex flex-col flex-1 gap-4 justify-between">
             <div className="fira-bold pt-4">High Inflation</div>
             <div className="fira-light">
               Counteract inflation with $GOLD’s fundamentals: fixed supply, low
@@ -39,8 +39,9 @@ export const TokenInfo = () => {
             </a>
           </div>
         </div>
-        <div className="flex flex-col gap-4 ">
-          <div className="gradient-border flex flex-col gap-4">
+
+        <div className="flex flex-col flex-1 gap-4">
+          <div className="gradient-border flex flex-col flex-1 gap-4 justify-between">
             <div className="fira-bold pt-4">Impermanent Loss (IL)</div>
             <div className="fira-light">
               GOLD mitigates impermanent loss with its robust liquidity pools.
@@ -50,7 +51,7 @@ export const TokenInfo = () => {
               <br />
               Join our community to learn more about IL mitigation strategies.
             </div>
-            <div className="bg-tertiary px-2 mt-2  relative text-center cursor-pointer">
+            <div className="bg-tertiary px-2 mt-2 relative text-center cursor-pointer">
               Explore LP's
               <img
                 className="absolute bottom-[0rem] left-[-1rem] z-10"
@@ -62,8 +63,9 @@ export const TokenInfo = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-4 ">
-          <div className="gradient-border flex flex-col gap-4">
+
+        <div className="flex flex-col flex-1 gap-4">
+          <div className="gradient-border flex flex-col flex-1 gap-4 justify-between">
             <div className="fira-bold pt-4">Unsustainable Hype</div>
             <div className="fira-light">
               GOLD has what many projects promise, yet fail to deliver. $GOLD
@@ -71,8 +73,8 @@ export const TokenInfo = () => {
               LP yields.
               <br />
               <br />
-              Hold $GOLD for sustainable returns and a take your cut of the
-              token rewards Humpy sends to the Golden Boys.
+              Hold $GOLD for sustainable returns and take your cut of the token
+              rewards Humpy sends to the Golden Boys.
             </div>
             <a className="bg-tertiary px-2 relative text-center cursor-pointer">
               Buy $GOLD
@@ -86,7 +88,7 @@ export const TokenInfo = () => {
             </a>
           </div>
         </div>
-      </div>{" "}
+      </div>
     </>
   );
 };

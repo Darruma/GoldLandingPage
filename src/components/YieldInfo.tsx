@@ -8,7 +8,7 @@ export const YieldInfo = () => {
   const { data: yieldData } = useYields();
   return (
     <a id="yield-dashboard">
-      <div className="md:px-40">
+      <div>
         <div className="font-bold md:text-6xl text-4xl ">
           Browse <span className="text-secondary">$GOLD</span> Yield
           Opportunities
@@ -20,14 +20,16 @@ export const YieldInfo = () => {
         <br />
         <br />
         <div className="md:hidden flex">
-          <div className="gradient-border w-full grid custom-grid md:gap-8 gap-2 text-center fira-bold">
+          <div className="gradient-border w-full grid custom-grid md:gap-8 gap-2 text-center ">
             {yieldData?.map((s: any, index: number) => {
               const addBottomPadding = index == yieldData.length - 1;
 
               return (
                 <>
                   <div
-                    className={`${addBottomPadding ? "mb-4" : ""} text-left`}
+                    className={`${
+                      addBottomPadding ? "mb-4" : ""
+                    } text-left fira-bold`}
                   >
                     {s.symbol}
                   </div>
@@ -36,7 +38,7 @@ export const YieldInfo = () => {
                     width={50}
                     src={getTokenImage(s.project) || getTokenImage(s.platform)}
                   ></img>
-                  <div>{s.apy.toFixed(2)}%</div>
+                  <div className="fira">{s.apy.toFixed(2)}%</div>
                 </>
               );
             })}
