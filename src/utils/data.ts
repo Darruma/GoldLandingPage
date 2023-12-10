@@ -112,11 +112,10 @@ export const useHumpyQuery = (message: string) => {
         headers: {
           "content-type": "application/json",
         },
-        body: `"{\"message\": ${message}}"`,
+        body: JSON.stringify({ message: message }),
         method: "POST",
         mode: "no-cors",
       });
-      console.log(resp);
       const result = await resp.json();
       return result.response;
     },

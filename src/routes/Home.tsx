@@ -11,6 +11,8 @@ import { HumpyInfo } from "../components/HumpyInfo";
 import { GAuraInfo } from "../components/GAuraInfo";
 import { Footer } from "../components/Footer";
 
+import whale from "../assets/whale.png";
+
 function Home() {
   return (
     <div className="h-full bg-primary px-20 max-w-[1800px] mx-auto">
@@ -49,7 +51,7 @@ function Home() {
           </div>
           <br />
           <br />
-          <div className="flex md:flex-row flex-col gap-8 justify-items-center">
+          <div className="flex md:flex-row flex-col gap-8 justify-items-center z-2">
             <HumpyInfo />
             <div className="basis-full">
               <HumpyChat />{" "}
@@ -57,6 +59,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <img src={whale} alt="whale" className="mx-auto top-0 z-1 mt-[-40rem] " />
       <Footer />
     </div>
   );
