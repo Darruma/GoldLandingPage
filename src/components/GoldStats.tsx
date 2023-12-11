@@ -21,7 +21,7 @@ export const GoldStats = () => {
       </div>
       <div className="flex flex-row gap-2 items-center mx-auto">
         <img src={crown} alt="chest" width={50} height={50} />
-        <div className="text-xl">HUMPY: $102,664,969</div>
+        <div className="text-xl">HUMPY: $100M</div>
       </div>
     </>
   );

@@ -9,12 +9,12 @@ export const YieldInfo = () => {
   return (
     <a id="yield-dashboard">
       <div>
-        <div className="font-bold md:text-6xl text-4xl ">
+        <div className="font-bold md:text-6xl text-4xl text-center md:text-left ">
           Browse <span className="text-secondary">$GOLD</span> Yield
           Opportunities
         </div>
         <br />
-        <div className="text-xl fira pt-6">
+        <div className="text-xl fira pt-6 text-center md:text-left">
           Earn premium tokens by staking $GOLD in LPs on top DeFi platforms
         </div>
         <br />

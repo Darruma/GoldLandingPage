@@ -8,12 +8,12 @@ export const Hero = () => {
           Unlock the <span className="text-secondary">$GOLD </span> <br />
           Standard of Defi
         </div>
-        <div className="text-xl fira">
+        <div className="text-xl text-center md:text-left fira">
           $GOLD is the quintessential asset for liquidity farming. Our <br />
           platform provides a basket of yields carved from the chain <br />
           by Defi Titans.
         </div>
-        <div className="flex md:flex-row flex-col gap-8">
+        <div className="flex md:flex-row flex-col gap-8 mx-auto md:mx-0">
           <a
             target="_blank"
             rel="noopener noreferrer"

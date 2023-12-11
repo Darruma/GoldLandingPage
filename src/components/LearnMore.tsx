@@ -5,7 +5,7 @@ import tokens from "../assets/tokens.png";
 export const LearnMore = () => {
   return (
     <>
-      <div>
+      <div className="text-center md:text-left">
         <div className="font-bold md:text-6xl text-4xl ">
           The Power of <span className="text-secondary">$GOLD</span>: <br />
         </div>
@@ -24,7 +24,7 @@ export const LearnMore = () => {
         </div>
         <div className="basis-full flex flex-col gap-12 md:px-12 py-12 text-xl">
           <div className="flex flex-col gap-4">
-            <div className="">
+            <div className="text-center md:text-left">
               <span className="text-bold fira">
                 A New Era of Defi Farming:{" "}
               </span>
@@ -51,7 +51,7 @@ export const LearnMore = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <div>
+            <div className="text-center md:text-left">
               <span className="text-bold fira">
                 Exclusivity Through Scarcity:{" "}
               </span>
@@ -77,7 +77,7 @@ export const LearnMore = () => {
             </a>
           </div>
           <div className="flex flex-col gap-4">
-            <div>
+            <div className="text-center md:text-left">
               <span className="text-bold fira">Swim with the Whale: </span>
               <span className="fira-light">
                 A thesis of $GOLD is that Humpy, our 9-figure net worth creator,

@@ -1,6 +1,5 @@
 import { PropsWithChildren } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../assets/logo.png";
 import goldenLogo from "../assets/goldenlogo.png";
 import HamburgerMenu from "./Hamburger";
 import CustomConnect from "./CustomConnect";
@@ -54,19 +53,15 @@ function Nav() {
           <CustomConnect />
         </div>
       </div>
-      <div className="md:hidden flex flex-row ">
+      <div className="md:hidden flex flex-row justify-center items-center ">
         <div className="p-4">
           <a className="md:hidden flex " href="/">
             <div className="flex flex-row items-center gap-4">
-              <img src={logo} alt="logo" width={75} height={75} />
-              <div className="small-pixel-7 text-6xl no-underline flex flex-row">
-                <span className="text-secondary">GOLDEN </span>{" "}
-                <span className="text-tertiary"> BOYS</span>
-              </div>
+              <img src={goldenLogo} alt="logo" />
             </div>
           </a>
         </div>
-        <div className="ml-auto mt-10">
+        <div className="ml-auto">
           <HamburgerMenu />
         </div>
       </div>

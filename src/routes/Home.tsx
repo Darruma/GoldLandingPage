@@ -15,7 +15,7 @@ import whale from "../assets/whale.png";
 
 function Home() {
   return (
-    <div className="h-full bg-primary px-20 max-w-[1800px] mx-auto">
+    <div className="h-full bg-primary md:px-20 max-w-[1800px] mx-auto">
       <div className="flex flex-col h-full overflow-hidden">
         <NavWithLogo />
       </div>
@@ -41,12 +41,24 @@ function Home() {
         <GAuraInfo />
       </div>
       <div className="pt-40 pb-20 flex flex-col">
-        <div>
-          <div id="humpy-leader" className="font-bold md:text-6xl text-4xl ">
+        <div
+          style={{
+            backgroundImage: `url(${whale})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            paddingBottom: "10%",
+          }}
+        >
+          <div
+            id="humpy-leader"
+            className="font-bold md:text-6xl text-4xl text-center md:text-left z-2"
+          >
             Humpy, the leader of the Golden Boys
           </div>
+
           <br />
-          <div className="text-xl fira pt-6">
+          <div className="text-xl fira pt-6 text-center md:text-left">
             Swim with the whale and make DeFi History{" "}
           </div>
           <br />
@@ -59,7 +71,6 @@ function Home() {
           </div>
         </div>
       </div>
-      <img src={whale} alt="whale" className="mx-auto top-0 z-1 mt-[-40rem] " />
       <Footer />
     </div>
   );

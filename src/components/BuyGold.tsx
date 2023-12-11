@@ -4,7 +4,7 @@ export const BuyGold = () => {
   return (
     <>
       <div className="">
-        <div className="font-bold md:text-6xl text-4xl  ">
+        <div className="font-bold md:text-6xl text-4xl text-center md:text-left  ">
           How to buy <span className="text-secondary">$GOLD</span> & What to do
           with it
         </div>
