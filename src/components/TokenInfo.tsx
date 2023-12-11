@@ -30,7 +30,7 @@ export const TokenInfo = () => {
             <a className="bg-tertiary px-2 relative text-center cursor-pointer hover:bg-tertiaryLight">
               Explore Tokenomics
               <img
-                className="absolute bottom-3 left-0 z-10"
+                className="absolute bottom-3 left-[-1rem] z-10"
                 src={goldcoins}
                 alt="goldcoins"
                 width={50}
@@ -43,18 +43,19 @@ export const TokenInfo = () => {
         <div className="flex flex-col flex-1 gap-4">
           <div className="gradient-border flex flex-col flex-1 gap-4 justify-between">
             <div className="fira-bold pt-4">Impermanent Loss (IL)</div>
-            <div className="fira-light">
+            <div className="fira-light pb-2">
               GOLD mitigates impermanent loss with its robust liquidity pools.
               While IL still exists for $GOLD farmers, there is substantially
               less risk than most high-yield DeFi coins in the market.
               <br />
               <br />
               Join our community to learn more about IL mitigation strategies.
+              <br />
             </div>
             <div className="bg-tertiary px-2 mt-2 relative text-center cursor-pointer hover:bg-tertiaryLight">
               Explore LP's
               <img
-                className="absolute bottom-[0rem] left-[-1rem] z-10"
+                className="absolute bottom-0 left-[-1rem] z-10"
                 src={potofgold}
                 alt="potofgold"
                 width={50}
@@ -79,7 +80,7 @@ export const TokenInfo = () => {
             <a className="bg-tertiary px-2 relative text-center cursor-pointer hover:bg-tertiaryLight">
               Buy $GOLD
               <img
-                className="absolute bottom-4 left-[-1.5rem] z-10"
+                className="absolute bottom-3 left-[-1rem] z-10"
                 src={goldchest}
                 alt="goldchest"
                 width={50}

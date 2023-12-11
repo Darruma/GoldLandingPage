@@ -1,6 +1,7 @@
 import { PropsWithChildren } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
+import goldenLogo from "../assets/goldenlogo.png";
 import HamburgerMenu from "./Hamburger";
 import CustomConnect from "./CustomConnect";
 
@@ -29,11 +30,7 @@ function Nav() {
       <div className=" bg-primary p-2 hidden md:flex flex-row gap-12 pr-4 items-center">
         <a href="/">
           <div className="flex flex-row items-center gap-2">
-            <img src={logo} alt="logo" width={75} height={75} />
-            <div className="small-pixel-7 text-6xl no-underline flex flex-row">
-              <span className="text-secondary">GOLDEN </span>{" "}
-              <span className="text-tertiary"> BOYS</span>
-            </div>
+            <img src={goldenLogo} alt="logo" />
           </div>
         </a>
         <div className="ml-auto">
