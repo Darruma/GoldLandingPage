@@ -1,3 +1,4 @@
+import goldpile from "../assets/goldpile.png";
 export const GAuraInfo = () => {
   return (
     <>
@@ -15,8 +16,8 @@ export const GAuraInfo = () => {
           Enter the Vault
         </a>
       </div>
-      <div className="basis-full flex justify-center items-center relative pt-32 mb-12">
-        Placeholder image
+      <div className="basis-full flex justify-center items-center relative ">
+        <img height={300} width={300} src={goldpile}></img>
       </div>
     </>
   );
