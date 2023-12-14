@@ -114,7 +114,6 @@ export const useHumpyQuery = (message: string) => {
         },
         body: JSON.stringify({ message: message }),
         method: "POST",
-        mode: "no-cors",
       });
       const result = await resp.json();
       return result.response;
