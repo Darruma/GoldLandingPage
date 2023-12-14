@@ -14,7 +14,7 @@ export const HumpyChat = () => {
         </div>
         <div>X</div>
       </div>
-      <div className="flex-grow">
+      <div className="flex-grow press-start-2p">
         {isLoading ? " Waiting for humpy..." : data}
       </div>
       <div className="flex flex-row gap-4">
