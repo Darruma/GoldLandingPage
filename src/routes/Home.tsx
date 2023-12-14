@@ -1,5 +1,4 @@
 import NavWithLogo from "../components/NavWithLogo";
-
 import { HumpyChat } from "../components/HumpyChat";
 import { YieldInfo } from "../components/YieldInfo";
 import { TokenInfo } from "../components/TokenInfo";

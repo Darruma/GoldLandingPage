@@ -48,7 +48,7 @@ function Nav() {
         >
           Etherscan
         </NavLink>
-        <NavLink to="/learn">Humpychat</NavLink>
+        <NavLink to="">Humpychat</NavLink>
         <div className="">
           <CustomConnect />
         </div>
