@@ -1,8 +1,9 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import goldenLogo from "../assets/goldenlogo.png";
 import HamburgerMenu from "./Hamburger";
 import CustomConnect from "./CustomConnect";
+import { HumpyChat } from "./HumpyChat";
 
 export function NavLink({
   to,
@@ -24,6 +25,7 @@ export function NavLink({
 }
 
 function Nav() {
+  const [showHumpyChat, setShowHumpyChat] = useState(false);
   return (
     <div className="bg-primary">
       <div className=" bg-primary p-2 hidden md:flex flex-row gap-12 pr-4 items-center">
@@ -36,23 +38,41 @@ function Nav() {
           <NavLink to="/">Home</NavLink>
         </div>
         <NavLink to="/vault">Vault</NavLink>
-        <NavLink
-          external={true}
-          to="https://app.balancer.fi/#/base/pool/0x17e7d59bb209a3215ccc25fffef7161498b7c10d000200000000000000000020"
+        <div
+          className="cursor-pointer text-xl roboto"
+          onClick={() => {
+            document.getElementById("yield-dashboard")?.scrollIntoView();
+          }}
         >
           Earn
-        </NavLink>
+        </div>
         <NavLink
           external={true}
           to="https://basescan.org/token/0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4"
         >
           Etherscan
         </NavLink>
-        <NavLink to="">Humpychat</NavLink>
+        <NavLink
+          external={true}
+          to="https://mirror.xyz/0xEb23BAacd279fD08248101804A6c8222C26768AF"
+        >
+          Blog
+        </NavLink>
+        <div
+          onClick={() => setShowHumpyChat(true)}
+          className="cursor-pointer text-xl roboto"
+        >
+          HumpyChat
+        </div>
         <div className="">
           <CustomConnect />
         </div>
       </div>
+      {showHumpyChat && (
+        <div className="fixed top-1/4 left-1/4 w-1/2 h-1/2 z-50 ">
+          <HumpyChat onClose={() => setShowHumpyChat(false)} />
+        </div>
+      )}
       <div className="md:hidden flex flex-row justify-center items-center ">
         <div className="p-4">
           <a className="md:hidden flex " href="/">

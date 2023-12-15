@@ -1,9 +1,12 @@
 import { useState } from "react";
 import logo from "../assets/logo.png";
 import { useHumpyQuery } from "../utils/data";
-export const HumpyChat = () => {
+type HumpyChatProps = {
+  onClose?: () => void;
+};
+export const HumpyChat = ({ onClose }: HumpyChatProps) => {
   const [value, setValue] = useState("");
-  const { data, isLoading, refetch } = useHumpyQuery(value);
+  const { data, isLoading, refetch, isRefetching } = useHumpyQuery(value);
   return (
     <div className="gradient-border flex flex-col h-full">
       <div className="flex flex-row justify-between items-center">
@@ -12,10 +15,15 @@ export const HumpyChat = () => {
           <span className="text-tertiary pr-2"> CHAT</span>
           <img src={logo} alt="logo" width={40} height={40} />
         </div>
-        <div>X</div>
+        <div
+          className="cursor-pointer text-5xl small-pixel-7 text-white pr-2"
+          onClick={() => onClose?.()}
+        >
+          X
+        </div>
       </div>
-      <div className="flex-grow press-start-2p">
-        {isLoading ? " Waiting for humpy..." : data}
+      <div className="flex-grow press-start-2p h-[250px] overflow-y-auto ">
+        {isLoading || isRefetching ? " Waiting for humpy..." : data}
       </div>
       <div className="flex flex-row gap-4">
         <input

@@ -25,7 +25,7 @@ export const Hero = () => {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://t.me/goldenboysportal"
+            href="https://t.me/+YUKhdQVv8KBmMjNk"
             className="bg-tertiary p-2  h-fit relative justify-center items-center text-center fira-bold hover:bg-tertiaryLight"
           >
             <div className="z-10">JOIN THE GOLDEN BOYS</div>

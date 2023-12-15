@@ -11,7 +11,7 @@ export const GAuraInfo = () => {
         </div>
         <a
           href="/#/vault"
-          className="bg-tertiary text-white w-64 py-2 text-center cursor-pointer hover:bg-tertiaryLight"
+          className="bg-tertiary text-white w-64 py-2 text-center cursor-pointer hover:bg-tertiaryLight font-bold"
         >
           Enter the Vault
         </a>

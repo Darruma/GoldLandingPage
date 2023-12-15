@@ -106,7 +106,7 @@ export const useStakingApr = () => {
 
 export const useHumpyQuery = (message: string) => {
   return useQuery(
-    ["humpy", message],
+    ["humpy"],
     async () => {
       const resp = await fetch("https://humpy-webhook.replit.app/pray", {
         headers: {

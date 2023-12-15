@@ -6,7 +6,13 @@ import goldenLogo from "../assets/goldenlogo.png";
 export const Footer = () => {
   return (
     <div className="flex flex-row justify-around items-center pb-8 w-full">
-      <img src={goldenLogo} alt="logo" />
+      <img
+        onClick={() => {
+          window.scrollTo(0, 0);
+        }}
+        src={goldenLogo}
+        alt="logo"
+      />
 
       <div className="flex flex-row gap-4">
         <a
