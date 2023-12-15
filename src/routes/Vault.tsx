@@ -19,6 +19,7 @@ import {
   useWalletGoldAura,
 } from "../utils/vaultHooks";
 import { useAuraPrice } from "../utils/data";
+import { Footer } from "../components/Footer";
 
 enum VAULT_MODAL {
   NONE,
@@ -306,7 +307,7 @@ function VaultView({
             </div>
           </div>
         </div>
-        <Socials />
+        <Footer />
       </div>
     </div>
   );
