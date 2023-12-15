@@ -1,4 +1,3 @@
-import Socials from "../components/SocialsBar";
 import NavWithLogo from "../components/NavWithLogo";
 import aura from "../assets/aura.png";
 import goldAuraLogo from "../assets/goldAuraLogo.png";
