@@ -12,6 +12,10 @@ html, body {
   scroll-behavior: smooth;
 }
 
+img {
+  height: fit-content;
+}
+
 @font-face {
   font-family: 'Small Pixel7';
   src: url('../public/small_bold_pixel-7.ttf');
