@@ -13,6 +13,19 @@ const poolIds = [
   "82f733a7-9bb2-4c5c-a2d6-2e568ac811a6",
 ];
 
+const poolIdsToLinks: Record<string, string> = {
+  "9ca7c571-ac74-4c73-b55d-b94d442787d5":
+    "https://app.balancer.fi/#/arbitrum/pool/0x2e8ea681fd59c9dc5f32b29de31f782724ef4dcb0001000000000000000004bc",
+  "985696e2-38d9-4006-9c2f-2b78f7ef552d":
+    "https://app.aura.finance/#/42161/pool/38",
+  "1266ea36-20bc-4d3a-aa16-40a77e7c2d1e":
+    "https://app.balancer.fi/#/base/pool/0xb328b50f1f7d97ee8ea391ab5096dd7657555f49000100000000000000000048",
+  "14bbef2a-cccc-4203-8fe2-8e4eb0863316":
+    "https://app.aura.finance/#/42161/pool/37",
+  "82f733a7-9bb2-4c5c-a2d6-2e568ac811a6":
+    "https://app.ramses.exchange/liquidity/v2/0x7e0b1d20367fe055f2884dd6ec6cca1e59f7c7eb",
+};
+
 export const getTokenImage = (token: string) => {
   token = token.toLowerCase();
   const tokenImages: Record<string, string> = {
@@ -58,7 +71,12 @@ export const useYields = () => {
       return poolIds.includes(p.pool);
     });
 
-    return filteredPools;
+    return filteredPools.map((p: any) => {
+      return {
+        ...p,
+        link: poolIdsToLinks[p.pool],
+      };
+    });
   });
 };
 

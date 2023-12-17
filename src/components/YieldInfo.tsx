@@ -56,7 +56,12 @@ export const YieldInfo = () => {
               const addBottomPadding = index == yieldData.length - 1;
               let rewards = [...new Set(s?.rewardTokens || [])];
               return (
-                <>
+                <a
+                  href={s.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contents cursor-pointer child"
+                >
                   <div
                     className={`${
                       addBottomPadding ? "mb-4" : ""
@@ -80,7 +85,7 @@ export const YieldInfo = () => {
                       );
                     })}
                   </div>
-                </>
+                </a>
               );
             })}
           </div>
