@@ -15,8 +15,15 @@ import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { mainnet } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import { Toaster } from "react-hot-toast";
+import { alchemyProvider } from "wagmi/providers/alchemy";
 
-const { chains, publicClient } = configureChains([mainnet], [publicProvider()]);
+const { chains, publicClient } = configureChains(
+  [mainnet],
+  [
+    publicProvider(),
+    alchemyProvider({ apiKey: "67TaLoEIQQoQuydDn4HcFCGgi9Kc5Kn0" }),
+  ]
+);
 
 const { connectors } = getDefaultWallets({
   appName: "GoldAura",

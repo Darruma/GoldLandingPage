@@ -27,7 +27,12 @@ export const TokenInfo = () => {
               The vast majority of yields available to $GOLD holders are emitted
               in the form of coins of major protocols.
             </div>
-            <a className="bg-tertiary px-2 relative text-center cursor-pointer hover:bg-tertiaryLight">
+            <a
+              href="https://mirror.xyz/0xEb23BAacd279fD08248101804A6c8222C26768AF/6wF4FpU5XcFMh7GYvo8BwUPK0aYESatAQNRR161W1ZA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-tertiary px-2 relative text-center cursor-pointer hover:bg-tertiaryLight"
+            >
               Explore Tokenomics
               <img
                 className="absolute bottom-3 left-[-1rem] z-10"
@@ -52,7 +57,12 @@ export const TokenInfo = () => {
               Join our community to learn more about IL mitigation strategies.
               <br />
             </div>
-            <div className="bg-tertiary px-2 mt-2 relative text-center cursor-pointer hover:bg-tertiaryLight">
+            <div
+              onClick={() => {
+                document.getElementById("yield-dashboard")?.scrollIntoView();
+              }}
+              className="bg-tertiary px-2 mt-2 relative text-center cursor-pointer hover:bg-tertiaryLight"
+            >
               Explore LP's
               <img
                 className="absolute bottom-0 left-[-1rem] z-10"
@@ -77,7 +87,12 @@ export const TokenInfo = () => {
               Hold $GOLD for sustainable returns and take your cut of the token
               rewards Humpy sends to the Golden Boys.
             </div>
-            <a className="bg-tertiary px-2 relative text-center cursor-pointer hover:bg-tertiaryLight">
+            <a
+              href="https://app.balancer.fi/#/arbitrum/swap"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-tertiary px-2 relative text-center cursor-pointer hover:bg-tertiaryLight"
+            >
               Buy $GOLD
               <img
                 className="absolute bottom-3 left-[-1rem] z-10"
