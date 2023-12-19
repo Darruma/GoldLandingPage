@@ -64,7 +64,6 @@ function CustomConnect() {
                             style={{ objectFit: "contain" }}
                           />
                         )}
-                        <div>{chain.name}</div>
                       </div>
                     </button>
                     <button

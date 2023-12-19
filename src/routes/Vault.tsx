@@ -101,8 +101,10 @@ function VaultView({
   return (
     <div className="h-full">
       <div className="flex flex-col h-full">
-        <NavWithLogo />
         <div className="md:mx-64 basis-full md:pt-0 mt-8">
+          <div className="flex flex-col h-full overflow-hidden pb-8">
+            <NavWithLogo />
+          </div>
           <div className="flex flex-row gap-4 items-center">
             <img src={goldAuraLogo} alt="aura" className="w-12 h-12" />
             <div className="press-start-2p text-2xl">goldAURA Vault</div>
