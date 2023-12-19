@@ -31,7 +31,7 @@ export const HumpyChat = ({ onClose }: HumpyChatProps) => {
           onChange={(e) => {
             setValue(e.target.value);
           }}
-          className="p-2 text-black fira basis-full"
+          className="p-2 text-black fira basis-full text-sm md:text-md"
           placeholder="Talk to humpy!"
         />
         <button
