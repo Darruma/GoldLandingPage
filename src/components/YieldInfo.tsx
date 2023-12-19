@@ -20,12 +20,17 @@ export const YieldInfo = () => {
         <br />
         <br />
         <div className="md:hidden flex">
-          <div className="gradient-border w-full grid custom-grid md:gap-8 gap-2 text-center ">
+          <div className="gradient-border md:w-full grid custom-grid md:gap-8 gap-2 text-center w-4/5 mx-auto  ">
             {yieldData?.map((s: any, index: number) => {
               const addBottomPadding = index == yieldData.length - 1;
 
               return (
-                <>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contents cursor-pointer child"
+                  href={s.link}
+                >
                   <div
                     className={`${
                       addBottomPadding ? "mb-4" : ""
@@ -39,7 +44,7 @@ export const YieldInfo = () => {
                     src={getTokenImage(s.project) || getTokenImage(s.platform)}
                   ></img>
                   <div className="fira">{s.apy.toFixed(2)}%</div>
-                </>
+                </a>
               );
             })}
           </div>

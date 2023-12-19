@@ -5,7 +5,7 @@ import { NavLink } from "./Nav";
 function HamburgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="">
+    <div className="pt-4">
       <img
         onClick={() => {
           setIsOpen(!isOpen);

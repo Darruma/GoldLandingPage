@@ -9,7 +9,7 @@ export const GoldStats = () => {
   const tvl = (Number(vaultAura || "0") / 1e18) * Number(auraPrice || "0");
   return (
     <>
-      <div className=" flex flex-row gap-2 items-center mx-auto">
+      <div className="flex flex-row gap-2 items-center mx-auto">
         <img src={chest} alt="chest" width={50} height={50} />
         <div className="text-xl">TVL: ${tvl.toFixed(1)}</div>
       </div>

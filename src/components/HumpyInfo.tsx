@@ -4,7 +4,7 @@ export const HumpyInfo = () => {
       <div className="flex flex-1 flex-col justify-center gap-8 basis-full w-full mb-8">
         <div className="flex flex-row justify-between items-center">
           <div>
-            <span className="fira-bold">Legend of the Holden Egg Humpy</span>
+            <span className="fira-bold">Legend of the Golden Egg Humpy</span>
             <br />
             fanfic, based on a true story
           </div>

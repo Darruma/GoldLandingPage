@@ -21,7 +21,7 @@ function Home() {
       <div className="flex flex-row justify-between items-center pb-20 gap-8 ">
         <Hero />
       </div>
-      <div className="flex flex-col md:flex-row md:items-center bg-[#292E41]  mx-auto gradient-border justify-evenly pb-20">
+      <div className="flex flex-col md:flex-row md:items-center bg-[#292E41]  mx-auto gradient-border justify-evenly pb-20 w-fit md:w-auto ">
         <GoldStats />
       </div>
       <div className="gradient-background pt-40 flex flex-col">
@@ -36,7 +36,7 @@ function Home() {
       <div className="pt-40 flex flex-col">
         <BuyGold />
       </div>
-      <div className="flex flex-col md:flex-row md:items-center bg-[#292E41]  mx-auto gradient-border justify-evenly mt-40">
+      <div className="flex flex-col md:flex-row md:items-center bg-[#292E41]  mx-auto gradient-border justify-evenly mt-40 w-[90%] md:w-auto mx-auto ">
         <GAuraInfo />
       </div>
       <div className="pt-40 pb-20 flex flex-col">
@@ -62,7 +62,7 @@ function Home() {
           </div>
           <br />
           <br />
-          <div className="flex md:flex-row flex-col gap-8 justify-items-center z-2">
+          <div className="flex md:flex-row flex-col gap-8 justify-items-center z-2 w-4/5 md:w-auto mx-auto ">
             <HumpyInfo />
             <div className="basis-full">
               <HumpyChat />{" "}

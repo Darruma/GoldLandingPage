@@ -9,13 +9,13 @@ export const TokenInfo = () => {
           <span className="text-secondary">$GOLD</span> is built different
         </div>
         <br />
-        <div className="text-xl fira pt-6 text-center md:text-left">
+        <div className="text-xl fira pt-6 text-center md:text-left px-4 md:px-0">
           Earn premium tokens by staking $GOLD in LPs on top DeFi platforms
         </div>
         <br />
         <br />
       </div>
-      <div className="flex flex-col md:flex-row h-full gap-8 ">
+      <div className="flex flex-col md:flex-row h-full gap-8 md:w-auto w-4/5 mx-auto ">
         <div className="flex flex-col flex-1 gap-4">
           <div className="gradient-border flex flex-col flex-1 gap-4 justify-between">
             <div className="fira-bold pt-4">High Inflation</div>
