@@ -101,7 +101,7 @@ function VaultView({
   return (
     <div className="h-full">
       <div className="flex flex-col h-full">
-        <div className="md:mx-64 basis-full md:pt-0 mt-8">
+        <div className="md:mx-20 basis-full md:pt-0 mt-8">
           <div className="flex flex-col h-full overflow-hidden pb-8">
             <NavWithLogo />
           </div>
