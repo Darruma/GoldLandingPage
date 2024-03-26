@@ -1,23 +1,19 @@
-import { PropsWithChildren, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import goldenLogo from "../assets/goldenlogo.png";
-import HamburgerMenu from "./Hamburger";
-import CustomConnect from "./CustomConnect";
-import { HumpyChat } from "./HumpyChat";
+import { PropsWithChildren, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import goldenLogo from '../assets/goldenlogo.png';
+import CustomConnect from './CustomConnect';
+import HamburgerMenu from './Hamburger';
+import { HumpyChat } from './HumpyChat';
 
-export function NavLink({
-  to,
-  children,
-  external = false,
-}: PropsWithChildren<{ to: string; external?: boolean }>) {
+export function NavLink({ to, children, external = false }: PropsWithChildren<{ to: string; external?: boolean }>) {
   const location = useLocation();
-  const underline = location.pathname === to ? "underline text-secondary" : "";
+  const underline = location.pathname === to ? 'underline text-secondary' : '';
   return (
     <Link
       to={to}
       className={`text-xl roboto ${underline}`}
-      target={external ? "_blank" : "_parent"}
-      rel={external ? "noopener noreferrer" : ""}
+      target={external ? '_blank' : '_parent'}
+      rel={external ? 'noopener noreferrer' : ''}
     >
       {children}
     </Link>
@@ -26,6 +22,9 @@ export function NavLink({
 
 function Nav() {
   const [showHumpyChat, setShowHumpyChat] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
   return (
     <div className="bg-primary">
       <div className=" bg-primary p-2 hidden md:flex flex-row gap-12 pr-4 items-center">
@@ -37,31 +36,28 @@ function Nav() {
         <div className="ml-auto">
           <NavLink to="/">Home</NavLink>
         </div>
-        <NavLink to="/vault">Vault</NavLink>
+        <NavLink to="/vaults/aura">Aura</NavLink>
+        <NavLink to="/vaults/comp">Comp</NavLink>
         <div
           className="cursor-pointer text-xl roboto"
           onClick={() => {
-            document.getElementById("yield-dashboard")?.scrollIntoView();
+            let timeout = 0;
+            if (location.pathname !== '/') {
+              timeout = 500;
+              navigate('/');
+            }
+            setTimeout(() => document.getElementById('yield-dashboard')?.scrollIntoView(), timeout);
           }}
         >
           Earn
         </div>
-        <NavLink
-          external={true}
-          to="https://basescan.org/token/0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4"
-        >
+        <NavLink external={true} to="https://basescan.org/token/0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4">
           Etherscan
         </NavLink>
-        <NavLink
-          external={true}
-          to="https://mirror.xyz/0xEb23BAacd279fD08248101804A6c8222C26768AF"
-        >
+        <NavLink external={true} to="https://mirror.xyz/0xEb23BAacd279fD08248101804A6c8222C26768AF">
           Blog
         </NavLink>
-        <div
-          onClick={() => setShowHumpyChat(true)}
-          className="cursor-pointer text-xl roboto"
-        >
+        <div onClick={() => setShowHumpyChat(true)} className="cursor-pointer text-xl roboto">
           HumpyChat
         </div>
         <div className="">

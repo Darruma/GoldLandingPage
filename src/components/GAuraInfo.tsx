@@ -4,16 +4,22 @@ export const GAuraInfo = () => {
     <>
       <div className="basis-full flex flex-col justify-center items-center gap-4 mx-auto py-20">
         <div className="font-bold md:text-5xl text-4xl text-center">
-          Earn passive income with GoldenBoys' goldAura Vault
+          Earn passive income with GoldenBoys' vaults
         </div>
         <div className="text-center fira text-xl">
-          Deposit AURA and earn in comfort
+          Deposit AURA or COMP and earn in comfort
         </div>
         <a
-          href="/#/vault"
+          href="/#/vaults/aura"
           className="bg-tertiary text-white w-64 py-2 text-center cursor-pointer hover:bg-tertiaryLight font-bold"
         >
-          Enter the Vault
+          Enter the AURA vault
+        </a>
+        <a
+          href="/#/vaults/comp"
+          className="bg-tertiary text-white w-64 py-2 text-center cursor-pointer hover:bg-tertiaryLight font-bold"
+        >
+          Enter the COMP vault
         </a>
       </div>
       <div className="basis-full flex justify-center items-center relative ">

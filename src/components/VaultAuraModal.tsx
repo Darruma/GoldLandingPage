@@ -2,12 +2,12 @@ import { useState } from "react";
 import Aura from "../assets/aura.png";
 import GoldAura from "../assets/goldAuraLogo.png";
 import {
-  useAllowance,
-  useApproveConfig,
-  useDepositConfig,
+  useAuraAllowance,
+  useAuraApproveConfig,
+  useAuraDepositConfig,
   useTotalAuraForWithdrawal,
-  useWithdrawConfig,
-} from "../utils/vaultHooks";
+  useAuraWithdrawConfig,
+} from "../utils/vaults/auraVaultHooks";
 import { useContractWrite } from "wagmi";
 import toast from "react-hot-toast";
 import { waitForTransaction } from "wagmi/actions";
@@ -21,7 +21,7 @@ interface ModalProps {
   goldAuraWallet: number;
 }
 
-function Modal({
+function VaultAuraModal({
   close,
   auraPrice,
   auraToGoldAuraRatio,
@@ -36,14 +36,14 @@ function Modal({
   let outputDollars = 0;
   const goldAuraWithdrawable = useTotalAuraForWithdrawal();
 
-  const { config: depositConfig } = useDepositConfig(fromInput, action);
-  const { config: withdrawConfig } = useWithdrawConfig(fromInput, action);
-  const { config: approveConfig } = useApproveConfig();
+  const { config: depositConfig } = useAuraDepositConfig(fromInput, action);
+  const { config: withdrawConfig } = useAuraWithdrawConfig(fromInput, action);
+  const { config: approveConfig } = useAuraApproveConfig();
   const { writeAsync: deposit } = useContractWrite(depositConfig);
   const { writeAsync: withdraw } = useContractWrite(withdrawConfig);
   const { writeAsync: approve } = useContractWrite(approveConfig);
 
-  const { data: vaultAllowance } = useAllowance();
+  const { data: vaultAllowance } = useAuraAllowance();
 
   const allowance = Number(vaultAllowance?.toString() || 0) / 1e18;
   if (action === "withdraw") {
@@ -57,11 +57,11 @@ function Modal({
     outputDollars = output * auraPrice;
   }
   const isDeposit = action === "deposit";
-  let balance = isDeposit ? auraWallet : goldAuraWallet;
+  const balance = isDeposit ? auraWallet : goldAuraWallet;
   console.log(balance);
   return (
-    <div className="trans-background fixed top-1/4 md:left-[15vh] left-0 h-[70vh] md:w-[80vw] w-[100vw] z-10 flex justify-center items-center  ">
-      <div className="bg-[#222739] rounded-lg flex flex-col p-6 opacity-100 gap-4 h-[100]">
+    <div className="fixed top-1/4 md:left-[15vh] left-0 h-[70vh] md:w-[80vw] w-[100vw] z-10 flex justify-center items-center  ">
+      <div className="bg-[#222739] rounded-lg flex flex-col p-6 opacity-100 gap-4 h-[100] shadow-xl drop-shadow">
         <div className="press-start-2p flex flex-row justify-between">
           <div className="text-xl">{isDeposit ? "Deposit" : "Withdraw"}</div>
           <div className="w-4 h-4 cursor-pointer" onClick={() => close()}>
@@ -251,4 +251,4 @@ function Modal({
     </div>
   );
 }
-export default Modal;
+export default VaultAuraModal;

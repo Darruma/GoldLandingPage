@@ -63,6 +63,17 @@ export const useAuraPrice = () => {
   });
 };
 
+export const useCompPrice = () => {
+  return useQuery(["comp"], async () => {
+    const resp = await fetch(
+      "https://api.coingecko.com/api/v3/simple/price?ids=compound-governance-token&vs_currencies=usd"
+    );
+    const result = await resp.json();
+    const price = result["compound-governance-token"].usd;
+    return price as string;
+  });
+};
+
 export const useYields = () => {
   return useQuery(["yields"], async () => {
     const resp = await fetch("https://yields.llama.fi/pools");

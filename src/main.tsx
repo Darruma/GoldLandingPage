@@ -6,7 +6,7 @@ import HomePage from "./routes/Home.tsx";
 import "./index.css";
 import { Why } from "./routes/Why.tsx";
 import { Learn } from "./routes/Learn.tsx";
-import Vault from "./routes/Vault.tsx";
+import VaultAura from "./routes/vaults/Aura.tsx";
 
 import "@rainbow-me/rainbowkit/styles.css";
 
@@ -16,6 +16,7 @@ import { mainnet } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import { Toaster } from "react-hot-toast";
 import { alchemyProvider } from "wagmi/providers/alchemy";
+import VaultComp from "./routes/vaults/Comp.tsx";
 
 const { chains, publicClient } = configureChains(
   [mainnet],
@@ -54,8 +55,12 @@ const router = createHashRouter([
     element: <Learn />,
   },
   {
-    path: "/vault",
-    element: <Vault />,
+    path: "/vaults/aura",
+    element: <VaultAura />,
+  },
+  {
+    path: "/vaults/comp",
+    element: <VaultComp />,
   },
   {
     path: "*",

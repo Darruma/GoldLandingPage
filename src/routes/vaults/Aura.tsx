@@ -1,24 +1,24 @@
-import NavWithLogo from "../components/NavWithLogo";
-import aura from "../assets/aura.png";
-import goldAuraLogo from "../assets/goldAuraLogo.png";
-import goldAuraVault from "../assets/goldAuraVault.png";
-import link from "../assets/link.png";
+import NavWithLogo from "../../components/NavWithLogo";
+import aura from "../../assets/aura.png";
+import goldAuraLogo from "../../assets/goldAuraLogo.png";
+import goldAuraVault from "../../assets/goldAuraVault.png";
+import link from "../../assets/link.png";
 import { useState } from "react";
-import Modal from "../components/Modal";
+import VaultAuraModal from "../../components/VaultAuraModal";
 import { useAccount } from "wagmi";
 import { useConnectModal } from "@rainbow-me/rainbowkit";
 import {
-  STRATEGY_ADDRESS,
-  VAULT_ADDRESS,
-  WANT_ADDRESS,
+  AURA_STRATEGY_ADDRESS,
+  AURA_VAULT_ADDRESS,
+  AURA_WANT_ADDRESS,
   useAuraRatio,
   useTotalAuraForWithdrawal,
   useVaultAura,
   useWalletAura,
   useWalletGoldAura,
-} from "../utils/vaultHooks";
-import { useAuraPrice } from "../utils/data";
-import { Footer } from "../components/Footer";
+} from "../../utils/vaults/auraVaultHooks";
+import { useAuraPrice } from "../../utils/data";
+import { Footer } from "../../components/Footer";
 
 enum VAULT_MODAL {
   NONE,
@@ -35,7 +35,7 @@ interface VaultProps {
   setModalState: (modalState: VAULT_MODAL) => void;
 }
 
-function Vault() {
+function VaultAura() {
   const [modalState, setModalState] = useState(VAULT_MODAL.NONE);
   const close = () => setModalState(VAULT_MODAL.NONE);
   const { data: auraPrice } = useAuraPrice();
@@ -63,7 +63,7 @@ function Vault() {
         auraForWithdrawal={withdrawable}
       />
       {modalState === VAULT_MODAL.DEPOSIT && (
-        <Modal
+        <VaultAuraModal
           close={close}
           auraPrice={Number(auraPrice || 0)}
           auraToGoldAuraRatio={tokenRatio}
@@ -73,7 +73,7 @@ function Vault() {
         />
       )}
       {modalState === VAULT_MODAL.WITHDRAW && (
-        <Modal
+        <VaultAuraModal
           close={close}
           auraPrice={Number(auraPrice || 0)}
           auraToGoldAuraRatio={tokenRatio}
@@ -200,7 +200,7 @@ function VaultView({
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href={`https://etherscan.io/address/${VAULT_ADDRESS}`}
+                    href={`https://etherscan.io/address/${AURA_VAULT_ADDRESS}`}
                     className="text-sm flex flex-row gap-4 items-center"
                   >
                     <img src={link} className="w-6 h-3"></img>
@@ -209,7 +209,7 @@ function VaultView({
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href={`https://etherscan.io/address/${STRATEGY_ADDRESS}`}
+                    href={`https://etherscan.io/address/${AURA_STRATEGY_ADDRESS}`}
                     className="text-sm flex flex-row gap-4 items-center"
                   >
                     <img src={link} className="w-6 h-3"></img>
@@ -218,7 +218,7 @@ function VaultView({
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href={`https://etherscan.io/address/${WANT_ADDRESS}`}
+                    href={`https://etherscan.io/address/${AURA_WANT_ADDRESS}`}
                     className="text-sm flex flex-row gap-4 items-center"
                   >
                     <img src={link} className="w-6 h-3"></img>
@@ -314,4 +314,4 @@ function VaultView({
   );
 }
 
-export default Vault;
+export default VaultAura;

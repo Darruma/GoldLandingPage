@@ -32,7 +32,10 @@ function Menu({ close }: { close: () => void }) {
           <NavLink to="/">Home</NavLink>
         </li>
         <li className="mb-4">
-          <NavLink to="/vault">Vault</NavLink>
+          <NavLink to="/vaults/aura">Aura vault</NavLink>
+        </li>
+        <li className="mb-4">
+          <NavLink to="/vaults/comp">Comp vault</NavLink>
         </li>
         <li className="mb-4">
           <NavLink

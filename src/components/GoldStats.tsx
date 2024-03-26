@@ -1,7 +1,7 @@
 import chest from "../assets/chest.png";
 import crown from "../assets/crown.png";
 import { useAuraPrice, usePrice } from "../utils/data";
-import { useVaultAura } from "../utils/vaultHooks";
+import { useVaultAura } from "../utils/vaults/auraVaultHooks";
 export const GoldStats = () => {
   const { data: goldPrice } = usePrice();
   const { data: auraPrice } = useAuraPrice();
