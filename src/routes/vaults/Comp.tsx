@@ -100,8 +100,7 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
             <img src={goldCompLogo} alt="comp" className="w-12 h-12" />
             <div className="press-start-2p text-2xl">goldCOMP Vault</div>
           </div>
-          <div className="flex md:flex-row flex-col gap-4 pt-8"></div>
-          <div className="flex md:flex-row flex-col gap-2 pt-4 pb-12">
+          <div className="mt-8 flex md:flex-row flex-col md:gap-2 gap-4 pt-4 pb-12">
             <div className="flex flex-col w-full md:w-[30%] rounded-xl gap-4">
               <div className="flex flex-col bg-gradient-to-b from-[#28534f] to-[#222739] rounded-xl p-6 gap-4 shadow">
                 <div className="press-start-2p text-sm py-4 border-b border-gray-500">Your deposit</div>
@@ -196,32 +195,26 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
                       <div className="press-start-2p">Actions</div>
                     </div>
                     <div className="mt-6 flex flex-col gap-4 justify-center items-center press-start-2p">
-                      <div
+                      <button
+                        type="button"
                         onClick={() => {
-                          if (!isConnected) {
-                            openConnectModal?.();
-                            return;
-                          }
+                          if (!isConnected) return openConnectModal?.();
                           setModalState(VAULT_MODAL.DEPOSIT);
                         }}
-                        className={`${
-                          walletComp > 0 ? 'text-white' : 'text-gray-500'
-                        } border-2 border-[#428f74] bg-[#2a2e40] rounded-md py-3 w-full text-center cursor-pointer`}
+                        className="border-2 border-[#428f74] bg-[#2a2e40] text-gray-200 hover:text-white rounded-md py-3 w-full text-center uppercase"
                       >
-                        DEPOSIT
-                      </div>
-                      <div
+                        Deposit
+                      </button>
+                      <button
+                        type="button"
                         onClick={() => {
-                          if (!isConnected) {
-                            openConnectModal?.();
-                            return;
-                          }
+                          if (!isConnected) return openConnectModal?.();
                           setModalState(VAULT_MODAL.WITHDRAW);
                         }}
-                        className="border-2 border-[#428f74] bg-[#2a2e40] rounded-md py-3 w-full text-center cursor-pointer"
+                        className="border-2 border-[#428f74] bg-[#2a2e40] text-gray-200 hover:text-white rounded-md py-3 w-full text-center uppercase"
                       >
-                        WITHDRAW
-                      </div>
+                        Withdraw
+                      </button>
                     </div>
                   </div>
                 </div>
