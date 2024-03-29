@@ -2,7 +2,7 @@ import NavWithLogo from "../../components/NavWithLogo";
 import aura from "../../assets/aura.png";
 import goldAuraLogo from "../../assets/goldAuraLogo.png";
 import goldAuraVault from "../../assets/goldAuraVault.png";
-import link from "../../assets/link.png";
+import link from "../../assets/link.svg";
 import { useState } from "react";
 import VaultAuraModal from "../../components/VaultAuraModal";
 import { useAccount } from "wagmi";

@@ -4,7 +4,7 @@ import { useAccount } from 'wagmi';
 import comp from '../../assets/comp.png';
 import goldCompLogo from '../../assets/goldCompLogo.png';
 import goldCompVault from '../../assets/goldCompVault.png';
-import link from '../../assets/link.png';
+import link from '../../assets/link.svg';
 import { Footer } from '../../components/Footer';
 import NavWithLogo from '../../components/NavWithLogo';
 import VaultCompModal from '../../components/VaultCompModal';
