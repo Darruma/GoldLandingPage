@@ -12,6 +12,7 @@ import {
   useCompWithdrawToQueueConfig,
   useTotalCompForWithdrawal,
 } from '../utils/vaults/compVaultHooks';
+import sleep from '../utils/sleep';
 
 interface ModalProps {
   close: () => void;
@@ -161,10 +162,11 @@ function VaultCompModal({ close, compPrice, compToGoldCompRatio, action, compWal
                     if (receipt.status == 'success') {
                       toast.success('Approved COMP', { id: pendingApproveID });
                     }
+                    await sleep(500);
                   } catch (e) {
                     toast.error('Failed to approve', { id: approvingID });
+                    return;
                   }
-                  return;
                 } else {
                   toast.error('Failed to approve');
                   return;
