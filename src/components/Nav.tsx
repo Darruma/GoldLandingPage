@@ -36,8 +36,8 @@ function Nav() {
         <div className="ml-auto">
           <NavLink to="/">Home</NavLink>
         </div>
-        <NavLink to="/vaults/aura">Aura</NavLink>
-        <NavLink to="/vaults/comp">Comp</NavLink>
+        <NavLink to="/vaults/aura">AURA</NavLink>
+        <NavLink to="/vaults/comp">COMP</NavLink>
         <div
           className="cursor-pointer text-xl roboto"
           onClick={() => {
