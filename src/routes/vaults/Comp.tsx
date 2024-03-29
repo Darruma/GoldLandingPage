@@ -92,7 +92,7 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
   return (
     <div className="h-full">
       <div className="flex flex-col h-full">
-        <div className="md:mx-20 basis-full md:pt-0 mt-8">
+        <div className="md:mx-20 mx-4 basis-full md:pt-0 mt-8">
           <div className="flex flex-col h-full overflow-hidden pb-8">
             <NavWithLogo />
           </div>
@@ -103,8 +103,8 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
           <div className="flex md:flex-row flex-col gap-4 pt-8"></div>
           <div className="flex md:flex-row flex-col gap-2 pt-4 pb-12">
             <div className="flex flex-col w-full md:w-[30%] rounded-xl gap-4">
-              <div className="basis-full flex flex-col bg-gradient-to-b from-[#28534f] to-[#222739] rounded-xl p-6 gap-4 shadow">
-                <div className="press-start-2p border-b border-gray-500">Total Deposited</div>
+              <div className="flex flex-col bg-gradient-to-b from-[#28534f] to-[#222739] rounded-xl p-6 gap-4 shadow">
+                <div className="press-start-2p text-sm py-4 border-b border-gray-500">Your deposit</div>
                 <div className="flex flex-row gap-4 items-center">
                   <img src={goldCompLogo} alt="comp" className="w-12 h-12" />
                   <div className="flex flex-col">
@@ -114,13 +114,13 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
                 </div>
               </div>
 
-              <div className="p-4 flex flex-col gap-2 bg-gradient-to-b from-[#28534f] to-[#222739] shadow rounded-xl">
-                <div className="press-start-2p text-sm pt-6 border-b border-gray-500 mx-2 py-4">Vault Details</div>
+              <div className="p-6 flex flex-col gap-2 bg-gradient-to-b from-[#28534f] to-[#222739] shadow rounded-xl">
+                <div className="press-start-2p text-sm py-4 border-b border-gray-500">Vault Details</div>
                 <div className="text-3xl">{vaultComp.toLocaleString()} COMP</div>
                 <div className="text-gray-300">${vaultCompUSD.toLocaleString()}</div>
                 <div className="text-gray-100">Assets Deposited</div>
 
-                <div className="text-2xl pt-4 border-b  border-gray-500 pb-2">Tokens</div>
+                <div className="mt-4 press-start-2p text-sm py-4 border-b border-gray-500">Tokens</div>
 
                 <div className="flex flex-col gap-2">
                   <div className="text-sm flex flex-row justify-between items-center">
@@ -131,16 +131,12 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
                     <div> {vaultComp.toLocaleString()}</div>
                   </div>
 
-                  <div className="text-sm  flex flex-row justify-between">
-                    <div className="text-gray-400">Token Ratio</div>
-                    <div> {tokenRatio.toLocaleString()}</div>
-                  </div>
-                  <div className="text-sm  flex flex-row justify-between">
-                    <div className="text-gray-400">COMP Available for Withdrawal </div>
-                    <div> {compForWithdrawal.toLocaleString()}</div>
+                  <div className="text-sm flex flex-row justify-between">
+                    <div className="text-gray-400">goldCOMP/COMP ratio</div>
+                    <div>1</div>
                   </div>
                 </div>
-                <div className="text-2xl pt-4 border-b  border-gray-500 pb-2">Links</div>
+                <div className="mt-4 press-start-2p text-sm py-4 border-b border-gray-500">Links</div>
                 <div className="flex flex-col gap-2">
                   <a
                     target="_blank"
@@ -194,16 +190,12 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
                   <div className="flex flex-col md:w-[40%]">
                     <div className="text-center border-b border-gray-500 p-2 flex flex-row justify-between mb-6 ">
                       <div className="press-start-2p">APY</div>
-                      <div className=""> 7.00%</div>
+                      <div className="">~7.00%</div>
                     </div>
                     <div className="text-center border-b border-gray-500 p-2 flex flex-row justify-between ">
-                      <div className="press-start-2p">Liquidity</div>
+                      <div className="press-start-2p">Actions</div>
                     </div>
-                    <div className="text-sm  pt-4 flex flex-row justify-between">
-                      <div className="text-gray-400">COMP Available for Withdrawal </div>
-                      <div> {compForWithdrawal.toLocaleString()}</div>
-                    </div>
-                    <div className="basis-full flex flex-col gap-4 justify-center items-center press-start-2p">
+                    <div className="mt-6 flex flex-col gap-4 justify-center items-center press-start-2p">
                       <div
                         onClick={() => {
                           if (!isConnected) {
