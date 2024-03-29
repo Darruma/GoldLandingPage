@@ -140,32 +140,6 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
                     <div> {compForWithdrawal.toLocaleString()}</div>
                   </div>
                 </div>
-                <div className="text-2xl pt-4 border-b  border-gray-500 pb-2">Fees</div>
-                <div className="flex flex-col gap-2">
-                  <div className="text-sm  flex flex-row justify-between">
-                    <div className="text-gray-400">Team Operations</div>
-                    <div> 5.00%</div>
-                  </div>
-                  <div className="text-sm  flex flex-row justify-between">
-                    <div className="text-gray-400">Bribe for own LP</div>
-                    <div> 5.00%</div>
-                  </div>
-                  <div className="text-sm  flex flex-row justify-between">
-                    <div className="text-gray-400">$GOLD Burn</div>
-                    <div> 5.00%</div>
-                  </div>
-                  <div className="text-sm  flex flex-row justify-between">
-                    <div className="text-gray-400">Withdrawal Fee</div>
-                    <div> 0.00%</div>
-                  </div>
-                </div>
-                <div className="text-2xl pt-4 border-b  border-gray-500 pb-2">Reward Frequency</div>
-                <div className="flex flex-col gap-2">
-                  <div className="text-sm  flex flex-row justify-between">
-                    <div className="text-gray-400">COMP </div>
-                    <div>Bi-Weekly</div>
-                  </div>
-                </div>
                 <div className="text-2xl pt-4 border-b  border-gray-500 pb-2">Links</div>
                 <div className="flex flex-col gap-2">
                   <a
@@ -220,7 +194,7 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
                   <div className="flex flex-col md:w-[40%]">
                     <div className="text-center border-b border-gray-500 p-2 flex flex-row justify-between mb-6 ">
                       <div className="press-start-2p">APY</div>
-                      <div className=""> 0.00%</div>
+                      <div className=""> 7.00%</div>
                     </div>
                     <div className="text-center border-b border-gray-500 p-2 flex flex-row justify-between ">
                       <div className="press-start-2p">Liquidity</div>
