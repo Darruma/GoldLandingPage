@@ -1,11 +1,11 @@
-import { useState } from "react";
-import menu from "../assets/menu.png";
-import { NavLink } from "./Nav";
+import { useState } from 'react';
+import menu from '../assets/menu.png';
+import { NavLink } from './Nav';
 
 function HamburgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="pt-4">
+    <div>
       <img
         onClick={() => {
           setIsOpen(!isOpen);
@@ -21,7 +21,7 @@ function HamburgerMenu() {
 
 function Menu({ close }: { close: () => void }) {
   return (
-    <div className={` bg-black w-full h-screen fixed top-0 left-0 p-4 z-50`}>
+    <div className={`bg-black w-full h-screen fixed top-0 left-0 p-4 z-50`}>
       <div className="flex justify-end">
         <button onClick={close} className="text-white">
           <img src={menu} alt="menu" className="h-10 w-10" />
@@ -32,10 +32,10 @@ function Menu({ close }: { close: () => void }) {
           <NavLink to="/">Home</NavLink>
         </li>
         <li className="mb-4">
-          <NavLink to="/vaults/aura">AURA Vault</NavLink>
+          <NavLink to="/vaults/aura">AURA vault</NavLink>
         </li>
         <li className="mb-4">
-          <NavLink to="/vaults/comp">COMP Vault</NavLink>
+          <NavLink to="/vaults/comp">COMP vault</NavLink>
         </li>
         <li className="mb-4">
           <NavLink
@@ -46,10 +46,7 @@ function Menu({ close }: { close: () => void }) {
           </NavLink>
         </li>
         <li className="mb-4">
-          <NavLink
-            external={true}
-            to="https://basescan.org/token/0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4"
-          >
+          <NavLink external={true} to="https://basescan.org/token/0xbeFD5C25A59ef2C1316c5A4944931171F30Cd3E4">
             Etherscan
           </NavLink>
         </li>

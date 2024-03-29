@@ -27,11 +27,9 @@ function Nav() {
 
   return (
     <div className="bg-primary">
-      <div className=" bg-primary p-2 hidden md:flex flex-row gap-12 pr-4 items-center">
-        <a href="/">
-          <div className="flex flex-row items-center gap-2">
-            <img src={goldenLogo} alt="logo" />
-          </div>
+      <div className="bg-primary p-2 hidden md:flex flex-row gap-10 pr-4 items-center">
+        <a className="shrink-0" href="/">
+          <img src={goldenLogo} className="md:w-72 w-36" alt="logo" />
         </a>
         <div className="ml-auto">
           <NavLink to="/">Home</NavLink>
@@ -69,12 +67,10 @@ function Nav() {
           <HumpyChat onClose={() => setShowHumpyChat(false)} />
         </div>
       )}
-      <div className="md:hidden flex flex-row justify-center items-center ">
+      <div className="md:hidden flex flex-row justify-center items-center">
         <div className="p-4">
-          <a className="md:hidden flex " href="/">
-            <div className="flex flex-row items-center gap-4">
-              <img src={goldenLogo} alt="logo" />
-            </div>
+          <a className="md:hidden block shrink-0" href="/">
+            <img src={goldenLogo} className="w-72" alt="logo" />
           </a>
         </div>
         <div className="ml-auto">

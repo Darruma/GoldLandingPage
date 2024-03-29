@@ -48,7 +48,7 @@ function CustomConnect() {
                   );
                 }
                 return (
-                  <div className="flex flex-col md:flex-row gap-4 font">
+                  <div className="flex flex-col items-center md:flex-row gap-2">
                     <button
                       onClick={openChainModal}
                       className="flex justify-center"
