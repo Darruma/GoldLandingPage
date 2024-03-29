@@ -100,69 +100,59 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
             <img src={goldCompLogo} alt="comp" className="w-12 h-12" />
             <div className="press-start-2p text-2xl">goldCOMP Vault</div>
           </div>
-          <div className="mt-8 flex md:flex-row flex-col md:gap-2 gap-4 pt-4 pb-12">
-            <div className="flex flex-col w-full md:w-[30%] rounded-xl gap-4">
+          <div className="mt-8 flex md:flex-row flex-col md:gap-4 gap-6 pt-4 pb-12">
+            <div className="flex flex-col w-full md:w-[30%] rounded-xl gap-6">
               <div className="flex flex-col bg-gradient-to-b from-[#28534f] to-[#222739] rounded-xl p-6 gap-4 shadow">
-                <div className="press-start-2p text-sm py-4 border-b border-gray-500">Your deposit</div>
+                <div className="press-start-2p text-sm py-3 border-b border-slate-500">Your deposit</div>
                 <div className="flex flex-row gap-4 items-center">
-                  <img src={goldCompLogo} alt="comp" className="w-12 h-12" />
+                  <img src={goldCompLogo} alt="goldComp" className="w-12 h-12" />
                   <div className="flex flex-col">
-                    <div className="text-3xl">{totalDeposited}</div>
-                    <div className="text-md text-gray-300">${totalDepositedUSD.toLocaleString()}</div>
+                    <div className="text-3xl">{totalDeposited.toFixed(2)}</div>
+                    <div className="text-md text-slate-300">${totalDepositedUSD.toFixed(2)}</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col bg-gradient-to-b from-[#28534f] to-[#222739] rounded-xl p-6 gap-4 shadow">
+                <div className="press-start-2p text-sm py-3 border-b border-slate-500">Vault balance</div>
+                <div className="flex flex-row gap-4 items-center">
+                  <img src={comp} alt="comp" className="w-12 h-12" />
+                  <div className="flex flex-col">
+                    <div className="text-3xl">{vaultComp.toFixed(2)} COMP</div>
+                    <div className="text-md text-slate-300">${vaultCompUSD.toFixed(2)}</div>
                   </div>
                 </div>
               </div>
 
               <div className="p-6 flex flex-col gap-2 bg-gradient-to-b from-[#28534f] to-[#222739] shadow rounded-xl">
-                <div className="press-start-2p text-sm py-4 border-b border-gray-500">Vault Details</div>
-                <div className="text-3xl">{vaultComp.toLocaleString()} COMP</div>
-                <div className="text-gray-300">${vaultCompUSD.toLocaleString()}</div>
-                <div className="text-gray-100">Assets Deposited</div>
-
-                <div className="mt-4 press-start-2p text-sm py-4 border-b border-gray-500">Tokens</div>
-
-                <div className="flex flex-col gap-2">
-                  <div className="text-sm flex flex-row justify-between items-center">
-                    <div className="flex flex-row gap-2 items-center pt-2">
-                      <img src={comp} alt="comp" className="w-6 h-6" />
-                      <div className="text-gray-400 text-sm">Comp</div>
-                    </div>
-                    <div> {vaultComp.toLocaleString()}</div>
-                  </div>
-
-                  <div className="text-sm flex flex-row justify-between">
-                    <div className="text-gray-400">goldCOMP/COMP ratio</div>
-                    <div>1</div>
-                  </div>
-                </div>
-                <div className="mt-4 press-start-2p text-sm py-4 border-b border-gray-500">Links</div>
-                <div className="flex flex-col gap-2">
+                <div className="press-start-2p text-sm py-3 border-b border-slate-500">Links</div>
+                <div className="mt-2 flex flex-col gap-2">
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
                     href={`https://etherscan.io/address/${COMP_VAULT_ADDRESS}`}
-                    className="text-sm flex flex-row gap-4 items-center"
+                    className="text-sm flex flex-row gap-2.5 items-center"
                   >
-                    <img src={link} className="w-6 h-3"></img>
-                    <div className="text-amber-300">Vault Address </div>
+                    <img src={link} className="h-2.5"></img>
+                    <div className="text-amber-300">Vault Address</div>
                   </a>
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
                     href={`https://etherscan.io/address/${COMP_WANT_ADDRESS}`}
-                    className="text-sm flex flex-row gap-4 items-center"
+                    className="text-sm flex flex-row gap-2.5 items-center"
                   >
-                    <img src={link} className="w-6 h-3"></img>
-                    <div className="text-amber-300">Underlying Token </div>
+                    <img src={link} className="h-2.5"></img>
+                    <div className="text-amber-300">Underlying Token</div>
                   </a>
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://github.com/HumpysGold"
-                    className="text-sm flex flex-row gap-4 items-center"
+                    className="text-sm flex flex-row gap-2.5 items-center"
                   >
-                    <img src={link} className="w-6 h-3"></img>
-                    <div className="text-amber-300">GitHub </div>
+                    <img src={link} className="h-2.5"></img>
+                    <div className="text-amber-300">GitHub</div>
                   </a>
                 </div>
               </div>
@@ -172,13 +162,13 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
                 <div className="pb-2 press-start-2p border-b border-b-[#60d09a] text-2xl text-center">PERFORMANCE</div>
                 <div className="flex flex-col md:flex-row gap-4">
                   <div className="flex flex-col md:w-[60%]">
-                    <div className="press-start-2p text-center border-b border-gray-500 p-2">Strategy Summary</div>
+                    <div className="press-start-2p text-center border-b border-slate-500 p-2">Strategy Summary</div>
                     <div className="flex flex-col">
-                      <div className="text-gray-400 pt-4">
+                      <div className="text-slate-300 pt-4">
                         The GoldCOMP vault allows people to earn passive income (~7% APR) on their Compound (COMP) tokens.
                       </div>
                       <br />
-                      <div className=" text-gray-400">
+                      <div className="text-slate-300">
                         Users begin by depositing COMP into the GoldCOMP smart contract, which in turn issues them GoldCOMP tokens. These
                         tokens represent their stake in the system. The COMP voting power associated with these tokens is then delegated to
                         the smart contract itself and managed by the GoldenBoys multi-sig. Subsequent deposits incrementally refresh the
@@ -187,11 +177,11 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
                     </div>
                   </div>
                   <div className="flex flex-col md:w-[40%]">
-                    <div className="text-center border-b border-gray-500 p-2 flex flex-row justify-between mb-6 ">
+                    <div className="text-center border-b border-slate-500 p-2 flex flex-row justify-between mb-6 ">
                       <div className="press-start-2p">APY</div>
                       <div className="">~7.00%</div>
                     </div>
-                    <div className="text-center border-b border-gray-500 p-2 flex flex-row justify-between ">
+                    <div className="text-center border-b border-slate-500 p-2 flex flex-row justify-between ">
                       <div className="press-start-2p">Actions</div>
                     </div>
                     <div className="mt-6 flex flex-col gap-4 justify-center items-center press-start-2p">
@@ -201,7 +191,7 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
                           if (!isConnected) return openConnectModal?.();
                           setModalState(VAULT_MODAL.DEPOSIT);
                         }}
-                        className="border-2 border-[#428f74] bg-[#2a2e40] text-gray-200 hover:text-white rounded-md py-3 w-full text-center uppercase"
+                        className="border-2 border-[#428f74] bg-[#2a2e40] text-slate-200 hover:text-white rounded-md py-3 w-full text-center uppercase"
                       >
                         Deposit
                       </button>
@@ -211,7 +201,7 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
                           if (!isConnected) return openConnectModal?.();
                           setModalState(VAULT_MODAL.WITHDRAW);
                         }}
-                        className="border-2 border-[#428f74] bg-[#2a2e40] text-gray-200 hover:text-white rounded-md py-3 w-full text-center uppercase"
+                        className="border-2 border-[#428f74] bg-[#2a2e40] text-slate-200 hover:text-white rounded-md py-3 w-full text-center uppercase"
                       >
                         Withdraw
                       </button>
