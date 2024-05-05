@@ -148,11 +148,11 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://github.com/HumpysGold"
+                    href="https://app.balancer.fi/#/ethereum/pool/0x56bc9d9987edec2fc6e1990e27af4a0987b53096000200000000000000000686"
                     className="text-sm flex flex-row gap-2.5 items-center"
                   >
                     <img src={link} className="h-2.5"></img>
-                    <div className="text-amber-300">GitHub</div>
+                    <div className="text-amber-300">goldCOMP/WETH Balancer LP</div>
                   </a>
                 </div>
               </div>
@@ -165,7 +165,7 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
                     <div className="press-start-2p text-center border-b border-slate-500 p-2">Strategy Summary</div>
                     <div className="flex flex-col">
                       <div className="text-slate-300 pt-4">
-                        The GoldCOMP vault allows people to earn passive income (~7% APR) on their Compound (COMP) tokens.
+                        The GoldCOMP vault allows people to earn passive income (~10% APR) on their Compound (COMP) tokens.
                       </div>
                       <br />
                       <div className="text-slate-300">
@@ -178,7 +178,7 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
                   </div>
                   <div className="flex flex-col md:w-[40%]">
                     <div className="text-center border-b border-slate-500 p-2 flex flex-row justify-between mb-6 ">
-                      <div className="press-start-2p">APY</div>
+                      <div className="press-start-2p">APR</div>
                       <div className="">~10.00%</div>
                     </div> 
                     <div className="text-center border-b border-slate-500 p-2 flex flex-row justify-between ">
