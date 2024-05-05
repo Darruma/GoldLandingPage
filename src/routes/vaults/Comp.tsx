@@ -165,7 +165,7 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
                     <div className="press-start-2p text-center border-b border-slate-500 p-2">Strategy Summary</div>
                     <div className="flex flex-col">
                       <div className="text-slate-300 pt-4">
-                        The GoldCOMP vault allows people to earn passive income (~10% APR) on their Compound (COMP) tokens.
+                        The GoldCOMP vault allows holders to earn passive income (~10% APR) on their Compound (COMP) tokens.
                       </div>
                       <br />
                       <div className="text-slate-300">
