@@ -179,7 +179,7 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
                   <div className="flex flex-col md:w-[40%]">
                     <div className="text-center border-b border-slate-500 p-2 flex flex-row justify-between mb-6 ">
                       <div className="press-start-2p">APY</div>
-                      <div className="">~7.00%</div>
+                      <div className="">~10.00%</div>
                     </div>
                     <div className="text-center border-b border-slate-500 p-2 flex flex-row justify-between ">
                       <div className="press-start-2p">Actions</div>
