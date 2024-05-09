@@ -1,4 +1,4 @@
-import { getTokenImage, useYields } from "../utils/data";
+import { getTokenImage, useYields } from '../utils/data';
 
 function capitalizeFirstLetter(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -7,16 +7,13 @@ function capitalizeFirstLetter(string: string) {
 export const YieldInfo = () => {
   const { data: yieldData } = useYields();
   return (
-    <a id="yield-dashboard">
+    <div id="yield-dashboard">
       <div>
         <div className="font-bold md:text-6xl text-4xl text-center md:text-left ">
-          Browse <span className="text-secondary">$GOLD</span> Yield
-          Opportunities
+          Browse <span className="text-secondary">$GOLD</span> Yield Opportunities
         </div>
         <br />
-        <div className="text-xl fira pt-6 text-center md:text-left">
-          Earn premium tokens by staking $GOLD in LPs on top DeFi platforms
-        </div>
+        <div className="text-xl fira pt-6 text-center md:text-left">Earn premium tokens by staking $GOLD in LPs on top DeFi platforms</div>
         <br />
         <br />
         <div className="md:hidden flex">
@@ -25,19 +22,8 @@ export const YieldInfo = () => {
               const addBottomPadding = index == yieldData.length - 1;
 
               return (
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="contents cursor-pointer child"
-                  href={s.link}
-                >
-                  <div
-                    className={`${
-                      addBottomPadding ? "mb-4" : ""
-                    } text-left fira-bold`}
-                  >
-                    {s.symbol}
-                  </div>
+                <a target="_blank" rel="noopener noreferrer" className="contents cursor-pointer child" href={s.link} key={index}>
+                  <div className={`${addBottomPadding ? 'mb-4' : ''} text-left fira-bold`}>{s.symbol}</div>
                   <img
                     className="flex mx-auto invisible sm:visible"
                     width={50}
@@ -61,33 +47,15 @@ export const YieldInfo = () => {
               const addBottomPadding = index == yieldData.length - 1;
               let rewards = [...new Set(s?.rewardTokens || [])];
               return (
-                <a
-                  href={s.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="contents cursor-pointer child"
-                >
-                  <div
-                    className={`${
-                      addBottomPadding ? "mb-4" : ""
-                    } whitespace-nowrap`}
-                  >
-                    {s.symbol}
-                  </div>
+                <a href={s.link} target="_blank" rel="noopener noreferrer" className="contents cursor-pointer child" key={index}>
+                  <div className={`${addBottomPadding ? 'mb-4' : ''} whitespace-nowrap`}>{s.symbol}</div>
                   <div>{capitalizeFirstLetter(s.project)}</div>
                   <div>{s.chain}</div>
                   <div>${s.tvlUsd.toLocaleString()}</div>
                   <div>{s.apy.toFixed(2)}%</div>
                   <div className="flex flex-row gap-2 justify-left ">
-                    {rewards?.map((r: any) => {
-                      return (
-                        <img
-                          alt={r}
-                          height={10}
-                          width={30}
-                          src={getTokenImage(r)}
-                        ></img>
-                      );
+                    {rewards?.map((r: any, i: number) => {
+                      return <img alt={r} height={10} width={30} src={getTokenImage(r)} key={i}></img>;
                     })}
                   </div>
                 </a>
@@ -96,6 +64,6 @@ export const YieldInfo = () => {
           </div>
         </div>
       </div>
-    </a>
+    </div>
   );
 };
