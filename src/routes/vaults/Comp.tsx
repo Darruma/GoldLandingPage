@@ -31,7 +31,7 @@ interface VaultProps {
   vaultComp: number;
   tokenRatio: number;
   compForWithdrawal: number;
-  APR: number;
+  APR?: number;
   setModalState: (modalState: VAULT_MODAL) => void;
 }
 
