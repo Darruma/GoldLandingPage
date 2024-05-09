@@ -8,7 +8,7 @@ import link from '../../assets/link.svg';
 import { Footer } from '../../components/Footer';
 import NavWithLogo from '../../components/NavWithLogo';
 import VaultCompModal from '../../components/VaultCompModal';
-import { useCompPrice } from '../../utils/data';
+import { useCompPrice, useGoldCompApr } from '../../utils/data';
 import {
   COMP_VAULT_ADDRESS,
   COMP_WANT_ADDRESS,
@@ -31,6 +31,7 @@ interface VaultProps {
   vaultComp: number;
   tokenRatio: number;
   compForWithdrawal: number;
+  APR: number;
   setModalState: (modalState: VAULT_MODAL) => void;
 }
 
@@ -42,6 +43,7 @@ function VaultComp() {
   const { data: vaultComp } = useVaultComp();
   const { data: compRatio } = useCompRatio();
   const { data: walletGoldComp } = useWalletGoldComp();
+  const { data: APR } = useGoldCompApr();
 
   const withdrawable = useTotalCompForWithdrawal();
   const tokenRatio = (Number(compRatio?.toString() || 0) ?? 0) / 1e18;
@@ -60,6 +62,7 @@ function VaultComp() {
         vaultComp={Number(vaultComp || 0) / 1e18}
         tokenRatio={tokenRatio}
         compForWithdrawal={withdrawable}
+        APR={APR}
       />
       {modalState === VAULT_MODAL.DEPOSIT && (
         <VaultCompModal
@@ -84,7 +87,7 @@ function VaultComp() {
     </>
   );
 }
-function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRatio, compForWithdrawal, setModalState }: VaultProps) {
+function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRatio, compForWithdrawal, APR, setModalState }: VaultProps) {
   const totalDepositedUSD = totalDeposited * compPrice;
   const vaultCompUSD = vaultComp * compPrice;
   const { openConnectModal } = useConnectModal();
@@ -165,7 +168,8 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
                     <div className="press-start-2p text-center border-b border-slate-500 p-2">Strategy Summary</div>
                     <div className="flex flex-col">
                       <div className="text-slate-300 pt-4">
-                        The GoldCOMP vault allows holders to earn passive income (~10% APR) on their Compound (COMP) tokens.
+                        The GoldCOMP vault allows holders to earn passive income (~{APR ? APR.toFixed(0) : '–'}% APR) on their Compound
+                        (COMP) tokens.
                       </div>
                       <br />
                       <div className="text-slate-300">
@@ -179,7 +183,7 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
                   <div className="flex flex-col md:w-[40%]">
                     <div className="text-center border-b border-slate-500 p-2 flex flex-row justify-between mb-6 ">
                       <div className="press-start-2p">APR</div>
-                      <div className="">~10.00%</div>
+                      <div className="">{APR ? APR.toFixed(2) : '–'}%</div>
                     </div>
                     <div className="text-center border-b border-slate-500 p-2 flex flex-row justify-between ">
                       <div className="press-start-2p">Actions</div>
