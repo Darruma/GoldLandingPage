@@ -183,7 +183,7 @@ function VaultCompModal({ close, compPrice, compToGoldCompRatio, action, compWal
                     hash: tx.hash,
                   });
                   if (receipt.status == 'success') {
-                    toast.success('Deposited COMP', { id: pendingDepositID });
+                    toast.success('Success! Don\'t forget to stake your goldComp at Balancer to start earning APR yield.', { id: pendingDepositID });
                   }
                 } catch (e) {
                   toast.error('Failed to deposit', { id: depositingID });
