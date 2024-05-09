@@ -6,6 +6,7 @@ function capitalizeFirstLetter(string: string) {
 
 export const YieldInfo = () => {
   const { data: yieldData } = useYields();
+  console.log(yieldData);
   return (
     <div id="yield-dashboard">
       <div>

@@ -7,20 +7,20 @@ import ramses from '../assets/ramses.webp';
 
 const poolIds = [
   '9ca7c571-ac74-4c73-b55d-b94d442787d5',
-  '985696e2-38d9-4006-9c2f-2b78f7ef552d',
-  '1266ea36-20bc-4d3a-aa16-40a77e7c2d1e',
   '14bbef2a-cccc-4203-8fe2-8e4eb0863316',
-  '82f733a7-9bb2-4c5c-a2d6-2e568ac811a6',
+  '072d35e0-d9a4-48ae-bbea-dfd606caf380',
+  '1266ea36-20bc-4d3a-aa16-40a77e7c2d1e',
+  '745088fd-cc52-430d-8ed2-909ea7e40995',
 ];
 
 const poolIdsToLinks: Record<string, string> = {
-  '9ca7c571-ac74-4c73-b55d-b94d442787d5':
-    'https://app.balancer.fi/#/arbitrum/pool/0x2e8ea681fd59c9dc5f32b29de31f782724ef4dcb0001000000000000000004bc',
-  '985696e2-38d9-4006-9c2f-2b78f7ef552d': 'https://app.aura.finance/#/42161/pool/38',
-  '1266ea36-20bc-4d3a-aa16-40a77e7c2d1e':
-    'https://app.balancer.fi/#/base/pool/0xb328b50f1f7d97ee8ea391ab5096dd7657555f49000100000000000000000048',
+  '9ca7c571-ac74-4c73-b55d-b94d442787d5': 'https://app.aura.finance/#/42161/pool/38',
   '14bbef2a-cccc-4203-8fe2-8e4eb0863316': 'https://app.aura.finance/#/42161/pool/37',
-  '82f733a7-9bb2-4c5c-a2d6-2e568ac811a6': 'https://app.ramses.exchange/liquidity/v2/0x7e0b1d20367fe055f2884dd6ec6cca1e59f7c7eb',
+  '072d35e0-d9a4-48ae-bbea-dfd606caf380':
+    'https://base.balancer.fi/#/pool/0x433f09ca08623e48bac7128b7105de678e37d988000100000000000000000047',
+  '1266ea36-20bc-4d3a-aa16-40a77e7c2d1e':
+    'https://base.balancer.fi/#/pool/0xb328b50f1f7d97ee8ea391ab5096dd7657555f49000100000000000000000048',
+  '745088fd-cc52-430d-8ed2-909ea7e40995': 'https://app.ramses.exchange/manage/v1/0xafe0dc23f15700e35651e6c861ba929ffb3885fe',
 };
 
 export const getTokenImage = (token: string) => {
@@ -71,14 +71,13 @@ export const useYields = () => {
   return useQuery(['yields'], async () => {
     const resp = await fetch('https://yields.llama.fi/pools');
     const result = await resp.json();
-    let filteredPools = result.data.filter((p: any) => {
-      return poolIds.includes(p.pool);
-    });
 
-    return filteredPools.map((p: any) => {
+    return poolIds.map((item: any) => {
+      const pool = result.data.find((p: any) => p.pool === item);
+      if (!pool) return;
       return {
-        ...p,
-        link: poolIdsToLinks[p.pool],
+        ...pool,
+        link: poolIdsToLinks[pool.pool],
       };
     });
   });
