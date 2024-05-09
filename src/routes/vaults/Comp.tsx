@@ -188,14 +188,14 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
                     <div className="text-center border-b border-slate-500 p-2 flex flex-row justify-between ">
                       <div className="press-start-2p">Actions</div>
                     </div>
-                    <div className="mt-6 flex flex-col gap-4 justify-center items-center press-start-2p">
+                    <div className="mt-6 flex flex-col gap-3 justify-center items-center press-start-2p">
                       <button
                         type="button"
                         onClick={() => {
                           if (!isConnected) return openConnectModal?.();
                           setModalState(VAULT_MODAL.DEPOSIT);
                         }}
-                        className="border-2 border-[#428f74] bg-[#2a2e40] text-slate-200 hover:text-white rounded-md py-3 w-full text-center uppercase"
+                        className="border-2 border-[#428f74] bg-[#2a2e40] text-slate-200 hover:text-white rounded-md py-2.5 w-full text-center uppercase"
                       >
                         Deposit
                       </button>
@@ -205,10 +205,17 @@ function VaultView({ compPrice, walletComp, totalDeposited, vaultComp, tokenRati
                           if (!isConnected) return openConnectModal?.();
                           setModalState(VAULT_MODAL.WITHDRAW);
                         }}
-                        className="border-2 border-[#428f74] bg-[#2a2e40] text-slate-200 hover:text-white rounded-md py-3 w-full text-center uppercase"
+                        className="border-2 border-[#428f74] bg-[#2a2e40] text-slate-200 hover:text-white rounded-md py-2.5 w-full text-center uppercase"
                       >
                         Withdraw
                       </button>
+                      <a
+                        href="https://app.balancer.fi/#/ethereum/pool/0x56bc9d9987edec2fc6e1990e27af4a0987b53096000200000000000000000686"
+                        target="_blank"
+                        className="border-2 border-[#428f74] bg-[#2a2e40] text-slate-200 hover:text-white rounded-md py-2.5 w-full text-center uppercase"
+                      >
+                        Stake
+                      </a>
                     </div>
                   </div>
                 </div>
