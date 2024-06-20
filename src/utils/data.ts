@@ -72,14 +72,18 @@ export const useYields = () => {
     const resp = await fetch('https://yields.llama.fi/pools');
     const result = await resp.json();
 
-    return poolIds.map((item: any) => {
-      const pool = result.data.find((p: any) => p.pool === item);
+    const data = [];
+
+    for (const poolId of poolIds) {
+      const pool = result.data.find((p: any) => p.pool === poolId);
       if (!pool) return;
-      return {
+      data.push({
         ...pool,
         link: poolIdsToLinks[pool.pool],
-      };
-    });
+      });
+    }
+
+    return data;
   });
 };
 
