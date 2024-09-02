@@ -47,18 +47,17 @@ function VaultAuraModal({
 
   const allowance = Number(vaultAllowance?.toString() || 0) / 1e18;
   if (action === "withdraw") {
-    fromInputDollars = (fromInputNumber / auraToGoldAuraRatio) * auraPrice;
-    output = fromInputNumber / auraToGoldAuraRatio;
+    output = fromInputNumber * auraToGoldAuraRatio;
+    fromInputDollars = output * auraPrice;
     outputDollars = output * auraPrice;
   }
   if (action === "deposit") {
     fromInputDollars = fromInputNumber * auraPrice;
-    output = fromInputNumber * auraToGoldAuraRatio;
+    output = fromInputNumber / auraToGoldAuraRatio;
     outputDollars = output * auraPrice;
   }
   const isDeposit = action === "deposit";
   const balance = isDeposit ? auraWallet : goldAuraWallet;
-  console.log(balance);
   return (
     <div className="fixed top-1/4 md:left-[15vh] left-0 h-[70vh] md:w-[80vw] w-[100vw] z-10 flex justify-center items-center  ">
       <div className="bg-[#222739] rounded-lg flex flex-col p-6 opacity-100 gap-4 h-[100] shadow-xl drop-shadow">
